@@ -2,7 +2,7 @@
 ###
 # Internet-Draft Markdown Template
 #
-# Rename this file from draft-todo-yourname-protocol.md to get started.
+# Rename this file from draft-rdap-irr-support.md to get started.
 # Draft name format is "draft-<yourname>-<workgroup>-<name>.md".
 #
 # For initial setup, you only need to edit the first block of fields.
