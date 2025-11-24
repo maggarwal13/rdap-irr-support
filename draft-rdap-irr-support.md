@@ -1,10 +1,10 @@
 ---
 
-title: "RDAP Support for Internet Routing Registry (IRR) Objects"
+title: "RDAP Extension for Internet Routing Registry (IRR) Objects"
 abbrev: "RDAP-IRR"
 category: info
 
-docname: draft-rdap-irr-support-latest
+docname: draft-rdap-irr-extension-latest
 submissiontype: IETF
 number:
 date:
@@ -17,9 +17,9 @@ keyword:
   - unicorn
   - sparkling distributed ledger
 venue:
-  group: WG
+  group: regext
   type: Working Group
-  mail: WG@example.com
+  mail: regext@ietf.org
   arch: https://example.com/WG
   github: maggarwal13/rdap-irr-support
   latest: https://github.com/maggarwal13/rdap-irr-suppor/LATEST
@@ -35,7 +35,7 @@ author:
     email: jasdips@arin.net
   -
     fullname: Andy Newton
-    organization:
+    organization: ICANN
     email: andy@hxr.us
 
 normative:
