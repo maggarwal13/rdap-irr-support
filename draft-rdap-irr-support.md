@@ -177,6 +177,10 @@ TODO Full example
 
 #   The SET Object Class
 
+rfc2622#section-5.1 defines SET objects and these can be as-set, route-set, rtr-set,
+filter-set and peering-set classes. This section aims to represent SET classes in RDAP representation.
+
+
 ##    Route Set Object Class
 
 ‘routeSet’ The routeSet object class is an RDAP representation of the route-set object in RPSL.
