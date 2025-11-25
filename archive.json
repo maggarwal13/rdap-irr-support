@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-23T01:39:48.909892+00:00",
+  "timestamp": "2025-11-25T01:21:20.484888+00:00",
   "repo": "maggarwal13/rdap-irr-support",
   "labels": [
     {
@@ -50,5 +50,521 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOQa7tLM61LJfb",
+      "title": "supoort IRR data in rdap",
+      "url": "https://github.com/maggarwal13/rdap-irr-support/pull/1",
+      "state": "OPEN",
+      "author": "maggarwal13",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The core specifications for RDAP defines core object types, but it does\r\nnot contain objects for Internet Routing Registries (IRRs). This document is\r\nintended to address this gap.",
+      "createdAt": "2025-11-24T11:24:50Z",
+      "updatedAt": "2025-11-24T19:34:37Z",
+      "baseRepository": "maggarwal13/rdap-irr-support",
+      "baseRefName": "main",
+      "baseRefOid": "46c059c16e3d387d8a6494c6a287d75a8b28f8d3",
+      "headRepository": "maggarwal13/rdap-irr-support",
+      "headRefName": "rdap_irr_support",
+      "headRefOid": "503b9c066ebdbcfcd09a8a82d85b96dc8b68c61b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOQa7tLM7QnjnH",
+          "commit": {
+            "abbreviatedOid": "0afaf76"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T11:56:04Z",
+          "updatedAt": "2025-11-24T11:56:05Z",
+          "comments": [
+            {
+              "originalPosition": 239,
+              "body": "Ideally \"members\" can be expanded to IP or routeSet Object class but members attributes also supports  below syntax \n\n\"members: 5.0.0.0/8^+, 30.0.0.0/8^24-32, rs-foo^+\" which will be difficult to expand.\n\nMay be we can put RIR search object for such cases. What do you  guys think? Should we keep it as list of strings for simplicity ? ",
+              "createdAt": "2025-11-24T11:56:04Z",
+              "updatedAt": "2025-11-24T12:05:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Qnkdj",
+          "commit": {
+            "abbreviatedOid": "0afaf76"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T11:57:10Z",
+          "updatedAt": "2025-11-24T11:57:10Z",
+          "comments": [
+            {
+              "originalPosition": 287,
+              "body": "\"members\" here can easily be expanded to autnum and asSet object class, but for consistency with routeSet I decided to go with  array of strings",
+              "createdAt": "2025-11-24T11:57:10Z",
+              "updatedAt": "2025-11-24T12:05:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QnoHo",
+          "commit": {
+            "abbreviatedOid": "0afaf76"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T12:01:54Z",
+          "updatedAt": "2025-11-24T12:01:54Z",
+          "comments": [
+            {
+              "originalPosition": 510,
+              "body": "For this change I took a hint from Andy's work [route-policy](https://datatracker.ietf.org/doc/html/draft-newton-weirds-route-policy-00) But there he mentions order of objects needs to be preserved but as per my understanding of rfc2280#section-6.1 ordering might not be necessary.",
+              "createdAt": "2025-11-24T12:01:54Z",
+              "updatedAt": "2025-11-24T12:01:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QpTqZ",
+          "commit": {
+            "abbreviatedOid": "665d301"
+          },
+          "author": "anewton1998",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "Good start.\r\n\r\nI left comments about using the extension Id and link relationships that would apply to most of the object classes.",
+          "createdAt": "2025-11-24T13:51:30Z",
+          "updatedAt": "2025-11-24T14:05:16Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Extension is the common term used instead of support.",
+              "createdAt": "2025-11-24T13:51:30Z",
+              "updatedAt": "2025-11-24T14:05:16Z"
+            },
+            {
+              "originalPosition": 9,
+              "body": "if you change it to \"extension\" be sure to change this as well.\r\n\r\nBTW, no need to change the repo name.",
+              "createdAt": "2025-11-24T13:52:31Z",
+              "updatedAt": "2025-11-24T14:05:16Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "regext",
+              "createdAt": "2025-11-24T13:53:02Z",
+              "updatedAt": "2025-11-24T14:05:16Z"
+            },
+            {
+              "originalPosition": 36,
+              "body": "regext@ietf.org",
+              "createdAt": "2025-11-24T13:53:13Z",
+              "updatedAt": "2025-11-24T14:05:16Z"
+            },
+            {
+              "originalPosition": 56,
+              "body": "ICANN",
+              "createdAt": "2025-11-24T13:53:31Z",
+              "updatedAt": "2025-11-24T14:05:16Z"
+            },
+            {
+              "originalPosition": 527,
+              "body": "I would shorten the extension id to \"irr\" or \"irr0\". The RDAP part is given, and RDAP extensions that include opaque major versioning tend to start with 0 instead of 1 (that's not a rule though).",
+              "createdAt": "2025-11-24T13:56:58Z",
+              "updatedAt": "2025-11-24T14:05:16Z"
+            },
+            {
+              "originalPosition": 110,
+              "body": "Each of these needs to be prefixed with the extension id, such as \"irrRdap1_route\". See my comment about using \"irr0\".",
+              "createdAt": "2025-11-24T13:57:57Z",
+              "updatedAt": "2025-11-24T14:05:16Z"
+            },
+            {
+              "originalPosition": 137,
+              "body": "object class names also need to be prefixed with the extension Id: \"irr0_route\".",
+              "createdAt": "2025-11-24T13:58:38Z",
+              "updatedAt": "2025-11-24T14:05:16Z"
+            },
+            {
+              "originalPosition": 187,
+              "body": "Expanding on this could be useful. A link to an RDAP autnum object and network object would be good. And for this reason, we should think about defining relationships, such as \"rdap_irr0_autnum\" and \"rdap_irr0_ipNetwork\". Thoughts?",
+              "createdAt": "2025-11-24T14:01:03Z",
+              "updatedAt": "2025-11-24T14:05:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QrApe",
+          "commit": {
+            "abbreviatedOid": "665d301"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T15:18:29Z",
+          "updatedAt": "2025-11-24T15:18:29Z",
+          "comments": [
+            {
+              "originalPosition": 527,
+              "body": "I agree, we have rdapConformances like rirSearch1 , autnums etc...\r\nI can change it to irr0 to be consistent ",
+              "createdAt": "2025-11-24T15:18:29Z",
+              "updatedAt": "2025-11-24T15:18:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QrLxV",
+          "commit": {
+            "abbreviatedOid": "665d301"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T15:26:17Z",
+          "updatedAt": "2025-11-24T15:26:18Z",
+          "comments": [
+            {
+              "originalPosition": 110,
+              "body": "Well we do not prefix extension_id for any other path segments, so to be consistent may be we should not ?  I remember a discussion about  an extension RFC , are you suggesting this change w.r.t to that ? ",
+              "createdAt": "2025-11-24T15:26:18Z",
+              "updatedAt": "2025-11-24T15:27:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QrSza",
+          "commit": {
+            "abbreviatedOid": "665d301"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T15:31:36Z",
+          "updatedAt": "2025-11-24T15:31:36Z",
+          "comments": [
+            {
+              "originalPosition": 187,
+              "body": "Each object returned will have a self link as per  RFC9083#Section 4.2. Something like this :\r\n\r\n  \"links\": [\r\n    {\r\n      \"value\": \"https://example.net/route/193.254.30.0/24AS1272\",\r\n      \"rel\": \"self\",\r\n      \"href\": \"https://example.net/route/193.254.30.0/24AS1272\",\r\n      \"type\": \"application/rdap+json\"\r\n    }\r\n  ],\r\n\r\nand for route object \"origin\" and \"prefix\"  will also have a self link too. May be I should paste whole example so it would be clearer.  What do you think?  ",
+              "createdAt": "2025-11-24T15:31:36Z",
+              "updatedAt": "2025-11-24T15:31:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Qt8Js",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:27:37Z",
+          "updatedAt": "2025-11-24T18:27:38Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "It might help the cause to have a stronger rationale about why having the IRR registered data in RDAP would be useful. Is it because the registries are in general moving away from Whois to RDAP? Or, is there a more specific value-add?",
+              "createdAt": "2025-11-24T18:27:38Z",
+              "updatedAt": "2025-11-24T19:01:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Qt8s_",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:28:23Z",
+          "updatedAt": "2025-11-24T18:28:23Z",
+          "comments": [
+            {
+              "originalPosition": 80,
+              "body": "\"protocol\" -> \"specification\" ... something the IESG flagged for more recent RDAP extensions.",
+              "createdAt": "2025-11-24T18:28:23Z",
+              "updatedAt": "2025-11-24T19:01:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Qt-mG",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:31:05Z",
+          "updatedAt": "2025-11-24T18:31:05Z",
+          "comments": [
+            {
+              "originalPosition": 113,
+              "body": "In addition to prefixing new JSON members and object class names with the extension id, the new path segments should also be prefixed. E.g., \"route\" -> \"irr0_route\".\r\n\r\nAlso, good to URL-encode reserved characters like \":\" in the examples for the new path segments.",
+              "createdAt": "2025-11-24T18:31:05Z",
+              "updatedAt": "2025-11-24T19:21:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QuBor",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:35:35Z",
+          "updatedAt": "2025-11-24T18:35:36Z",
+          "comments": [
+            {
+              "originalPosition": 109,
+              "body": "Should there be a \"/\" between the route and origin portions of this lookup path segment? That could help with parsing (particularly the CIDR length) in case needed on the client side.",
+              "createdAt": "2025-11-24T18:35:36Z",
+              "updatedAt": "2025-11-24T19:02:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QuC4T",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:37:30Z",
+          "updatedAt": "2025-11-24T18:37:30Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "To help map better to the RPSL, should \"prefix\" not be called \"route\"? IMO, good to do so for RPSL-related JSON members, for ease of comprehension.",
+              "createdAt": "2025-11-24T18:37:30Z",
+              "updatedAt": "2025-11-24T19:04:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QuGTt",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:42:38Z",
+          "updatedAt": "2025-11-24T18:42:38Z",
+          "comments": [
+            {
+              "originalPosition": 150,
+              "body": "At the risk of bloating the response with such objects, would it not be better to align it with the RPSL and have instead just an array of CIDR strings here? Since one could later easily use these \"natural\" CIDR identifiers to look up IP network objects.",
+              "createdAt": "2025-11-24T18:42:38Z",
+              "updatedAt": "2025-11-24T19:24:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QuGhF",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:42:57Z",
+          "updatedAt": "2025-11-24T18:42:57Z",
+          "comments": [
+            {
+              "originalPosition": 152,
+              "body": "Please see above comment.",
+              "createdAt": "2025-11-24T18:42:57Z",
+              "updatedAt": "2025-11-24T18:42:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QuH4P",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:45:02Z",
+          "updatedAt": "2025-11-24T18:45:02Z",
+          "comments": [
+            {
+              "originalPosition": 156,
+              "body": "Would be good to point to the section from RFC 2622 for this field. Similarly, for other fields where we say \"as specified by RPSL\". Since this is intended as a standards-track specification, more precise references should help the implementors.",
+              "createdAt": "2025-11-24T18:45:02Z",
+              "updatedAt": "2025-11-24T18:45:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QuKsE",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:49:10Z",
+          "updatedAt": "2025-11-24T18:49:11Z",
+          "comments": [
+            {
+              "originalPosition": 164,
+              "body": "This is a more general comment: Should we have a member for the raw RPSL in each of the new IRR object classes? That could help in case the current data structure does not suffice in capturing all the RPSL for this object. It should also help from the WYSIWYG and \"what's actually in the field\" angles, I think. :)",
+              "createdAt": "2025-11-24T18:49:10Z",
+              "updatedAt": "2025-11-24T18:49:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QuPmc",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:56:16Z",
+          "updatedAt": "2025-11-24T18:56:17Z",
+          "comments": [
+            {
+              "originalPosition": 356,
+              "body": "Knowing some RIRs do not support the peering-set and filter-set RPSL functionality, wonder if these RPSL classes should be optional for this new extension? In other words, what RPSL classes are required to be implemented in RDAP, versus not.\r\n\r\nThe expired draft had a similar discussion point: https://datatracker.ietf.org/doc/html/draft-newton-weirds-route-policy-00#auto-8\r\n",
+              "createdAt": "2025-11-24T18:56:16Z",
+              "updatedAt": "2025-11-24T19:26:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QuRXR",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:58:53Z",
+          "updatedAt": "2025-11-24T18:58:54Z",
+          "comments": [
+            {
+              "originalPosition": 216,
+              "body": "Is there a reason for referring obsolete RFC 2280?",
+              "createdAt": "2025-11-24T18:58:53Z",
+              "updatedAt": "2025-11-24T22:15:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QuSDD",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T18:59:56Z",
+          "updatedAt": "2025-11-24T18:59:56Z",
+          "comments": [
+            {
+              "originalPosition": 148,
+              "body": "Curious how this would interplay with the RDAP Geofeed extension (RFC 9877)? :)",
+              "createdAt": "2025-11-24T18:59:56Z",
+              "updatedAt": "2025-11-24T19:23:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7QugYv",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T19:15:39Z",
+          "updatedAt": "2025-11-24T19:15:39Z",
+          "comments": [
+            {
+              "originalPosition": 168,
+              "body": "To add to Andy's comment about registering new link relations, wonder if we should also leverage \"item\" and \"collection\" link relations that are mentioned in the expired draft (https://datatracker.ietf.org/doc/html/draft-newton-weirds-route-policy-00)?",
+              "createdAt": "2025-11-24T19:15:39Z",
+              "updatedAt": "2025-11-24T19:16:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Qu0Dk",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T19:30:03Z",
+          "updatedAt": "2025-11-24T19:30:03Z",
+          "comments": [
+            {
+              "originalPosition": 140,
+              "body": "Should it not be a AS number instead, given the related ASN object might not have been registered with the registry?",
+              "createdAt": "2025-11-24T19:30:03Z",
+              "updatedAt": "2025-11-24T19:30:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Qu51p",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-24T19:34:37Z",
+          "updatedAt": "2025-11-24T19:34:37Z",
+          "comments": [
+            {
+              "originalPosition": 504,
+              "body": "Beside lookup queries, are there any useful search and/or reverse search queries we should be defining in this specification?",
+              "createdAt": "2025-11-24T19:34:37Z",
+              "updatedAt": "2025-11-24T19:47:15Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
