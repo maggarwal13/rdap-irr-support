@@ -1286,9 +1286,9 @@ long.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-the-route-object-class" class="section-name selfRef">The Route Object Class</a>
       </h2>
 <p id="section-4-1">It is the RDAP representation of the RPSL route class.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2">Syntax: irr0_route/&lt; IP prefix of the interAS route &gt;&lt; AS that originates the route &gt;<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-2">Syntax: irr0_route/&lt; IP prefix of the interAS route &gt;/&lt; AS that originates the route &gt;<a href="#section-4-2" class="pilcrow">¶</a></p>
 <p id="section-4-3">For example, the following URL would be used to find information describing route object<a href="#section-4-3" class="pilcrow">¶</a></p>
-<p id="section-4-4">https://example.com/irr0_rdap/route/2a05:dfc6:9300::/40AS46138<a href="#section-4-4" class="pilcrow">¶</a></p>
+<p id="section-4-4">https://example.com/rdap/irr0_route/192.0.2.0/24/65538<a href="#section-4-4" class="pilcrow">¶</a></p>
 <p id="section-4-5">The following is an elided example of a route object showing the high level structure:<a href="#section-4-5" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4-6">
 <pre>
@@ -1311,7 +1311,7 @@ long.<a href="#section-2-4" class="pilcrow">¶</a></p>
 </pre><a href="#section-4-6" class="pilcrow">¶</a>
 </div>
 <p id="section-4-7">The route object class can contain the following members:<a href="#section-4-7" class="pilcrow">¶</a></p>
-<p id="section-4-8">objectClassName -- the string “irr0_route"<a href="#section-4-8" class="pilcrow">¶</a></p>
+<p id="section-4-8">objectClassName -- the string "irr0_route"<a href="#section-4-8" class="pilcrow">¶</a></p>
 <p id="section-4-9">handle -- a string representing the unique identifier of the route which is a combination of IP network  and an autonomous system number for which route is registered<a href="#section-4-9" class="pilcrow">¶</a></p>
 <p id="section-4-10">origin – represents  an autonomous system number Object for which a route is referenced; see Section RFC9083#5.5<a href="#section-4-10" class="pilcrow">¶</a></p>
 <p id="section-4-11">prefix — represents the IP network Object for which a route is referenced; see RFC9083#Section 5.4<a href="#section-4-11" class="pilcrow">¶</a></p>
