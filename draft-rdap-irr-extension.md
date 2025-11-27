@@ -106,11 +106,11 @@ This document aims to extend this to add following path segments:
 
 It is the RDAP representation of the RPSL route class.
 
-Syntax: irr0_route/< IP prefix of the interAS route >< AS that originates the route >
+Syntax: irr0_route/< IP prefix of the interAS route >/< AS that originates the route >
 
 For example, the following URL would be used to find information describing route object
 
-https://example.com/irr0_rdap/route/2a05:dfc6:9300::/40AS46138
+https://example.com/rdap/irr0_route/192.0.2.0/24/65538
 
 The following is an elided example of a route object showing the high level structure:
 
@@ -133,7 +133,7 @@ The following is an elided example of a route object showing the high level stru
 
 The route object class can contain the following members:
 
-objectClassName -- the string “irr0_route"
+objectClassName -- the string "irr0_route"
 
 handle -- a string representing the unique identifier of the route which is a combination of IP network  and an autonomous system number for which route is registered
 
