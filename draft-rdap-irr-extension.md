@@ -77,7 +77,7 @@ capitals, as shown here.
 
 Indentation and whitespace in examples are provided only to
 illustrate element relationships, and are not a required feature of
-this protocol.
+this specification.
 
 "..." in examples is used as shorthand for elements defined outside
 of this document, as well as to abbreviate elements that are too
@@ -90,32 +90,32 @@ RFC9082#section-3.1 defines the simple lookup path segments for types:
 
 This document aims to extend this to add following path segments:
 
-'route': Used to identify ROUTE object and associated IP address prefix and the autonomous system (AS) that originates it,
+'irr0_route': Used to identify ROUTE object and associated IP address prefix and the autonomous system (AS) that originates it,
 
-'routeSet': Used to identify route-set object
+'irr0_routeSet': Used to identify route-set object
 
-'autnumSet': Used to identify as-set object
+'irr0_autnumSet': Used to identify as-set object
 
-‘rtrSet’ : Defines the name of the rtr-set
+‘irr0_rtrSet’ : Defines the name of the rtr-set
 
-‘peeringSet’ : Specifies the name of the peering-set
+‘irr0_peeringSet’ : Specifies the name of the peering-set
 
-‘filterSet’ : Defines the name of the filter
+‘irr0_filterSet’ : Defines the name of the filter
 
 # The Route Object Class
 
 It is the RDAP representation of the RPSL route class.
 
-Syntax: route/< IP prefix of the interAS route >< AS that originates the route >
+Syntax: irr0_route/< IP prefix of the interAS route >< AS that originates the route >
 
 For example, the following URL would be used to find information describing route object
 
-https://example.com/rdap/route/2a05:dfc6:9300::/40AS46138
+https://example.com/irr0_rdap/route/2a05:dfc6:9300::/40AS46138
 
 The following is an elided example of a route object showing the high level structure:
 
     {
-    "objectClassName" : "route",
+    "objectClassName" : "irr0_route",
     "handle" : "XXX",
     "prefix" : { .... },
     "origin" : { .... },
@@ -133,7 +133,7 @@ The following is an elided example of a route object showing the high level stru
 
 The route object class can contain the following members:
 
-objectClassName -- the string “route"
+objectClassName -- the string “irr0_route"
 
 handle -- a string representing the unique identifier of the route which is a combination of IP network  and an autonomous system number for which route is registered
 
@@ -144,8 +144,6 @@ prefix — represents the IP network Object for which a route is referenced; see
 routeVersion -- a string signifying the ip protocol version of the network: "v4" signifies an route with ipv4  network, and "v6" signifies a route with ipv6 network
 
 remarks -- see RFC9083#Section 4.3
-
-country -- a string containing the two-character country code of the route
 
 pingable -- an array of IP network objects as defined in RFC9083#Section 5.4
 
@@ -183,18 +181,18 @@ filter-set and peering-set classes. This section aims to represent SET classes i
 
 ##    Route Set Object Class
 
-‘routeSet’ The routeSet object class is an RDAP representation of the route-set object in RPSL.
+‘irr0_routeSet’ The routeSet object class is an RDAP representation of the route-set object in RPSL.
 
-Syntax: routeSet/< name of the route set >
+Syntax: irr0_routeSet/< name of the route set >
 
 For example, the following URL would be used to find information describing route-set object
 
-https://example.com/rdap/routeSet/AS12329:RS-FROMRUB
+https://example.com/rdap/irr0_routeSet/AS12329:RS-FROMRUB
 
 The following is an elided example of a routeSet object showing the high level structure:
 
     {
-    "objectClassName" : "routeSet",
+    "objectClassName" : "irr0_routeSet",
     "handle" : "XXX",
     "members" :
         [
@@ -217,7 +215,7 @@ The "members" is an array of strings which could be a list of address-prefixes o
 
 The route set  object class can contain the following members:
 
-objectClassName -- the string “routeSet"
+objectClassName -- the string “irr0_routeSet"
 
 handle -- a string representing the unique identifier of the routeSet.
 
@@ -239,18 +237,18 @@ TODO Full example
 
 ##    Autnum Set Object Class
 
-‘autnumSet’ The autnumSet object class is an RDAP representation of the as-set object in RPSL as per RFC2622#5.1.
+‘irr0_autnumSet’ The autnumSet object class is an RDAP representation of the as-set object in RPSL as per RFC2622#5.1.
 
-Syntax: autanumSet/< name of the as-set >
+Syntax: irr0_autanumSet/< name of the as-set >
 
 For example, the following URL would be used to find information describing autnum-set object
 
-https://example.com/rdap/autnumSet/AS-01121978
+https://example.com/rdap/irr0_autnumSet/AS-01121978
 
 The following is an elided example of an autnumSet object showing the high level structure:
 
     {
-    "objectClassName" : "autnumSet",
+    "objectClassName" : "irr0_autnumSet",
     "handle" : "XXX",
     "members" :
         [
@@ -271,9 +269,9 @@ The following is an elided example of an autnumSet object showing the high level
 The "handle" member is the unique identifier of the route-set object.
 The "members" is an array of strings which could be a list of as-numbers or as-set-names as per rfc2280#section-5.2
 
-The autnumSet  object class can contain the following members:
+The autnumSet object class can contain the following members:
 
-objectClassName -- the string “autnumSet"
+objectClassName -- the string "irr0_autnumSet"
 
 handle -- a string representing the unique identifier of the autnumSet.
 
@@ -295,18 +293,18 @@ TODO Full example
 
 ##    RTR  Set Object Class
 
-‘rtrSet’ The rtrSet object class is an RDAP representation of the rtr-set object in RPSL.
+‘irr0_rtrSet’ The rtrSet object class is an RDAP representation of the rtr-set object in RPSL.
 
-Syntax: rtrSet/< name of the router-set >
+Syntax: irr0_rtrSet/< name of the router-set >
 
 For example, the following URL would be used to find information describing rtrSet object
 
-https://example.com/rdap/rtrSet/AS28816:rtrs-arbinet-customer-rs
+https://example.com/rdap/irr0_rtrSet/AS28816:rtrs-arbinet-customer-rs
 
 The following is an elided example of a rtrSet object showing the high level structure:
 
     {
-    "objectClassName" : "rtrSet",
+    "objectClassName" : "irr0_rtrSet",
     "handle" : "XXX",
     "members" :
         [
@@ -330,7 +328,7 @@ The following is an elided example of a rtrSet object showing the high level str
 
 The rtrSet set  object class can contain the following members:
 
-objectClassName -- the string “rtrSet"
+objectClassName -- the string "irr0_rtrSet"
 
 handle -- a string representing the unique identifier of the rtrSet.
 
@@ -355,18 +353,18 @@ TODO Full example
 
 ##    Peering  Set Object Class
 
-‘peeringSet’ The peeringSet object class is an RDAP representation of the peering-set object in RPSL.
+‘irr0_peeringSet’ The peeringSet object class is an RDAP representation of the peering-set object in RPSL.
 
-Syntax: peeringSet/< name of the peering-set >
+Syntax: irr0_peeringSet/< name of the peering-set >
 
 For example, the following URL would be used to find information describing peering-set object
 
-https://example.com/rdap/peeringSet/AS12695:PRNG-UPSTREAMS
+https://example.com/rdap/irr0_peeringSet/AS12695:PRNG-UPSTREAMS
 
 The following is an elided example of a peeringSet object showing the high level structure:
 
     {
-    "objectClassName" : "peeringSet",
+    "objectClassName" : "irr0_peeringSet",
     "handle" : "XXX",
     "peering" :
         [
@@ -391,7 +389,7 @@ The following is an elided example of a peeringSet object showing the high level
 
 The peeringSet  object class can contain the following members:
 
-objectClassName -- the string “peeringSet"
+objectClassName -- the string “irr0_peeringSet"
 
 handle -- a string representing the unique identifier of the peeringSet
 
@@ -415,18 +413,18 @@ TODO Full example
 
 ##    Filter Set Object Class
 
-‘filterSet’ The filterSet object class is an RDAP representation of the filter-set object in RPSL.
+‘irr0_filterSet’ The filterSet object class is an RDAP representation of the filter-set object in RPSL.
 
-Syntax: filterSet/< name of the filter >
+Syntax: irr0_filterSet/< name of the filter >
 
 For example, the following URL would be used to find information describing filter object
 
-https://example.com/rdap/filterSet/AS12528:fltr-bogons
+https://example.com/rdap/irr0_filterSet/AS12528:fltr-bogons
 
 The following is an elided example of a filterSet object showing the high level structure:
 
     {
-        "objectClassName" : "filterSet",
+        "objectClassName" : "irr0_filterSet",
         "handle" : "XXX",
         "filter" :
             [
@@ -450,7 +448,7 @@ The following is an elided example of a filterSet object showing the high level 
 
 The filterSet  object class can contain the following members:
 
-objectClassName -- the string “filterSet"
+objectClassName -- the string "irr0_filterSet"
 
 handle -- a string representing the unique identifier of the filterSet
 
@@ -476,7 +474,7 @@ TODO Full example
 
 RFC9082#section-3.1 defines the basic search for autnum objectClass. The returned JSON object for Autnum search May include irr_policies object member. irr_policies is an optional and must be an array, the order of the objects in the array is to be observed during processing.
 
-“irr_policies” can contain following object member and each of them is a string containing a value as specified by RPSL:
+"irr0_policies” can contain following object member and each of them is a string containing a value as specified by RPSL:
 
       import
 
@@ -492,7 +490,7 @@ RFC9082#section-3.1 defines the basic search for autnum objectClass. The returne
 
 An example irr_policies data structure:
 
-    "irr_policies":
+    "irr0_policies":
         [
             { "import-via": "ASXXX from AS-ANY EXCEPT (ASXXX AND ASYYY) accept ANY" },
             { "export-via": "ASXXX to AS-ANY EXCEPT (ASXXX AND ASYYY) announce AS-YYYY" }
@@ -505,7 +503,7 @@ TODO Full example
 
 # RDAP Conformance
 
-A server that supports the functionality specified in this document MUST include additional string literals “irrRdap1” in the rdapConformance array of its responses.
+A server that supports the functionality specified in this document MUST include additional string literals “irr0” in the rdapConformance array of its responses.
 
 # Discussions
 
