@@ -211,7 +211,7 @@ The following is an elided example of a routeSet object showing the high level s
     }
 
 The "handle" member is the unique identifier of the routeSet object.
-The "members" is an array of strings which could be a list of address-prefixes or route-set-names as per rfc2280#section-5.1
+The "members" is an array of strings which could be a list of address-prefixes or route-set-names as per rfc2622#section-5.2
 
 The route set  object class can contain the following members:
 
@@ -267,7 +267,7 @@ The following is an elided example of an autnumSet object showing the high level
     }
 
 The "handle" member is the unique identifier of the route-set object.
-The "members" is an array of strings which could be a list of as-numbers or as-set-names as per rfc2280#section-5.2
+The "members" is an array of strings which could be a list of as-numbers or as-set-names as per rfc2622#section-5.1
 
 The autnumSet object class can contain the following members:
 
