@@ -104,7 +104,7 @@ This document aims to extend this to add following path segments:
 
 # The Route Object Class
 
-It is the RDAP representation of the RPSL route class.
+It is the RDAP representation of the RPSL route class defined in rfc2280#section-4
 
 Syntax: irr0_route/< IP prefix of the interAS route >/< AS that originates the route >
 
@@ -116,9 +116,9 @@ The following is an elided example of a route object showing the high level stru
 
     {
     "objectClassName" : "irr0_route",
-    "handle" : "XXX",
-    "prefix" : { .... },
-    "origin" : { .... },
+    "handle" : "XXXX",
+    "route" :  "XXX",
+    "origin" : "1234",
     ...
     "entities" :
         [
@@ -137,31 +137,31 @@ objectClassName -- the string "irr0_route"
 
 handle -- a string representing the unique identifier of the route which is a combination of IP network  and an autonomous system number for which route is registered
 
-origin – represents  an autonomous system number Object for which a route is referenced; see Section RFC9083#5.5
+route — a string representing the address-prefix for which a route is referenced; as per rfc2280#section-4
 
-prefix — represents the IP network Object for which a route is referenced; see RFC9083#Section 5.4
+origin – a string representing  an autonomous system number for which a route is referenced; as per rfc2280#section-4
 
 routeVersion -- a string signifying the ip protocol version of the network: "v4" signifies an route with ipv4  network, and "v6" signifies a route with ipv6 network
 
 remarks -- see RFC9083#Section 4.3
 
-pingable -- an array of IP network objects as defined in RFC9083#Section 5.4
+pingable -- an array of strings each containing a value as specified in RFC5943
 
-holes -- an array of IP network objects as defined in RFC9083#Section 5.4
+holes -- an array of strings each containing a value as specified in RFC2280#section-4
 
-memberOf -- an array of SET objects as defined in the below section.
+memberOf -- an array of strings, each containing a value as specified in RFC2280#section-4
 
-inject -- an array of strings, each containing a value as specified  by RPSL.
+inject -- an array of strings, each containing a value as specified in RFC2280#section-4
 
-components - a string containing a value as specified by RPSL.
+components - a string containing a value as specified in RFC2280#section-4
 
-aggregateBoundary - a string containing a value as specified by  RPSL.
+aggregateBoundary - a string containing a value as specified in RFC2280#section-4
 
-aggregateMtd - a string containing a value as specified by RPSL.
+aggregateMtd - a string containing a value as specified in RFC2280#section-4
 
-exportComps - a string containing a value as specified by RPSL.
+exportComps - a string containing a value as specified in RFC2280#section-4
 
-entities -- an array of entity objects as defined by Section 5.1
+entities -- an array of entity objects as defined by RFC9083#Section 5.1
 
 links -- see RFC9083#Section 4.2
 
@@ -173,15 +173,14 @@ The following is an example of the JSON object
 
 TODO Full example
 
-#   The SET Object Class
+# The SET Object Class
 
-rfc2622#section-5.1 defines SET objects and these can be as-set, route-set, rtr-set,
-filter-set and peering-set classes. This section aims to represent SET classes in RDAP representation.
+RFC2280#section-5.1 defines SET objects. This section aims to represent SET classes in RDAP representation.
+Support for peering-set, rtr-set and filter-set is optional and may be provided at the discretion of the implementation.
 
+## Route Set Object Class
 
-##    Route Set Object Class
-
-‘irr0_routeSet’ The routeSet object class is an RDAP representation of the route-set object in RPSL.
+It is the RDAP representation of the RPSL route-set class defined in rfc2280#section-5.1
 
 Syntax: irr0_routeSet/< name of the route set >
 
@@ -210,20 +209,19 @@ The following is an elided example of a routeSet object showing the high level s
     ...
     }
 
-The "handle" member is the unique identifier of the routeSet object.
-The "members" is an array of strings which could be a list of address-prefixes or route-set-names as per rfc2622#section-5.2
-
-The route set  object class can contain the following members:
+The routeSet object class can contain the following members:
 
 objectClassName -- the string “irr0_routeSet"
 
 handle -- a string representing the unique identifier of the routeSet.
 
-members —  an array of strings
+members —  an array of strings, each containing a value as specified in RFC2280#section-5.1
+
+memberOf -- an array of strings, each containing a value as specified in RFC2280#section-5.1
 
 remarks -- see RFC9083#Section 4.3
 
-entities -- an array of entity objects as defined by Section 5.1
+entities -- an array of entity objects as defined by RFC9083#Section 5.1
 
 links -- see RFC9083#Section 4.2
 
@@ -235,9 +233,9 @@ The following is an example of an routeSet that might be served by an RIR.
 
 TODO Full example
 
-##    Autnum Set Object Class
+## Autnum Set Object Class
 
-‘irr0_autnumSet’ The autnumSet object class is an RDAP representation of the as-set object in RPSL as per RFC2622#5.1.
+It is the RDAP representation of the RPSL route-set class defined in RFC2280#section-5.2
 
 Syntax: irr0_autanumSet/< name of the as-set >
 
@@ -266,20 +264,17 @@ The following is an elided example of an autnumSet object showing the high level
     ...
     }
 
-The "handle" member is the unique identifier of the route-set object.
-The "members" is an array of strings which could be a list of as-numbers or as-set-names as per rfc2622#section-5.1
-
 The autnumSet object class can contain the following members:
 
 objectClassName -- the string "irr0_autnumSet"
 
 handle -- a string representing the unique identifier of the autnumSet.
 
-members —  an array of strings
+members —  an array of strings, each containing a value as specified in RFC2280#section-5.2
 
 remarks -- see RFC9083#Section 4.3
 
-entities -- an array of entity objects as defined by Section 5.1
+entities -- an array of entity objects as defined by RFC9083#Section 5.1
 
 links -- see RFC9083#Section 4.2
 
@@ -291,7 +286,7 @@ The following is an example of an autnumSet that might be served by an RIR.
 
 TODO Full example
 
-##    RTR  Set Object Class
+## RTR Set Object Class
 
 ‘irr0_rtrSet’ The rtrSet object class is an RDAP representation of the rtr-set object in RPSL.
 
@@ -351,7 +346,7 @@ The following is an example of rtrSet that might be served by an RIR.
 
 TODO Full example
 
-##    Peering  Set Object Class
+## Peering Set Object Class
 
 ‘irr0_peeringSet’ The peeringSet object class is an RDAP representation of the peering-set object in RPSL.
 
@@ -411,7 +406,7 @@ The following is an example of peeringSet that might be served by an RIR.
 
 TODO Full example
 
-##    Filter Set Object Class
+## Filter Set Object Class
 
 ‘irr0_filterSet’ The filterSet object class is an RDAP representation of the filter-set object in RPSL.
 
