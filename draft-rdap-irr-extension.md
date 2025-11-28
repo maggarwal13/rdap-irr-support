@@ -217,7 +217,7 @@ handle -- a string representing the unique identifier of the routeSet.
 
 members —  an array of strings, each containing a value as specified in RFC2622#section-5.2
 
-memberOf -- an array of strings, each containing a value as specified in RFC2622#section-5.2
+mp-members —  an array of strings, each containing a value as specified in RFC4012#section-4.2
 
 remarks -- see RFC9083#Section 4.3
 
@@ -235,7 +235,7 @@ TODO Full example
 
 ## Autnum Set Object Class
 
-It is the RDAP representation of the RPSL route-set class defined in RFC2622#section-5.1
+It is the RDAP representation of the RPSL autnum-set class defined in RFC2622#section-5.1
 
 Syntax: irr0_autanumSet/< name of the as-set >
 
@@ -288,7 +288,7 @@ TODO Full example
 
 ## RTR Set Object Class
 
-‘irr0_rtrSet’ The rtrSet object class is an RDAP representation of the rtr-set object in RPSL.
+It is the RDAP representation of the RPSL rtr-set class defined in RFC2622#section-5.5
 
 Syntax: irr0_rtrSet/< name of the router-set >
 
@@ -327,9 +327,9 @@ objectClassName -- the string "irr0_rtrSet"
 
 handle -- a string representing the unique identifier of the rtrSet.
 
-members —  an array of strings
+members —  an array of strings, each containing a value as specified in RFC2622#section-5.5
 
-mp-members —  an array of strings
+mp-members —  an array of strings, each containing a value as specified in RFC4012#section-4.6
 
 remarks -- see RFC9083#Section 4.3
 
@@ -348,7 +348,7 @@ TODO Full example
 
 ## Peering Set Object Class
 
-‘irr0_peeringSet’ The peeringSet object class is an RDAP representation of the peering-set object in RPSL.
+It is the RDAP representation of the RPSL peering-set class defined in RFC2622#section-5.6
 
 Syntax: irr0_peeringSet/< name of the peering-set >
 
@@ -388,9 +388,9 @@ objectClassName -- the string “irr0_peeringSet"
 
 handle -- a string representing the unique identifier of the peeringSet
 
-peering —  an array of strings each defines a peering that can be used for importing or exporting routes
+peering —  an array of strings, each containing a value as specified in RFC2622#section-5.6
 
-mp-peering —  an array of strings each defines a multiprotocol peering that can be used for importing or exporting routes
+mp-peering —  an array of strings, each containing a value as specified in RFC4012#section-4.4
 
 remarks -- see RFC9083#Section 4.3
 
@@ -408,7 +408,7 @@ TODO Full example
 
 ## Filter Set Object Class
 
-‘irr0_filterSet’ The filterSet object class is an RDAP representation of the filter-set object in RPSL.
+It is the RDAP representation of the RPSL filter-set class defined in RFC2622#section-5.4
 
 Syntax: irr0_filterSet/< name of the filter >
 
@@ -447,9 +447,9 @@ objectClassName -- the string "irr0_filterSet"
 
 handle -- a string representing the unique identifier of the filterSet
 
-filter —  an array of strings each defines the set's policy filter
+filter —  an array of strings each defines the set's policy filter as per RFC2622#section-5.4
 
-mp-filter —  an array of strings each defines the set's multiprotocol policy filter
+mp-filter —  an array of strings, each containing a value as specified in RFC4012#Section 2.5.2
 
 remarks -- see RFC9083#Section 4.3
 
