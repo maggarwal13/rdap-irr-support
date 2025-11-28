@@ -27,7 +27,7 @@ venue:
 author:
   -
     fullname: Mahesh Aggarwal
-    organization: RIPE NCC
+    ~~organization: RIPE NCC
     email: maggarwal@ripe.net
   -
     fullname: Jasdip Singh
@@ -104,7 +104,7 @@ This document aims to extend this to add following path segments:
 
 # The Route Object Class
 
-It is the RDAP representation of the RPSL route class defined in rfc2280#section-4
+It is the RDAP representation of the RPSL route class defined in rfc2622#section-4
 
 Syntax: irr0_route/< IP prefix of the interAS route >/< AS that originates the route >
 
@@ -137,9 +137,9 @@ objectClassName -- the string "irr0_route"
 
 handle -- a string representing the unique identifier of the route which is a combination of IP network  and an autonomous system number for which route is registered
 
-route — a string representing the address-prefix for which a route is referenced; as per rfc2280#section-4
+route — a string representing the address-prefix for which a route is referenced; as per rfc2622#section-4
 
-origin – a string representing  an autonomous system number for which a route is referenced; as per rfc2280#section-4
+origin – a string representing  an autonomous system number for which a route is referenced; as per rfc2622#section-4
 
 routeVersion -- a string signifying the ip protocol version of the network: "v4" signifies an route with ipv4  network, and "v6" signifies a route with ipv6 network
 
@@ -147,19 +147,19 @@ remarks -- see RFC9083#Section 4.3
 
 pingable -- an array of strings each containing a value as specified in RFC5943
 
-holes -- an array of strings each containing a value as specified in RFC2280#section-4
+holes -- an array of strings each containing a value as specified in RFC2622#section-4
 
-memberOf -- an array of strings, each containing a value as specified in RFC2280#section-4
+memberOf -- an array of strings, each containing a value as specified in RFC2622#section-4
 
-inject -- an array of strings, each containing a value as specified in RFC2280#section-4
+inject -- an array of strings, each containing a value as specified in RFC2622#section-4
 
-components - a string containing a value as specified in RFC2280#section-4
+components - a string containing a value as specified in RFC2622#section-4
 
-aggregateBoundary - a string containing a value as specified in RFC2280#section-4
+aggregateBoundary - a string containing a value as specified in RFC2622#section-4
 
-aggregateMtd - a string containing a value as specified in RFC2280#section-4
+aggregateMtd - a string containing a value as specified in RFC2622#section-4
 
-exportComps - a string containing a value as specified in RFC2280#section-4
+exportComps - a string containing a value as specified in RFC2622#section-4
 
 entities -- an array of entity objects as defined by RFC9083#Section 5.1
 
@@ -175,12 +175,12 @@ TODO Full example
 
 # The SET Object Class
 
-RFC2280#section-5.1 defines SET objects. This section aims to represent SET classes in RDAP representation.
+RFC2622#section-5 defines SET objects. This section aims to represent SET classes in RDAP representation.
 Support for peering-set, rtr-set and filter-set is optional and may be provided at the discretion of the implementation.
 
 ## Route Set Object Class
 
-It is the RDAP representation of the RPSL route-set class defined in rfc2280#section-5.1
+It is the RDAP representation of the RPSL route-set class defined in rfc2622#section-5.2
 
 Syntax: irr0_routeSet/< name of the route set >
 
@@ -215,9 +215,9 @@ objectClassName -- the string “irr0_routeSet"
 
 handle -- a string representing the unique identifier of the routeSet.
 
-members —  an array of strings, each containing a value as specified in RFC2280#section-5.1
+members —  an array of strings, each containing a value as specified in RFC2622#section-5.2
 
-memberOf -- an array of strings, each containing a value as specified in RFC2280#section-5.1
+memberOf -- an array of strings, each containing a value as specified in RFC2622#section-5.2
 
 remarks -- see RFC9083#Section 4.3
 
@@ -235,7 +235,7 @@ TODO Full example
 
 ## Autnum Set Object Class
 
-It is the RDAP representation of the RPSL route-set class defined in RFC2280#section-5.2
+It is the RDAP representation of the RPSL route-set class defined in RFC2622#section-5.1
 
 Syntax: irr0_autanumSet/< name of the as-set >
 
@@ -270,7 +270,7 @@ objectClassName -- the string "irr0_autnumSet"
 
 handle -- a string representing the unique identifier of the autnumSet.
 
-members —  an array of strings, each containing a value as specified in RFC2280#section-5.2
+members —  an array of strings, each containing a value as specified in RFC2622#section-5.1
 
 remarks -- see RFC9083#Section 4.3
 
