@@ -5,10 +5,10 @@
 Internet Engineering Task Force                              M. Aggarwal
 Internet-Draft                                                          
 Intended status: Informational                                  J. Singh
-Expires: 1 June 2026                                                ARIN
+Expires: 4 June 2026                                                ARIN
                                                                A. Newton
                                                                    ICANN
-                                                        28 November 2025
+                                                         1 December 2025
 
 
        RDAP Extension for Internet Routing Registry (IRR) Objects
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 June 2026.
+   This Internet-Draft will expire on 4 June 2026.
 
 Copyright Notice
 
@@ -163,7 +163,7 @@ Table of Contents
    {
    "objectClassName" : "irr0_route",
    "handle" : "XXXX",
-   "route" :  "XXX",
+   "route" :  "192.0.2.0",
    "origin" : "1234",
    ...
    "entities" :
@@ -181,9 +181,8 @@ Table of Contents
 
    objectClassName -- the string "irr0_route"
 
-   handle -- a string representing the unique identifier of the route
-   which is a combination of IP network and an autonomous system number
-   for which route is registered
+   handle -- a string representing the registry unique identifier of the
+   route object
 
    route — a string representing the address-prefix for which a route is
    referenced; as per rfc2622#section-4
@@ -279,8 +278,8 @@ Table of Contents
 
    objectClassName -- the string “irr0_routeSet"
 
-   handle -- a string representing the unique identifier of the
-   routeSet.
+   handle -- a string representing the registry unique identifier of the
+   routeSet object.
 
    members — an array of strings, each containing a value as specified
    in RFC2622#section-5.2
@@ -342,8 +341,8 @@ Table of Contents
 
    objectClassName -- the string "irr0_autnumSet"
 
-   handle -- a string representing the unique identifier of the
-   autnumSet.
+   handle -- a string representing the registry unique identifier of the
+   autnumSet object.
 
    members — an array of strings, each containing a value as specified
    in RFC2622#section-5.1
@@ -406,7 +405,8 @@ Table of Contents
 
    objectClassName -- the string "irr0_rtrSet"
 
-   handle -- a string representing the unique identifier of the rtrSet.
+   handle -- a string representing the registry unique identifier of the
+   rtrSet.
 
    members — an array of strings, each containing a value as specified
    in RFC2622#section-5.5
@@ -471,7 +471,7 @@ Table of Contents
 
    objectClassName -- the string “irr0_peeringSet"
 
-   handle -- a string representing the unique identifier of the
+   handle -- a string representing the registry unique identifier of the
    peeringSet
 
    peering — an array of strings, each containing a value as specified
@@ -537,7 +537,7 @@ Table of Contents
 
    objectClassName -- the string "irr0_filterSet"
 
-   handle -- a string representing the unique identifier of the
+   handle -- a string representing the registry unique identifier of the
    filterSet
 
    filter — an array of strings each defines the set's policy filter as
