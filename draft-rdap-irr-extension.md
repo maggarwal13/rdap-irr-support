@@ -117,7 +117,7 @@ The following is an elided example of a route object showing the high level stru
     {
     "objectClassName" : "irr0_route",
     "handle" : "XXXX",
-    "route" :  "192.0.2.0",
+    "route" :  "192.0.2.0/24",
     "origin" : "1234",
     ...
     "entities" :
@@ -135,7 +135,7 @@ The route object class can contain the following members:
 
 objectClassName -- the string "irr0_route"
 
-handle -- a string representing the registry unique identifier of the route object
+handle -- a string representing the registry-unique identifier of the route object
 
 route — a string representing the address-prefix for which a route is referenced; as per rfc2622#section-4
 
@@ -213,7 +213,7 @@ The routeSet object class can contain the following members:
 
 objectClassName -- the string “irr0_routeSet"
 
-handle -- a string representing the registry unique identifier of the routeSet object.
+handle -- a string representing the registry-unique identifier of the routeSet object.
 
 members —  an array of strings, each containing a value as specified in RFC2622#section-5.2
 
@@ -268,7 +268,7 @@ The autnumSet object class can contain the following members:
 
 objectClassName -- the string "irr0_autnumSet"
 
-handle -- a string representing the registry unique identifier of the autnumSet object.
+handle -- a string representing the registry-unique identifier of the autnumSet object.
 
 members —  an array of strings, each containing a value as specified in RFC2622#section-5.1
 
@@ -325,7 +325,7 @@ The rtrSet set  object class can contain the following members:
 
 objectClassName -- the string "irr0_rtrSet"
 
-handle -- a string representing the registry unique identifier of the rtrSet.
+handle -- a string representing the registry-unique identifier of the rtrSet.
 
 members —  an array of strings, each containing a value as specified in RFC2622#section-5.5
 
@@ -386,7 +386,7 @@ The peeringSet  object class can contain the following members:
 
 objectClassName -- the string “irr0_peeringSet"
 
-handle -- a string representing the registry unique identifier of the peeringSet
+handle -- a string representing the registry-unique identifier of the peeringSet
 
 peering —  an array of strings, each containing a value as specified in RFC2622#section-5.6
 
@@ -445,7 +445,7 @@ The filterSet  object class can contain the following members:
 
 objectClassName -- the string "irr0_filterSet"
 
-handle -- a string representing the registry unique identifier of the filterSet
+handle -- a string representing the registry-unique identifier of the filterSet
 
 filter —  an array of strings each defines the set's policy filter as per RFC2622#section-5.4
 
