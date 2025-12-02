@@ -1056,7 +1056,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Aggarwal, et al.</td>
-<td class="center">Expires 4 June 2026</td>
+<td class="center">Expires 5 June 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1069,12 +1069,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-rdap-irr-extension-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-12-01" class="published">1 December 2025</time>
+<time datetime="2025-12-02" class="published">2 December 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-06-04">4 June 2026</time></dd>
+<dd class="expires"><time datetime="2026-06-05">5 June 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1136,7 +1136,7 @@ intended to address this gap.<a href="#section-abstract-1" class="pilcrow">¶</a
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 June 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 5 June 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1294,7 +1294,7 @@ long.<a href="#section-2-4" class="pilcrow">¶</a></p>
 {
 "objectClassName" : "irr0_route",
 "handle" : "XXXX",
-"route" :  "192.0.2.0",
+"route" :  "192.0.2.0/24",
 "origin" : "1234",
 ...
 "entities" :
@@ -1311,7 +1311,7 @@ long.<a href="#section-2-4" class="pilcrow">¶</a></p>
 </div>
 <p id="section-4-7">The route object class can contain the following members:<a href="#section-4-7" class="pilcrow">¶</a></p>
 <p id="section-4-8">objectClassName -- the string "irr0_route"<a href="#section-4-8" class="pilcrow">¶</a></p>
-<p id="section-4-9">handle -- a string representing the registry unique identifier of the route object<a href="#section-4-9" class="pilcrow">¶</a></p>
+<p id="section-4-9">handle -- a string representing the registry-unique identifier of the route object<a href="#section-4-9" class="pilcrow">¶</a></p>
 <p id="section-4-10">route — a string representing the address-prefix for which a route is referenced; as per rfc2622#section-4<a href="#section-4-10" class="pilcrow">¶</a></p>
 <p id="section-4-11">origin – a string representing  an autonomous system number for which a route is referenced; as per rfc2622#section-4<a href="#section-4-11" class="pilcrow">¶</a></p>
 <p id="section-4-12">routeVersion -- a string signifying the ip protocol version of the network: "v4" signifies an route with ipv4  network, and "v6" signifies a route with ipv6 network<a href="#section-4-12" class="pilcrow">¶</a></p>
@@ -1373,7 +1373,7 @@ Support for peering-set, rtr-set and filter-set is optional and may be provided 
 </div>
 <p id="section-5.1-7">The routeSet object class can contain the following members:<a href="#section-5.1-7" class="pilcrow">¶</a></p>
 <p id="section-5.1-8">objectClassName -- the string “irr0_routeSet"<a href="#section-5.1-8" class="pilcrow">¶</a></p>
-<p id="section-5.1-9">handle -- a string representing the registry unique identifier of the routeSet object.<a href="#section-5.1-9" class="pilcrow">¶</a></p>
+<p id="section-5.1-9">handle -- a string representing the registry-unique identifier of the routeSet object.<a href="#section-5.1-9" class="pilcrow">¶</a></p>
 <p id="section-5.1-10">members —  an array of strings, each containing a value as specified in RFC2622#section-5.2<a href="#section-5.1-10" class="pilcrow">¶</a></p>
 <p id="section-5.1-11">mp-members —  an array of strings, each containing a value as specified in RFC4012#section-4.2<a href="#section-5.1-11" class="pilcrow">¶</a></p>
 <p id="section-5.1-12">remarks -- see RFC9083#Section 4.3<a href="#section-5.1-12" class="pilcrow">¶</a></p>
@@ -1419,7 +1419,7 @@ Support for peering-set, rtr-set and filter-set is optional and may be provided 
 </div>
 <p id="section-5.2-7">The autnumSet object class can contain the following members:<a href="#section-5.2-7" class="pilcrow">¶</a></p>
 <p id="section-5.2-8">objectClassName -- the string "irr0_autnumSet"<a href="#section-5.2-8" class="pilcrow">¶</a></p>
-<p id="section-5.2-9">handle -- a string representing the registry unique identifier of the autnumSet object.<a href="#section-5.2-9" class="pilcrow">¶</a></p>
+<p id="section-5.2-9">handle -- a string representing the registry-unique identifier of the autnumSet object.<a href="#section-5.2-9" class="pilcrow">¶</a></p>
 <p id="section-5.2-10">members —  an array of strings, each containing a value as specified in RFC2622#section-5.1<a href="#section-5.2-10" class="pilcrow">¶</a></p>
 <p id="section-5.2-11">remarks -- see RFC9083#Section 4.3<a href="#section-5.2-11" class="pilcrow">¶</a></p>
 <p id="section-5.2-12">entities -- an array of entity objects as defined by RFC9083#Section 5.1<a href="#section-5.2-12" class="pilcrow">¶</a></p>
@@ -1468,7 +1468,7 @@ Support for peering-set, rtr-set and filter-set is optional and may be provided 
 </div>
 <p id="section-5.3-7">The rtrSet set  object class can contain the following members:<a href="#section-5.3-7" class="pilcrow">¶</a></p>
 <p id="section-5.3-8">objectClassName -- the string "irr0_rtrSet"<a href="#section-5.3-8" class="pilcrow">¶</a></p>
-<p id="section-5.3-9">handle -- a string representing the registry unique identifier of the rtrSet.<a href="#section-5.3-9" class="pilcrow">¶</a></p>
+<p id="section-5.3-9">handle -- a string representing the registry-unique identifier of the rtrSet.<a href="#section-5.3-9" class="pilcrow">¶</a></p>
 <p id="section-5.3-10">members —  an array of strings, each containing a value as specified in RFC2622#section-5.5<a href="#section-5.3-10" class="pilcrow">¶</a></p>
 <p id="section-5.3-11">mp-members —  an array of strings, each containing a value as specified in RFC4012#section-4.6<a href="#section-5.3-11" class="pilcrow">¶</a></p>
 <p id="section-5.3-12">remarks -- see RFC9083#Section 4.3<a href="#section-5.3-12" class="pilcrow">¶</a></p>
@@ -1519,7 +1519,7 @@ Support for peering-set, rtr-set and filter-set is optional and may be provided 
 </div>
 <p id="section-5.4-7">The peeringSet  object class can contain the following members:<a href="#section-5.4-7" class="pilcrow">¶</a></p>
 <p id="section-5.4-8">objectClassName -- the string “irr0_peeringSet"<a href="#section-5.4-8" class="pilcrow">¶</a></p>
-<p id="section-5.4-9">handle -- a string representing the registry unique identifier of the peeringSet<a href="#section-5.4-9" class="pilcrow">¶</a></p>
+<p id="section-5.4-9">handle -- a string representing the registry-unique identifier of the peeringSet<a href="#section-5.4-9" class="pilcrow">¶</a></p>
 <p id="section-5.4-10">peering —  an array of strings, each containing a value as specified in RFC2622#section-5.6<a href="#section-5.4-10" class="pilcrow">¶</a></p>
 <p id="section-5.4-11">mp-peering —  an array of strings, each containing a value as specified in RFC4012#section-4.4<a href="#section-5.4-11" class="pilcrow">¶</a></p>
 <p id="section-5.4-12">remarks -- see RFC9083#Section 4.3<a href="#section-5.4-12" class="pilcrow">¶</a></p>
@@ -1569,7 +1569,7 @@ Support for peering-set, rtr-set and filter-set is optional and may be provided 
 </div>
 <p id="section-5.5-7">The filterSet  object class can contain the following members:<a href="#section-5.5-7" class="pilcrow">¶</a></p>
 <p id="section-5.5-8">objectClassName -- the string "irr0_filterSet"<a href="#section-5.5-8" class="pilcrow">¶</a></p>
-<p id="section-5.5-9">handle -- a string representing the registry unique identifier of the filterSet<a href="#section-5.5-9" class="pilcrow">¶</a></p>
+<p id="section-5.5-9">handle -- a string representing the registry-unique identifier of the filterSet<a href="#section-5.5-9" class="pilcrow">¶</a></p>
 <p id="section-5.5-10">filter —  an array of strings each defines the set's policy filter as per RFC2622#section-5.4<a href="#section-5.5-10" class="pilcrow">¶</a></p>
 <p id="section-5.5-11">mp-filter —  an array of strings, each containing a value as specified in RFC4012#Section 2.5.2<a href="#section-5.5-11" class="pilcrow">¶</a></p>
 <p id="section-5.5-12">remarks -- see RFC9083#Section 4.3<a href="#section-5.5-12" class="pilcrow">¶</a></p>
