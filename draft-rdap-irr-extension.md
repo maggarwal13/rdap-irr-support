@@ -149,7 +149,7 @@ pingable -- an array of strings each containing a value as specified in RFC5943
 
 holes -- an array of strings each containing a value as specified in RFC2622#section-4
 
-memberOf -- an array of strings, each containing a value as specified in RFC2622#section-4
+member-of -- an array of strings, each containing a value as specified in RFC2622#section-4
 
 inject -- an array of strings, each containing a value as specified in RFC2622#section-4
 
@@ -171,7 +171,124 @@ events -- see RFC9083#Section 4.5
 
 The following is an example of the JSON object
 
-TODO Full example
+    {
+      "objectClassName": "irr0_route",
+      "handle": "128.8.0.0/15AS127",
+      "routeVersion": "v4",
+      "origin": "127",
+      "route": "128.8.0.0/15",
+      "pingable" : [ "128.8.0.196" ],
+      "holes" : ["128.8.8.0/24"],
+      "member-of" : ["rs-foo" , "rs-bar"],
+      "remarks": [
+        {
+          "description" :
+          [
+            "She sells sea shells down by the sea shore.",
+            "Originally written by Terry Sullivan."
+          ]
+        }
+      ],
+      "country": "NL",
+      "inject": [ "upon HAVE-COMPONENTS {128.8.0.0/16, 128.9.0.0/16}" ],
+      "aggr-mtd": "outbound AS-ANY",
+      "aggr-bndry": "AS127 OR AS278",
+      "export-comps": "{82.135.152.0/24, 82.135.153.0/24, 82.135.154.0/23, 82.135.156.0/23}",
+      "components": "{128.8.0.0/15^-}",
+      "entities": [
+        {
+          "objectClassName": "entity",
+          "handle": "XXXX",
+          "vcardArray": [
+            "vcard",
+            [
+              [
+                "version",
+                {},
+                "text",
+                "4.0"
+              ],
+              [
+                "fn",
+                {},
+                "text",
+                "Joe User"
+              ],
+              [
+                "kind",
+                {},
+                "text",
+                "individual"
+              ],
+              [
+                "adr",
+                {
+                  "label": "RIPE NCC - Operations\nStationsplein 11\n1012 AB Amsterdam\nThe Netherlands"
+                },
+                "text",
+                [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              ],
+              [
+                "tel",
+                {
+                  "type": "voice"
+                },
+                "text",
+                "tel:+1-555-555-1234;ext=102"
+              ]
+            ]
+          ],
+          "roles": [
+            "registrant"
+          ],
+          "links": [
+            {
+              "value": "https://example.net/entity/XXXX",
+              "rel": "self",
+              "href": "https://example.net/entity/XXXX",
+              "type": "application/rdap+json"
+            }
+          ],
+          "events": [
+            {
+              "eventAction": "registration",
+              "eventDate": "2025-06-15T22:25:48Z"
+            },
+            {
+              "eventAction": "last changed",
+              "eventDate": "2025-06-15T22:27:54Z"
+            }
+          ]
+        }
+      ],
+      "links": [
+        {
+          "value": "https://example.net/route/128.8.0.0/15AS127",
+          "rel": "self",
+          "href": "https://example.net/route/128.8.0.0/15AS127",
+          "type": "application/rdap+json"
+        }
+      ],
+      "events": [
+        {
+          "eventAction": "registration",
+          "eventDate": "1990-12-31T23:59:59Z"
+        },
+        {
+          "eventAction": "last changed",
+          "eventDate": "1991-12-31T23:59:59Z"
+        }
+      ]
+    }
+
 
 # The SET Object Class
 
@@ -229,9 +346,118 @@ port43 -- see RFC9083#Section 4.7
 
 events -- see RFC9083#Section 4.5
 
-The following is an example of an routeSet that might be served by an RIR.
+The following is an example of a routeSet that might be served by an RIR.
 
-TODO Full example
+    {
+      "objectClassName": "irr0_routeSet",
+      "handle": "rs-foo",
+      "members" :[ "128.7.0.0/16", "rs-foo" ],
+      "mp-members" : [ "192.0.2.0/24" ],
+      "remarks": [
+        {
+          "description" :
+          [
+            "She sells sea shells down by the sea shore.",
+            "Originally written by Terry Sullivan."
+          ]
+        }
+      ],
+      "entities" : [
+      {
+        "objectClassName": "entity",
+        "handle": "XXXX",
+        "vcardArray": [
+          "vcard",
+          [
+            [
+              "version",
+              {},
+              "text",
+              "4.0"
+            ],
+            [
+              "fn",
+              {},
+              "text",
+              "Joe User"
+            ],
+            [
+              "kind",
+              {},
+              "text",
+              "individual"
+            ],
+            [
+              "adr",
+              {
+                "label": "RIPE NCC - Operations\nStationsplein 11\n1012 AB Amsterdam\nThe Netherlands"
+              },
+              "text",
+              [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ]
+            ],
+            [
+              "tel",
+              {
+                "type": "voice"
+              },
+              "text",
+              "tel:+1-555-555-1234;ext=102"
+            ]
+          ]
+        ],
+        "roles": [
+          "registrant"
+        ],
+        "links": [
+          {
+            "value": "https://example.net/entity/XXXX",
+            "rel": "self",
+            "href": "https://example.net/entity/XXXX",
+            "type": "application/rdap+json"
+          }
+        ],
+        "events": [
+          {
+            "eventAction": "registration",
+            "eventDate": "2025-06-15T22:25:48Z"
+          },
+          {
+            "eventAction": "last changed",
+            "eventDate": "2025-06-15T22:27:54Z"
+          }
+        ]
+      }
+    ],
+      "links" :
+      [
+        {
+          "value" : "https://example.net/routeSet/rs-foo",
+          "rel" : "self",
+          "href" : "https://example.net/routeSet/rs-foo",
+          "type" : "application/rdap+json"
+        }
+      ],
+      "events" :
+      [
+        {
+          "eventAction" : "registration",
+          "eventDate" : "1990-12-31T23:59:59Z"
+        },
+        {
+          "eventAction" : "last changed",
+          "eventDate" : "1991-12-31T23:59:59Z"
+        }
+      ]
+    }
+
 
 ## Autnum Set Object Class
 
@@ -284,7 +510,115 @@ events -- see RFC9083#Section 4.5
 
 The following is an example of an autnumSet that might be served by an RIR.
 
-TODO Full example
+    {
+      "objectClassName": "irr0_autnumSet",
+      "handle": "AS-FOO",
+      "members" :[ "128.7.0.0/16", "rs-foo" ],
+      "remarks": [
+        {
+          "description" :
+          [
+            "She sells sea shells down by the sea shore.",
+            "Originally written by Terry Sullivan."
+          ]
+        }
+      ],
+      "entities" : [
+      {
+        "objectClassName": "entity",
+        "handle": "XXXX",
+        "vcardArray": [
+          "vcard",
+          [
+            [
+              "version",
+              {},
+              "text",
+              "4.0"
+            ],
+            [
+              "fn",
+              {},
+              "text",
+              "Joe User"
+            ],
+            [
+              "kind",
+              {},
+              "text",
+              "individual"
+            ],
+            [
+              "adr",
+              {
+                "label": "RIPE NCC - Operations\nStationsplein 11\n1012 AB Amsterdam\nThe Netherlands"
+              },
+              "text",
+              [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ]
+            ],
+            [
+              "tel",
+              {
+                "type": "voice"
+              },
+              "text",
+              "tel:+1-555-555-1234;ext=102"
+            ]
+          ]
+        ],
+        "roles": [
+          "registrant"
+        ],
+        "links": [
+          {
+            "value": "https://example.net/entity/XXXX",
+            "rel": "self",
+            "href": "https://example.net/entity/XXXX",
+            "type": "application/rdap+json"
+          }
+        ],
+        "events": [
+          {
+            "eventAction": "registration",
+            "eventDate": "2025-06-15T22:25:48Z"
+          },
+          {
+            "eventAction": "last changed",
+            "eventDate": "2025-06-15T22:27:54Z"
+          }
+        ]
+      }
+    ],
+      "links" :
+      [
+        {
+          "value" : "https://example.net/autnumSet/AS-FOO",
+          "rel" : "self",
+          "href" : "https://example.net/autnumSet/AS-FOO",
+          "type" : "application/rdap+json"
+        }
+      ],
+      "events" :
+      [
+        {
+          "eventAction" : "registration",
+          "eventDate" : "1990-12-31T23:59:59Z"
+        },
+        {
+          "eventAction" : "last changed",
+          "eventDate" : "1991-12-31T23:59:59Z"
+        }
+      ]
+    }
+
 
 ## RTR Set Object Class
 
