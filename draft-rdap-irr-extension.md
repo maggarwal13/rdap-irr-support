@@ -271,9 +271,9 @@ The following is an example of the JSON object
       ],
       "links": [
         {
-          "value": "https://example.net/route/128.8.0.0/15AS127",
+          "value": "https://example.net/irr0_route/128.8.0.0/15AS127",
           "rel": "self",
-          "href": "https://example.net/route/128.8.0.0/15AS127",
+          "href": "https://example.net/irr0_route/128.8.0.0/15AS127",
           "type": "application/rdap+json"
         }
       ],
@@ -439,9 +439,9 @@ The following is an example of a routeSet that might be served by an RIR.
       "links" :
       [
         {
-          "value" : "https://example.net/routeSet/rs-foo",
+          "value" : "https://example.net/irr0_routeSet/rs-foo",
           "rel" : "self",
-          "href" : "https://example.net/routeSet/rs-foo",
+          "href" : "https://example.net/irr0_routeSet/rs-foo",
           "type" : "application/rdap+json"
         }
       ],
@@ -600,9 +600,9 @@ The following is an example of an autnumSet that might be served by an RIR.
       "links" :
       [
         {
-          "value" : "https://example.net/autnumSet/AS-FOO",
+          "value" : "https://example.net/irr0_autnumSet/AS-FOO",
           "rel" : "self",
-          "href" : "https://example.net/autnumSet/AS-FOO",
+          "href" : "https://example.net/irr0_autnumSet/AS-FOO",
           "type" : "application/rdap+json"
         }
       ],
@@ -678,7 +678,114 @@ events -- see RFC9083#Section 4.5
 
 The following is an example of rtrSet that might be served by an RIR.
 
-TODO Full example
+    {
+    "objectClassName": "irr0_rtrSet",
+    "handle": "rtrs-foo",
+    "members" :[ "rtr1.isp.net", "rtr2.isp.net" ],
+    "mp-members" : [ "192.0.2.0/24" ],
+    "remarks": [
+        {
+          "description" :
+          [
+            "She sells sea shells down by the sea shore.",
+            "Originally written by Terry Sullivan."
+          ]
+        }
+      ],
+      "entities" : [
+      {
+        "objectClassName": "entity",
+        "handle": "XXXX",
+        "vcardArray": [
+          "vcard",
+          [
+            [
+              "version",
+              {},
+              "text",
+              "4.0"
+            ],
+            [
+              "fn",
+              {},
+              "text",
+              "Joe User"
+            ],
+            [
+              "kind",
+              {},
+              "text",
+              "individual"
+            ],
+            [
+              "adr",
+              {
+                "label": "RIPE NCC - Operations\nStationsplein 11\n1012 AB Amsterdam\nThe Netherlands"
+              },
+              "text",
+              [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ]
+            ],
+            [
+              "tel",
+              {
+                "type": "voice"
+              },
+              "text",
+              "tel:+1-555-555-1234;ext=102"
+            ]
+          ]
+        ],
+        "roles": [
+          "registrant"
+        ],
+        "links": [
+          {
+            "value": "https://example.net/entity/XXXX",
+            "rel": "self",
+            "href": "https://example.net/entity/XXXX",
+            "type": "application/rdap+json"
+          }
+        ],
+        "events": [
+          {
+            "eventAction": "registration",
+            "eventDate": "2025-06-15T22:25:48Z"
+          },
+          {
+            "eventAction": "last changed",
+            "eventDate": "2025-06-15T22:27:54Z"
+          }
+        ]
+      }
+    ],
+    "links" : [
+        {
+            "value" : "https://example.net/irr0_rtrSet/rtrs-foo",
+            "rel" : "self",
+            "href" : "https://example.net/irr0_rtrSet/rtrs-foo",
+            "type" : "application/rdap+json"
+        }
+      ],
+      "events" : [
+        {
+          "eventAction" : "registration",
+          "eventDate" : "1990-12-31T23:59:59Z"
+        },
+        {
+          "eventAction" : "last changed",
+          "eventDate" : "1991-12-31T23:59:59Z"
+        }
+      ]
+    }
+
 
 ## Peering Set Object Class
 
@@ -738,7 +845,113 @@ events -- see RFC9083#Section 4.5
 
 The following is an example of peeringSet that might be served by an RIR.
 
-TODO Full example
+    {
+    "objectClassName": "irr0_peeringSet",
+    "handle": "prng-bar",
+    "peering" :[ "AS2 at 9.9.9.1"],
+    "mp-peering" : [ "AS65002 2001:0DB8::1 at 2001:0DB8::1" ],
+    "remarks": [
+        {
+          "description" :
+          [
+            "She sells sea shells down by the sea shore.",
+            "Originally written by Terry Sullivan."
+          ]
+        }
+      ],
+      "entities" : [
+      {
+        "objectClassName": "entity",
+        "handle": "XXXX",
+        "vcardArray": [
+          "vcard",
+          [
+            [
+              "version",
+              {},
+              "text",
+              "4.0"
+            ],
+            [
+              "fn",
+              {},
+              "text",
+              "Joe User"
+            ],
+            [
+              "kind",
+              {},
+              "text",
+              "individual"
+            ],
+            [
+              "adr",
+              {
+                "label": "RIPE NCC - Operations\nStationsplein 11\n1012 AB Amsterdam\nThe Netherlands"
+              },
+              "text",
+              [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ]
+            ],
+            [
+              "tel",
+              {
+                "type": "voice"
+              },
+              "text",
+              "tel:+1-555-555-1234;ext=102"
+            ]
+          ]
+        ],
+        "roles": [
+          "registrant"
+        ],
+        "links": [
+          {
+            "value": "https://example.net/entity/XXXX",
+            "rel": "self",
+            "href": "https://example.net/entity/XXXX",
+            "type": "application/rdap+json"
+          }
+        ],
+        "events": [
+          {
+            "eventAction": "registration",
+            "eventDate": "2025-06-15T22:25:48Z"
+          },
+          {
+            "eventAction": "last changed",
+            "eventDate": "2025-06-15T22:27:54Z"
+          }
+        ]
+      }
+    ],
+    "links" : [
+        {
+        "value" : "https://example.net/irr0_peeringSet/prng-bar",
+        "rel" : "self",
+        "href" : "https://example.net/irr0_peeringSet/prng-bar",
+        "type" : "application/rdap+json"
+        }
+     ],
+    "events" : [
+        {
+        "eventAction" : "registration",
+        "eventDate" : "1990-12-31T23:59:59Z"
+        },
+        {
+        "eventAction" : "last changed",
+        "eventDate" : "1991-12-31T23:59:59Z"
+        }
+      ]
+    }
 
 ## Filter Set Object Class
 
@@ -797,7 +1010,113 @@ events -- see RFC9083#Section 4.5
 
 The following is an example of filterSet that might be served by an RIR.
 
-TODO Full example
+    {
+    "objectClassName": "irr0_filterSet",
+    "handle": "fltr-bar",
+    "filter" :[ "(AS1 or fltr-foo) and <AS2>"],
+    "mp-filter" : [ "2001:0DB8:0100::/48^+" ],
+    "remarks": [
+        {
+          "description" :
+          [
+            "She sells sea shells down by the sea shore.",
+            "Originally written by Terry Sullivan."
+          ]
+        }
+      ],
+      "entities" : [
+      {
+        "objectClassName": "entity",
+        "handle": "XXXX",
+        "vcardArray": [
+          "vcard",
+          [
+            [
+              "version",
+              {},
+              "text",
+              "4.0"
+            ],
+            [
+              "fn",
+              {},
+              "text",
+              "Joe User"
+            ],
+            [
+              "kind",
+              {},
+              "text",
+              "individual"
+            ],
+            [
+              "adr",
+              {
+                "label": "RIPE NCC - Operations\nStationsplein 11\n1012 AB Amsterdam\nThe Netherlands"
+              },
+              "text",
+              [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ]
+            ],
+            [
+              "tel",
+              {
+                "type": "voice"
+              },
+              "text",
+              "tel:+1-555-555-1234;ext=102"
+            ]
+          ]
+        ],
+        "roles": [
+          "registrant"
+        ],
+        "links": [
+          {
+            "value": "https://example.net/entity/XXXX",
+            "rel": "self",
+            "href": "https://example.net/entity/XXXX",
+            "type": "application/rdap+json"
+          }
+        ],
+        "events": [
+          {
+            "eventAction": "registration",
+            "eventDate": "2025-06-15T22:25:48Z"
+          },
+          {
+            "eventAction": "last changed",
+            "eventDate": "2025-06-15T22:27:54Z"
+          }
+        ]
+      }
+    ],
+    "links" : [
+        {
+        "value" : "https://example.net/irr0_filterSet/fltr-bar",
+        "rel" : "self",
+        "href" : "https://example.net/irr0_filterSet/fltr-bar",
+        "type" : "application/rdap+json"
+        }
+     ],
+    "events" : [
+        {
+        "eventAction" : "registration",
+        "eventDate" : "1990-12-31T23:59:59Z"
+        },
+        {
+        "eventAction" : "last changed",
+        "eventDate" : "1991-12-31T23:59:59Z"
+        }
+      ]
+    }
 
 # Autnum Route Policies
 
@@ -824,10 +1143,6 @@ An example irr_policies data structure:
             { "import-via": "ASXXX from AS-ANY EXCEPT (ASXXX AND ASYYY) accept ANY" },
             { "export-via": "ASXXX to AS-ANY EXCEPT (ASXXX AND ASYYY) announce AS-YYYY" }
         ]
-
-The following is an example of a JSON object representing an autnum with the routing policies.
-
-TODO Full example
 
 
 # RDAP Conformance
