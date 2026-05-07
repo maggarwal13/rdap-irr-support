@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-25T01:21:20.484888+00:00",
+  "timestamp": "2026-05-07T02:40:04.243148+00:00",
   "repo": "maggarwal13/rdap-irr-support",
   "labels": [
     {
@@ -49,7 +49,24 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOQa7tLM7apDoz",
+      "title": "Raw RPSL",
+      "url": "https://github.com/maggarwal13/rdap-irr-support/issues/2",
+      "state": "OPEN",
+      "author": "jasdips",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://github.com/maggarwal13/rdap-irr-support/pull/1#discussion_r2557350435\n            ",
+      "createdAt": "2025-11-26T16:21:24Z",
+      "updatedAt": "2025-11-26T16:23:47Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -63,13 +80,13 @@
       "labels": [],
       "body": "The core specifications for RDAP defines core object types, but it does\r\nnot contain objects for Internet Routing Registries (IRRs). This document is\r\nintended to address this gap.",
       "createdAt": "2025-11-24T11:24:50Z",
-      "updatedAt": "2025-11-24T19:34:37Z",
+      "updatedAt": "2026-03-31T13:03:36Z",
       "baseRepository": "maggarwal13/rdap-irr-support",
       "baseRefName": "main",
       "baseRefOid": "46c059c16e3d387d8a6494c6a287d75a8b28f8d3",
       "headRepository": "maggarwal13/rdap-irr-support",
       "headRefName": "rdap_irr_support",
-      "headRefOid": "503b9c066ebdbcfcd09a8a82d85b96dc8b68c61b",
+      "headRefOid": "7abe24418dd047fd04f04973a9c83f22de27e01b",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -142,7 +159,7 @@
             "abbreviatedOid": "665d301"
           },
           "author": "anewton1998",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "Good start.\r\n\r\nI left comments about using the extension Id and link relationships that would apply to most of the object classes.",
           "createdAt": "2025-11-24T13:51:30Z",
@@ -270,7 +287,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:27:37Z",
@@ -290,7 +307,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:28:23Z",
@@ -310,7 +327,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:31:05Z",
@@ -318,9 +335,9 @@
           "comments": [
             {
               "originalPosition": 113,
-              "body": "In addition to prefixing new JSON members and object class names with the extension id, the new path segments should also be prefixed. E.g., \"route\" -> \"irr0_route\".\r\n\r\nAlso, good to URL-encode reserved characters like \":\" in the examples for the new path segments.",
+              "body": "In addition to prefixing new JSON members and object class names with the extension id, the new path segments should also be prefixed (per the RDAP Extensions draft). E.g., \"route\" -> \"irr0_route\".\r\n\r\nAlso, good to URL-encode reserved characters like \":\" in the examples for the new path segments.",
               "createdAt": "2025-11-24T18:31:05Z",
-              "updatedAt": "2025-11-24T19:21:34Z"
+              "updatedAt": "2025-11-25T15:10:47Z"
             }
           ]
         },
@@ -330,7 +347,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:35:35Z",
@@ -350,7 +367,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:37:30Z",
@@ -370,7 +387,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:42:38Z",
@@ -390,7 +407,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:42:57Z",
@@ -410,7 +427,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:45:02Z",
@@ -430,7 +447,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:49:10Z",
@@ -450,7 +467,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:56:16Z",
@@ -470,7 +487,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:58:53Z",
@@ -490,7 +507,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T18:59:56Z",
@@ -510,7 +527,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T19:15:39Z",
@@ -530,7 +547,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T19:30:03Z",
@@ -550,7 +567,7 @@
             "abbreviatedOid": "503b9c0"
           },
           "author": "jasdips",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-11-24T19:34:37Z",
@@ -561,6 +578,886 @@
               "body": "Beside lookup queries, are there any useful search and/or reverse search queries we should be defining in this specification?",
               "createdAt": "2025-11-24T19:34:37Z",
               "updatedAt": "2025-11-24T19:47:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Q5JTV",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-25T11:27:27Z",
+          "updatedAt": "2025-11-25T11:27:28Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "A good idea. If we do rename it to route should it be a string in CIDR notation only rather than IP object ?",
+              "createdAt": "2025-11-25T11:27:27Z",
+              "updatedAt": "2025-11-25T11:27:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Q5NwN",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-25T11:32:37Z",
+          "updatedAt": "2025-11-25T11:32:37Z",
+          "comments": [
+            {
+              "originalPosition": 150,
+              "body": "Yes , I agree. I will also look at other attributes where we can make the similar change",
+              "createdAt": "2025-11-25T11:32:37Z",
+              "updatedAt": "2025-11-25T11:32:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Q5OT8",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-25T11:33:15Z",
+          "updatedAt": "2025-11-25T11:33:15Z",
+          "comments": [
+            {
+              "originalPosition": 156,
+              "body": "Thanks for pointing this out. I will change at other places too.",
+              "createdAt": "2025-11-25T11:33:15Z",
+              "updatedAt": "2025-11-25T11:33:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Q8mk5",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-25T15:08:34Z",
+          "updatedAt": "2025-11-25T15:08:34Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "Yes. We should then try matching types from the RPSL.",
+              "createdAt": "2025-11-25T15:08:34Z",
+              "updatedAt": "2025-11-25T15:08:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RRZLh",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T13:33:33Z",
+          "updatedAt": "2025-11-26T13:33:33Z",
+          "comments": [
+            {
+              "originalPosition": 113,
+              "body": "I agree, I will make change as per RDAP Extensions draft. Also I will use documentation prefix example instead . Good point to URL encode it. I will make these changes.",
+              "createdAt": "2025-11-26T13:33:33Z",
+              "updatedAt": "2025-11-26T13:33:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RRdY1",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T13:37:18Z",
+          "updatedAt": "2025-11-26T13:37:19Z",
+          "comments": [
+            {
+              "originalPosition": 109,
+              "body": "route object primary key consists of both a prefix and ASN together. I prefer to keep both in single path segment and URL encode the key.  ",
+              "createdAt": "2025-11-26T13:37:18Z",
+              "updatedAt": "2025-11-26T13:37:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RRgv1",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T13:40:39Z",
+          "updatedAt": "2025-11-26T13:40:39Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "On a second thought, route consists of both prefix and ASN . So it's misleading to have route just as prefix. ",
+              "createdAt": "2025-11-26T13:40:39Z",
+              "updatedAt": "2025-11-26T13:40:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RRqSv",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T13:50:37Z",
+          "updatedAt": "2025-11-26T13:50:38Z",
+          "comments": [
+            {
+              "originalPosition": 164,
+              "body": "It should not be necessary if we can define all attributes  values as either reference to another object or RAW string. It should be possible to recreate the raw RPSL from the RDAP response. We should perform  a cross RIR survey for IRR data to make sure the data structure captures all RPSL for this object",
+              "createdAt": "2025-11-26T13:50:37Z",
+              "updatedAt": "2025-11-26T13:50:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RRrlD",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T13:51:59Z",
+          "updatedAt": "2025-11-26T13:51:59Z",
+          "comments": [
+            {
+              "originalPosition": 356,
+              "body": "Completely Agree, We should document such object types as Optional. I will review IRR data from other IRR and change the object type to optional wherever it's needed.",
+              "createdAt": "2025-11-26T13:51:59Z",
+              "updatedAt": "2025-11-26T13:51:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RRsJm",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T13:52:34Z",
+          "updatedAt": "2025-11-26T13:52:34Z",
+          "comments": [
+            {
+              "originalPosition": 216,
+              "body": "By mistake, I will correct it accordingly :)",
+              "createdAt": "2025-11-26T13:52:34Z",
+              "updatedAt": "2025-11-26T13:52:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RRv8l",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T13:56:22Z",
+          "updatedAt": "2025-11-26T13:56:22Z",
+          "comments": [
+            {
+              "originalPosition": 148,
+              "body": "I will remove country attribute from route. It is not required",
+              "createdAt": "2025-11-26T13:56:22Z",
+              "updatedAt": "2025-11-26T13:56:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RRwiW",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T13:56:58Z",
+          "updatedAt": "2025-11-26T13:56:58Z",
+          "comments": [
+            {
+              "originalPosition": 148,
+              "body": "Also country is seperate from Geofeed in Resource object types. We support both ",
+              "createdAt": "2025-11-26T13:56:58Z",
+              "updatedAt": "2025-11-26T13:56:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RR4O0",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T14:04:44Z",
+          "updatedAt": "2025-11-26T14:04:44Z",
+          "comments": [
+            {
+              "originalPosition": 140,
+              "body": "Good point, I can make it a link to point the an autnum object. If the ASN is not registered with the registry it will redirect\r\n\r\nfor example:\r\n```\r\n\"origin\" : {\r\n   \"handle\" :  \"12726\",\r\n   \"links\": [\r\n      {\r\n         \"value\" : \"https://example.com/rdap/route/XXXX\",\r\n        \"rel\" : \"self\",\r\n        \"type\" : \"application/rdap+json\",\r\n        \"href\" : \"https://example.com/rdap/autnum/12726\"      \r\n      }\r\n    ]\r\n}\"\r\n```\r\n\r\n\r\nWhat do you think?",
+              "createdAt": "2025-11-26T14:04:44Z",
+              "updatedAt": "2025-11-26T15:19:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RSCvr",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T14:13:48Z",
+          "updatedAt": "2025-11-26T14:13:48Z",
+          "comments": [
+            {
+              "originalPosition": 504,
+              "body": "Yes, I will keep this point open and first focus on finalising the data structure.  ",
+              "createdAt": "2025-11-26T14:13:48Z",
+              "updatedAt": "2025-11-26T14:13:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RTSkk",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T15:24:24Z",
+          "updatedAt": "2025-11-26T15:24:24Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "IMO, good to stick with RPSL terms and semantics when mapping to RDAP object classes. Otherwise, we might end up with a confusing taxonomy vis-a-vis RPSL. One exception to that would be maintainers where mapping them to RDAP entities should help with richer search, I think.",
+              "createdAt": "2025-11-26T15:24:24Z",
+              "updatedAt": "2025-11-26T15:35:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RTXzt",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T15:28:47Z",
+          "updatedAt": "2025-11-26T15:28:47Z",
+          "comments": [
+            {
+              "originalPosition": 164,
+              "body": "AIU, sometime the RPSL is quite involved to be captured by structured fields. Also, structured data from a directory services perspective is generally something that one needs to make things searchable. That helps determine what data to structure versus not. IMO, raw RPSL would become the catch-all in case the structured data falls short in capturing the full semantics of the RPSL for a particular class. We could re-visit this later.",
+              "createdAt": "2025-11-26T15:28:47Z",
+              "updatedAt": "2025-11-26T16:30:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RTcHQ",
+          "commit": {
+            "abbreviatedOid": "0afaf76"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T15:32:06Z",
+          "updatedAt": "2025-11-26T15:32:06Z",
+          "comments": [
+            {
+              "originalPosition": 239,
+              "body": "Yes, good to match RPSL types, especially given range operators and regular expressions.",
+              "createdAt": "2025-11-26T15:32:06Z",
+              "updatedAt": "2025-11-26T15:32:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RTl4N",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T15:40:28Z",
+          "updatedAt": "2025-11-26T15:40:28Z",
+          "comments": [
+            {
+              "originalPosition": 140,
+              "body": "Not sure; since like a CIDR address string for \"route\", an ASN string for \"origin\" (irrespective of whether registered or not) would simply act as a natural identifier if it could be looked up. Perhaps good to start with data structures that capture RPSL types and then determine where expanding them to contained RDAP objects makes sense. Otherwise, there is a risk of bloating responses inadvertently.",
+              "createdAt": "2025-11-26T15:40:28Z",
+              "updatedAt": "2025-11-26T20:07:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RTpFn",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T15:43:21Z",
+          "updatedAt": "2025-11-26T15:43:21Z",
+          "comments": [
+            {
+              "originalPosition": 148,
+              "body": "Since RFC 2622 doesn't seem to contain this field for the \"route\" class, agree good to remove it, for now.",
+              "createdAt": "2025-11-26T15:43:21Z",
+              "updatedAt": "2025-11-26T16:08:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RTqfV",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T15:44:31Z",
+          "updatedAt": "2025-11-26T15:44:32Z",
+          "comments": [
+            {
+              "originalPosition": 150,
+              "body": "Good idea. Both CIDR address and ASN strings are considered natural identifiers for RDAP lookups.",
+              "createdAt": "2025-11-26T15:44:31Z",
+              "updatedAt": "2025-11-26T16:18:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RTwlW",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T15:49:41Z",
+          "updatedAt": "2025-11-26T15:49:41Z",
+          "comments": [
+            {
+              "originalPosition": 109,
+              "body": "OK.",
+              "createdAt": "2025-11-26T15:49:41Z",
+              "updatedAt": "2025-11-26T16:04:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RT2Xz",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T15:55:10Z",
+          "updatedAt": "2025-11-26T15:55:10Z",
+          "comments": [
+            {
+              "originalPosition": 356,
+              "body": "Good idea.",
+              "createdAt": "2025-11-26T15:55:10Z",
+              "updatedAt": "2025-11-26T15:55:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RUUMk",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-26T16:26:02Z",
+          "updatedAt": "2025-11-26T16:26:03Z",
+          "comments": [
+            {
+              "originalPosition": 504,
+              "body": "Agreed.",
+              "createdAt": "2025-11-26T16:26:02Z",
+              "updatedAt": "2025-11-26T16:26:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RbH72",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T04:56:35Z",
+          "updatedAt": "2025-11-27T04:56:35Z",
+          "comments": [
+            {
+              "originalPosition": 109,
+              "body": "On further thought, IMO, it'd be better to have separate path segments for the CIDR address (route) and ASN (origin) parts of a route lookup query by introducing a \"/\" between them, as in `irr0_route/<IP prefix of the interAS route>/<AS that originates the route>`. Since most registries would more likely be storing the route and the origin as 2 separate fields in the database, together forming a compound primary key, not having the server figure out where the CIDR address part ends and the ASN part begins in absence of that delimiting \"/\" would greatly help with query processing. It should be easier to cull query values from, say, `irr0_route/10.0.0.0/16/65536` than `irr0_route/10.0.0.0/1665536`, no?",
+              "createdAt": "2025-11-27T04:56:35Z",
+              "updatedAt": "2025-11-27T05:06:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7ReOcV",
+          "commit": {
+            "abbreviatedOid": "0afaf76"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T09:55:19Z",
+          "updatedAt": "2025-11-27T09:55:19Z",
+          "comments": [
+            {
+              "originalPosition": 287,
+              "body": "Decided to keep it as array of strings see previous comment for route \"members\" attribute discussion",
+              "createdAt": "2025-11-27T09:55:19Z",
+              "updatedAt": "2025-11-27T09:55:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RePxb",
+          "commit": {
+            "abbreviatedOid": "665d301"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T09:56:45Z",
+          "updatedAt": "2025-11-27T09:56:45Z",
+          "comments": [
+            {
+              "originalPosition": 110,
+              "body": "Agree to prefix the extension_id as per other discussions",
+              "createdAt": "2025-11-27T09:56:45Z",
+              "updatedAt": "2025-11-27T09:56:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Rekh4",
+          "commit": {
+            "abbreviatedOid": "665d301"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T10:19:27Z",
+          "updatedAt": "2025-11-27T10:19:27Z",
+          "comments": [
+            {
+              "originalPosition": 527,
+              "body": "Done, changed to irr0",
+              "createdAt": "2025-11-27T10:19:27Z",
+              "updatedAt": "2025-11-27T10:19:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RfaLF",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T11:10:00Z",
+          "updatedAt": "2025-11-27T11:10:01Z",
+          "comments": [
+            {
+              "originalPosition": 109,
+              "body": "Yes you are right , for autnum search we do not prefix \"AS\" so  without \"/\" it will not work. I will change to add path segment",
+              "createdAt": "2025-11-27T11:10:00Z",
+              "updatedAt": "2025-11-27T11:13:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Rk7N-",
+          "commit": {
+            "abbreviatedOid": "7486a21"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T15:39:14Z",
+          "updatedAt": "2025-11-27T15:39:14Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "\"irr0_route\" instead.",
+              "createdAt": "2025-11-27T15:39:14Z",
+              "updatedAt": "2025-11-27T15:39:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Rk_-4",
+          "commit": {
+            "abbreviatedOid": "7486a21"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T15:42:52Z",
+          "updatedAt": "2025-11-27T15:42:52Z",
+          "comments": [
+            {
+              "originalPosition": 58,
+              "body": "Typically, in RDAP specs, \"handle\" is defined as \"a string representing a registry-unique identifier of the object-in-question\". That way it could be a UUID instead, if so designed.",
+              "createdAt": "2025-11-27T15:42:52Z",
+              "updatedAt": "2025-11-27T15:44:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RunwR",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-28T11:48:52Z",
+          "updatedAt": "2025-11-28T11:48:52Z",
+          "comments": [
+            {
+              "originalPosition": 140,
+              "body": "Ok, I will change it to CIDR address",
+              "createdAt": "2025-11-28T11:48:52Z",
+              "updatedAt": "2025-11-28T11:48:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7Ru1CG",
+          "commit": {
+            "abbreviatedOid": "7486a21"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-28T12:07:43Z",
+          "updatedAt": "2025-11-28T12:07:43Z",
+          "comments": [
+            {
+              "originalPosition": 58,
+              "body": "For route object unique identifier is combination of prefix and origin n RPSL. \r\nfor example: 192.0.2.0/24AS65538\r\n\r\nBut since we do not suffix \"AS\" in origin so should be we have handle as  \"1192.0.2.0/24/65538\" which will mirror the lookup path segment for route. \r\n\r\n\r\n",
+              "createdAt": "2025-11-28T12:07:43Z",
+              "updatedAt": "2025-11-28T12:07:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RvX0C",
+          "commit": {
+            "abbreviatedOid": "e8bd763"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-28T12:45:08Z",
+          "updatedAt": "2025-11-28T12:45:09Z",
+          "comments": [
+            {
+              "originalPosition": 246,
+              "body": "Should autnumSet also not prefix AS similar to autnum lookup's? \n\nShould this be changed to :\nhttps://example.com/rdap/irr0_autnumSet/01121978 instead?",
+              "createdAt": "2025-11-28T12:45:09Z",
+              "updatedAt": "2025-11-28T12:45:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RwE1o",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-28T13:37:10Z",
+          "updatedAt": "2025-11-28T13:37:10Z",
+          "comments": [
+            {
+              "originalPosition": 356,
+              "body": "Added text \"Support for peering-set, rtr-set and filter-set is optional and may be provided at the discretion of the implementation.\"",
+              "createdAt": "2025-11-28T13:37:10Z",
+              "updatedAt": "2025-11-28T13:37:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RwMq8",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-28T13:47:35Z",
+          "updatedAt": "2025-11-28T13:47:36Z",
+          "comments": [
+            {
+              "originalPosition": 216,
+              "body": "I have corrected tis at few more places. Thanks for pointing this out",
+              "createdAt": "2025-11-28T13:47:35Z",
+              "updatedAt": "2025-11-28T13:47:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7RwcYK",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-28T14:07:52Z",
+          "updatedAt": "2025-11-28T14:07:52Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "After discussing with Ed too, I have  renamed \"prefix\" to \"route\" to match with RPSL",
+              "createdAt": "2025-11-28T14:07:52Z",
+              "updatedAt": "2025-11-28T14:07:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7R2hGZ",
+          "commit": {
+            "abbreviatedOid": "1f7f1ca"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-29T15:02:52Z",
+          "updatedAt": "2025-11-29T15:02:52Z",
+          "comments": [
+            {
+              "originalPosition": 58,
+              "body": "My key point is that the spec should not pre-define the structure of the \"handle\" field to allow registries the leeway for how they would like to unique-ify records, say, using a UUID or a sequence. Every object class in RFC 9083 defines \"handle\" as \"a registry-unique identifier\" and leaves it at that. Furthermore, one can always define multiple lookup endpoints, say, one by handle and another by the route-origin combo (natural identifier). For a similar, please see: https://www.ietf.org/archive/id/draft-ietf-regext-rdap-rpki-02.html#name-lookup-2.",
+              "createdAt": "2025-11-29T15:02:52Z",
+              "updatedAt": "2025-11-29T15:17:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7R2iiR",
+          "commit": {
+            "abbreviatedOid": "614659d"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-29T15:22:10Z",
+          "updatedAt": "2025-11-29T15:22:10Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "This is great. Such section references make the spec more precise. :)",
+              "createdAt": "2025-11-29T15:22:10Z",
+              "updatedAt": "2025-11-29T15:22:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7SDJ4t",
+          "commit": {
+            "abbreviatedOid": "7486a21"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T09:31:28Z",
+          "updatedAt": "2025-12-01T09:31:29Z",
+          "comments": [
+            {
+              "originalPosition": 58,
+              "body": "Thanks for explaining. Makes sense to leave it to RIR. ",
+              "createdAt": "2025-12-01T09:31:28Z",
+              "updatedAt": "2025-12-01T09:31:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7SDKKO",
+          "commit": {
+            "abbreviatedOid": "614659d"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T09:31:48Z",
+          "updatedAt": "2025-12-01T09:31:48Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "Thanks for suggesting this ",
+              "createdAt": "2025-12-01T09:31:48Z",
+              "updatedAt": "2025-12-01T09:31:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7SFQW5",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "maggarwal13",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T11:54:03Z",
+          "updatedAt": "2025-12-01T11:54:04Z",
+          "comments": [
+            {
+              "originalPosition": 168,
+              "body": "Since we are not expanding the objects to avoid risk of bloating the response , I think it's good idea. \r\nBut some attributes might exists in other RIR (although redirect will work ) and some might not expand properly. \r\nFor ex:  members:  0.0.0.0/0^1-5 . Although with RIR search it could be possible to expand now but will make server implementation difficult as server need to parse them properly. What do you suggest ?  Although I still need to give a thought around Andy's comment about  \"rdap_irr0_autnum\" and \"rdap_irr0_ipNetwork\"",
+              "createdAt": "2025-12-01T11:54:04Z",
+              "updatedAt": "2025-12-01T12:07:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7SI0gR",
+          "commit": {
+            "abbreviatedOid": "ff630ff"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T15:13:43Z",
+          "updatedAt": "2025-12-01T15:13:44Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Would it be a better example with a CIDR string instead? Say, \"192.0.2.0/24\" or similar.",
+              "createdAt": "2025-12-01T15:13:43Z",
+              "updatedAt": "2025-12-01T15:13:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7SI11C",
+          "commit": {
+            "abbreviatedOid": "ff630ff"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-01T15:14:31Z",
+          "updatedAt": "2025-12-01T15:14:32Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "\"registry unique\" -> \"registry-unique\"?",
+              "createdAt": "2025-12-01T15:14:32Z",
+              "updatedAt": "2025-12-01T15:14:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM7qK-6K",
+          "commit": {
+            "abbreviatedOid": "e5e1a73"
+          },
+          "author": "anewton1998",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-03-11T11:03:29Z",
+          "updatedAt": "2026-03-11T11:03:29Z",
+          "comments": [
+            {
+              "originalPosition": 187,
+              "body": "A whole example would be good.",
+              "createdAt": "2026-03-11T11:03:29Z",
+              "updatedAt": "2026-03-11T11:03:29Z"
             }
           ]
         }
