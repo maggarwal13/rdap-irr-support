@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-14T02:53:40.411555+00:00",
+  "timestamp": "2026-06-14T03:50:15.210503+00:00",
   "repo": "maggarwal13/rdap-irr-support",
   "labels": [
     {
@@ -80,7 +80,7 @@
       "labels": [],
       "body": "The core specifications for RDAP defines core object types, but it does\r\nnot contain objects for Internet Routing Registries (IRRs). This document is\r\nintended to address this gap.",
       "createdAt": "2025-11-24T11:24:50Z",
-      "updatedAt": "2026-05-12T12:26:34Z",
+      "updatedAt": "2026-06-13T20:30:00Z",
       "baseRepository": "maggarwal13/rdap-irr-support",
       "baseRefName": "main",
       "baseRefOid": "46c059c16e3d387d8a6494c6a287d75a8b28f8d3",
@@ -1498,6 +1498,579 @@
               "body": "Since this RFC introduces only a single RDAPConformance value, I believe its scope should be limited to lookup queries. If we include reverse search or other query types in this RFC, it would effectively imply that implementing RDAP lookup for IRR data first requires implementing reverse search, which could make the RFC significantly more complex.",
               "createdAt": "2026-05-12T12:26:34Z",
               "updatedAt": "2026-05-12T12:26:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC708cg",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:16:50Z",
+          "updatedAt": "2026-06-13T19:16:50Z",
+          "comments": [
+            {
+              "originalPosition": 76,
+              "body": "Nit: This para is repeated.",
+              "createdAt": "2026-06-13T19:16:50Z",
+              "updatedAt": "2026-06-13T20:03:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC71T9A",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:18:42Z",
+          "updatedAt": "2026-06-13T19:18:42Z",
+          "comments": [
+            {
+              "originalPosition": 88,
+              "body": "In the HTML version of this markdown, references show up as \"RFC9082#section-3.1\". Please use the [IETF Author Tools](https://author-tools.ietf.org/) to see the rendering of this draft.",
+              "createdAt": "2026-06-13T19:18:42Z",
+              "updatedAt": "2026-06-13T20:05:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC71dCw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:20:33Z",
+          "updatedAt": "2026-06-13T19:20:33Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "Also, given we now have the [RDAP RPKI](https://www.ietf.org/archive/id/draft-ietf-regext-rdap-rpki-04.html) specification and things are gradually shifting from IRR to RPKI, good to justify why RDAP IRR would still be useful. A stronger problem statement and introduction should aid with the WG adoption of this spec.",
+              "createdAt": "2026-06-13T19:20:33Z",
+              "updatedAt": "2026-06-13T20:04:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC71oZw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:23:35Z",
+          "updatedAt": "2026-06-13T19:23:35Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "Also, it should help to introduce IRR here; especially, what its purpose is.",
+              "createdAt": "2026-06-13T19:23:35Z",
+              "updatedAt": "2026-06-13T20:04:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC71xmw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:26:05Z",
+          "updatedAt": "2026-06-13T19:26:05Z",
+          "comments": [
+            {
+              "originalPosition": 52,
+              "body": "Nit: \"The core specifications for RDAP defines core object types, but it does not contain objects for Internet Routing Registries (IRRs).\" ... fix singular/plural mixup.\n\nIn general, would be good to clean up such nits before submitting this spec as an Internet-Draft.",
+              "createdAt": "2026-06-13T19:26:05Z",
+              "updatedAt": "2026-06-13T20:03:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC710gw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:26:56Z",
+          "updatedAt": "2026-06-13T19:26:56Z",
+          "comments": [
+            {
+              "originalPosition": 89,
+              "body": "Nit: Space needed after each comma. And, \", and\" instead of comma before 'entity'?",
+              "createdAt": "2026-06-13T19:26:56Z",
+              "updatedAt": "2026-06-13T20:35:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC716JQ",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:28:42Z",
+          "updatedAt": "2026-06-13T19:28:42Z",
+          "comments": [
+            {
+              "originalPosition": 93,
+              "body": "Since these RPSL classes are introduced for the first time in this section, would be good to refer to their sections from RFC 2622 here.",
+              "createdAt": "2026-06-13T19:28:42Z",
+              "updatedAt": "2026-06-13T20:07:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC72BuA",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:30:53Z",
+          "updatedAt": "2026-06-13T19:30:53Z",
+          "comments": [
+            {
+              "originalPosition": 93,
+              "body": "Found the \"Used to identify\" phrase a bit confusing when listing these lookup path segments. Not sure if there is a better phrase to use here.",
+              "createdAt": "2026-06-13T19:30:53Z",
+              "updatedAt": "2026-06-13T19:30:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC72IOQ",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:31:59Z",
+          "updatedAt": "2026-06-13T19:31:59Z",
+          "comments": [
+            {
+              "originalPosition": 99,
+              "body": "Similarly, the phrase \"Defines the name\" seems less pertinent here, no?",
+              "createdAt": "2026-06-13T19:31:59Z",
+              "updatedAt": "2026-06-13T19:31:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC72PNw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:33:49Z",
+          "updatedAt": "2026-06-13T19:33:49Z",
+          "comments": [
+            {
+              "originalPosition": 107,
+              "body": "For each new RPSL class we are introducing in this spec, it might help to briefly describe its purpose vis-a-vis internet routing.",
+              "createdAt": "2026-06-13T19:33:49Z",
+              "updatedAt": "2026-06-13T19:33:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC72T5Q",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:35:08Z",
+          "updatedAt": "2026-06-13T19:35:09Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "Such elided example in each section seem redundant now, given there is a more detailed example later on, no?",
+              "createdAt": "2026-06-13T19:35:09Z",
+              "updatedAt": "2026-06-13T20:39:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC72gdQ",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:38:18Z",
+          "updatedAt": "2026-06-13T19:38:18Z",
+          "comments": [
+            {
+              "originalPosition": 152,
+              "body": "Since [section 2.5.6](https://www.ietf.org/archive/id/draft-ietf-regext-rdap-extensions-12.html#name-camel-casing) of the RDAP Extensions draft recommends using camel-casing, it might be better to attempt converting JSON names with '-' in them to camel-cased forms. E.g., 'member-of' would become 'memberOf'. ",
+              "createdAt": "2026-06-13T19:38:18Z",
+              "updatedAt": "2026-06-13T20:09:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC72jkw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:39:16Z",
+          "updatedAt": "2026-06-13T19:39:16Z",
+          "comments": [
+            {
+              "originalPosition": 176,
+              "body": "Nit: Should it be `\"128.8.0.0/15/AS127\"`?",
+              "createdAt": "2026-06-13T19:39:16Z",
+              "updatedAt": "2026-06-13T19:42:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC72sXQ",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:41:47Z",
+          "updatedAt": "2026-06-13T19:41:47Z",
+          "comments": [
+            {
+              "originalPosition": 174,
+              "body": "Would be good to pretty-print each example for consistency. Also, the colon is typically right after a member name without any space. E.g., `\"holes\" : [\"128.8.8.0/24\"],` would become `\"holes\": [\"128.8.8.0/24\"],`.",
+              "createdAt": "2026-06-13T19:41:47Z",
+              "updatedAt": "2026-06-13T20:10:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC7238g",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:44:22Z",
+          "updatedAt": "2026-06-13T19:44:22Z",
+          "comments": [
+            {
+              "originalPosition": 274,
+              "body": "Nit: Should this value be `\"https://example.net/irr0_route/128.8.0.0/15/AS127\"`? If so, good to verify JSON values in other examples as well.",
+              "createdAt": "2026-06-13T19:44:22Z",
+              "updatedAt": "2026-06-13T20:10:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC72-sw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:45:06Z",
+          "updatedAt": "2026-06-13T19:45:06Z",
+          "comments": [
+            {
+              "originalPosition": 293,
+              "body": "Why is \"SET\" uppercased?",
+              "createdAt": "2026-06-13T19:45:06Z",
+              "updatedAt": "2026-06-13T19:45:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC73Lsw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:46:45Z",
+          "updatedAt": "2026-06-13T19:46:45Z",
+          "comments": [
+            {
+              "originalPosition": 306,
+              "body": "URL-encode colon `:` here. Please check for such URL-encoding in other URIs as well. ",
+              "createdAt": "2026-06-13T19:46:45Z",
+              "updatedAt": "2026-06-13T19:46:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC73NMA",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:47:08Z",
+          "updatedAt": "2026-06-13T19:47:08Z",
+          "comments": [
+            {
+              "originalPosition": 308,
+              "body": "Extraneous per my earlier comment?",
+              "createdAt": "2026-06-13T19:47:08Z",
+              "updatedAt": "2026-06-13T19:47:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC73OqA",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:47:32Z",
+          "updatedAt": "2026-06-13T19:47:32Z",
+          "comments": [
+            {
+              "originalPosition": 472,
+              "body": "Extraneous per my earlier comment?",
+              "createdAt": "2026-06-13T19:47:32Z",
+              "updatedAt": "2026-06-13T19:47:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC73UIA",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:49:08Z",
+          "updatedAt": "2026-06-13T19:49:08Z",
+          "comments": [
+            {
+              "originalPosition": 302,
+              "body": "Where is \u201cname\u201d member defined in route-set's RDAP object class?. Though, see \"handle\" defined.\n\nNoticed similar anomaly in other set object classes as well.",
+              "createdAt": "2026-06-13T19:49:08Z",
+              "updatedAt": "2026-06-13T20:11:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC73nPQ",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:54:13Z",
+          "updatedAt": "2026-06-13T19:54:13Z",
+          "comments": [
+            {
+              "originalPosition": 529,
+              "body": "For readability, might be able to shorten the entity data in examples with a `...` after \"handle\"?",
+              "createdAt": "2026-06-13T19:54:13Z",
+              "updatedAt": "2026-06-13T19:54:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC73s_w",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:55:44Z",
+          "updatedAt": "2026-06-13T19:55:45Z",
+          "comments": [
+            {
+              "originalPosition": 1123,
+              "body": "For readability, good to double-quote `irr_policies` here and any such mention of other JSON members in text.",
+              "createdAt": "2026-06-13T19:55:45Z",
+              "updatedAt": "2026-06-13T19:55:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC734Qw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T19:58:44Z",
+          "updatedAt": "2026-06-13T19:58:44Z",
+          "comments": [
+            {
+              "originalPosition": 93,
+              "body": "Before starting to use \"irr0\" extension id, should we introduce it in a section above? Just as a reference, see a [similar section](https://www.ietf.org/archive/id/draft-ietf-regext-rdap-rpki-04.html#name-extension) for RDAP RPKI.",
+              "createdAt": "2026-06-13T19:58:44Z",
+              "updatedAt": "2026-06-13T19:58:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC739Kg",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T20:00:03Z",
+          "updatedAt": "2026-06-13T20:00:03Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "Nit: Somehow \"~~organization\" ends up omitting \"RIPE NCC\" as your org from the HTML version.",
+              "createdAt": "2026-06-13T20:00:03Z",
+              "updatedAt": "2026-06-13T20:00:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC74wsg",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T20:13:38Z",
+          "updatedAt": "2026-06-13T20:13:38Z",
+          "comments": [
+            {
+              "originalPosition": 1184,
+              "body": "For a start, registering \"irr0\" extension id with the IANA.",
+              "createdAt": "2026-06-13T20:13:38Z",
+              "updatedAt": "2026-06-13T20:13:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC747jw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Overall, a good start but IMHO needs greater rationale and detail, as well as cleanup, before submitting it as an Internet-Draft.",
+          "createdAt": "2026-06-13T20:16:15Z",
+          "updatedAt": "2026-06-13T20:16:15Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC75cBw",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T20:23:54Z",
+          "updatedAt": "2026-06-13T20:23:54Z",
+          "comments": [
+            {
+              "originalPosition": 187,
+              "body": ">And for this reason, we should think about defining relationships, such as \"rdap_irr0_autnum\" and \"rdap_irr0_ipNetwork\". Thoughts?\n\n@anewton1998 Assuming you are talking about relation types here, wonder if this is something we should start considering for each extension if that extension introduces new web links? A bit ambivalent about this given \"related\" generally suffices. Though, as an example of usefulness of specific relation types, we ended up introducing [\"rdap-help\" relation type](https://www.ietf.org/archive/id/draft-ietf-regext-rdap-rpki-04.html#name-rdap-for-delegated-and-hybr) in RDAP RPKI for non-hosted RPKI types.",
+              "createdAt": "2026-06-13T20:23:54Z",
+              "updatedAt": "2026-06-13T20:23:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC75ong",
+          "commit": {
+            "abbreviatedOid": "7abe244"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T20:27:36Z",
+          "updatedAt": "2026-06-13T20:27:37Z",
+          "comments": [
+            {
+              "originalPosition": 246,
+              "body": "Typically a lookup is based on a unique key. What's it for as-set? Using ASN here seems more like a search if that ASN occurs in mutliple as-set objects, no?",
+              "createdAt": "2026-06-13T20:27:37Z",
+              "updatedAt": "2026-06-13T20:27:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOQa7tLM8AAAABC75ymA",
+          "commit": {
+            "abbreviatedOid": "503b9c0"
+          },
+          "author": "jasdips",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-06-13T20:29:59Z",
+          "updatedAt": "2026-06-13T20:30:00Z",
+          "comments": [
+            {
+              "originalPosition": 504,
+              "body": "I think for now lookup's should suffice. Let's see if regext could ask for searches.",
+              "createdAt": "2026-06-13T20:29:59Z",
+              "updatedAt": "2026-06-13T20:30:00Z"
             }
           ]
         }
