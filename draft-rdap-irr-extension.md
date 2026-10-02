@@ -55,6 +55,7 @@ informative:
   RFC7481:
   RFC8446:
   BCP195:
+  I-D.ietf-grow-rpsl-via:
 
 ...
 
@@ -113,14 +114,14 @@ The route object class can contain the following members:
 * "origin" -- a string representing an autonomous system number for which a route is referenced; as per {{Section 4 of RFC2622}}
 * "routeVersion" -- a string signifying the ip protocol version of the network: "v4" signifies an route with ipv4 network, and "v6" signifies a route with ipv6 network
 * "remarks" -- see {{Section 4.3 of RFC9083}}
-* "pingable" -- an array of strings each containing a value as specified in {{RFC5943}}
-* "holes" -- an array of strings each containing a value as specified in {{Section 4 of RFC2622}}
-* "member-of" -- an array of strings, each containing a value as specified in {{Section 4 of RFC2622}}
-* "inject" -- an array of strings, each containing a value as specified in {{Section 4 of RFC2622}}
-* "components" -- a string containing a value as specified in {{Section 4 of RFC2622}}
-* "aggregateBoundary" -- a string containing a value as specified in {{Section 4 of RFC2622}}
-* "aggregateMtd" -- a string containing a value as specified in {{Section 4 of RFC2622}}
-* "exportComps" -- a string containing a value as specified in {{Section 4 of RFC2622}}
+* "pingable" -- an array of strings each containing a value as specified in {{Section 2 of RFC5943}}
+* "holes" -- an array of strings each containing a value as specified in {{Section 8.1 of RFC2622}}
+* "member-of" -- an array of strings, each containing a value as specified in {{Section 5.2 of RFC2622}}
+* "inject" -- an array of strings, each containing a value as specified in {{Section 8 of RFC2622}}
+* "components" -- a string containing a value as specified in {{Section 8.1 of RFC2622}}
+* "aggregateBoundary" -- a string containing a value as specified in {{Section 8.1 of RFC2622}}
+* "aggregateMtd" -- a string containing a value as specified in {{Section 8.1 of RFC2622}}
+* "exportComps" -- a string containing a value as specified in {{Section 8.1 of RFC2622}}
 * "entities" -- an array of entity objects as defined by {{Section 5.1 of RFC9083}}
 * "links" -- see {{Section 4.2 of RFC9083}}
 * "port43" -- see {{Section 4.7 of RFC9083}}
@@ -465,7 +466,7 @@ The filterSet object class can contain the following members:
 * "objectClassName" -- the string "irr0_filterSet"
 * "handle" -- a string representing the registry-unique identifier of the filterSet
 * "filter" -- an array of strings each defines the set's policy filter as per {{Section 5.4 of RFC2622}}
-* "mp-filter" -- an array of strings, each containing a value as specified in {{Section 2.5.2 of RFC4012}}
+* "mp-filter" -- an array of strings, each containing a value as specified in {{Section 4.3 of RFC4012}}
 * "remarks" -- see {{Section 4.3 of RFC9083}}
 * "entities" -- an array of entity objects as defined by {{Section 5.1 of RFC9083}}
 * "links" -- see {{Section 4.2 of RFC9083}}
@@ -518,18 +519,18 @@ The following is an example of filterSet that might be served by an RIR.
 
 # Autnum Route Policies
 
-{{Section 3.1 of RFC9082}} defines the basic search for autnum objectClass.
+{{Section 3.1.2 of RFC9082}} defines the basic search for autnum objectClass.
 The returned JSON object for Autnum search May include "irr_policies" object member.
 "irr_policies" is an optional and must be an array, the order of the objects in the array is to be observed during processing.
 
 "irr0_policies" can contain following object member and each of them is a string containing a value as specified by RPSL:
 
-* "import"
-* "mp-import"
-* "import-via"
-* "export"
-* "mp-export"
-* "export-via"
+* "import" -- see {{Section 6.1 of RFC2622}}
+* "mp-import" -- see {{Section 2.5 of RFC4012}}
+* "import-via" -- see {{I-D.ietf-grow-rpsl-via}}
+* "export" -- see {{Section 6.2 of RFC2622}}
+* "mp-export" -- see {{Section 2.5 of RFC4012}}
+* "export-via" -- see {{I-D.ietf-grow-rpsl-via}}
 
 An example "irr_policies" data structure:
 
@@ -542,7 +543,7 @@ An example "irr_policies" data structure:
 
 # RDAP Conformance
 
-A server that supports the functionality specified in this document MUST include additional string literal "irr0" in the "rdapConformance" array of its responses.
+A server that supports the functionality specified in this document MUST include the additional string literal "irr0" in the "rdapConformance" array ({{Section 4.1 of RFC9083}}) of its responses.
 
 # Discussions
 
@@ -550,10 +551,10 @@ TODO Discussions
 
 # Privacy Considerations
 
-The search functionality defined in this document may affect the privacy of entities in the registry (and elsewhere) in various ways: see {{RFC6973}} for a general treatment of privacy in protocol specifications, and {{RFC7481}} for specific discussion about privacy threats with respect to the registration data provided by RDAP.
+The search functionality defined in this document may affect the privacy of entities in the registry (and elsewhere) in various ways: see {{RFC6973}} for a general treatment of privacy in protocol specifications, and {{Section 4 of RFC7481}} for specific discussion about privacy threats with respect to the registration data provided by RDAP.
 Server operators should be aware of the tradeoffs that result from implementation of this functionality.
 
-Many jurisdictions have laws or regulations that restrict the use of "Personal Data", per the definition in {{RFC6973}}.
+Many jurisdictions have laws or regulations that restrict the use of "Personal Data", per the definition in {{Section 3.2 of RFC6973}}.
 Given that, server operators should ascertain whether the regulatory environment in which they operate permits implementation of the functionality defined in this document.
 
 # Security Considerations
@@ -561,7 +562,7 @@ Given that, server operators should ascertain whether the regulatory environment
 {{RFC7481}} describes security requirements and considerations for RDAP generally.
 Additionally, guidance as to the use of TLS has changed since that document was published: see {{RFC8446}} and {{BCP195}} for further detail.
 
-{{RFC9082}} includes security considerations relating to object retrieval in RDAP.
+{{Section 8 of RFC9082}} includes security considerations relating to object retrieval in RDAP.
 Those considerations are relevant here as well.
 
 # IANA Considerations
