@@ -10,24 +10,24 @@ number:
 date:
 consensus: true
 v: 3
-area: Internet
+area: "Operations and Management"
 workgroup: Internet Engineering Task Force
 keyword:
-  - next generation
-  - unicorn
-  - sparkling distributed ledger
+  - RDAP
+  - IRR
+  - RPSL
 venue:
   group: regext
   type: Working Group
   mail: regext@ietf.org
-  arch: https://example.com/WG
+  arch: https://mailarchive.ietf.org/arch/browse/regext/
   github: maggarwal13/rdap-irr-support
-  latest: https://github.com/maggarwal13/rdap-irr-suppor/LATEST
+  latest: https://maggarwal13.github.io/rdap-irr-support/draft-rdap-irr-extension.html
 
 author:
   -
     fullname: Mahesh Aggarwal
-    ~~organization: RIPE NCC
+    organization: RIPE NCC
     email: maggarwal@ripe.net
   -
     fullname: Jasdip Singh
@@ -37,10 +37,24 @@ author:
     fullname: Andy Newton
     organization: ICANN
     email: andy@hxr.us
+  -
+    fullname: Sasha Romijn
+    organization: Reliably Coded
+    email: sasha@reliablycoded.nl
 
 normative:
+  RFC2622:
+  RFC4012:
+  RFC5943:
+  RFC7480:
+  RFC9082:
+  RFC9083:
 
 informative:
+  RFC6973:
+  RFC7481:
+  RFC8446:
+  BCP195:
 
 ...
 
@@ -54,15 +68,13 @@ This document is intended to address this gap.
 
 # Introduction
 
-The Registration Data Access Protocol (RDAP) [RFC7480] is used by Regional Internet Registries (RIRs) and Domain Name Registries (DNRs) to provide access to their resource registration information.
+The Registration Data Access Protocol (RDAP) {{RFC7480}} is used by Regional Internet Registries (RIRs) and Domain Name Registries (DNRs) to provide access to their resource registration information.
 The core specifications for RDAP defines core object types, but it does not contain objects for Internet Routing Registries (IRRs).
 This document is intended to address this gap.
 
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
-
-The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all capitals, as shown here.
 
 Indentation and whitespace in examples are provided only to illustrate element relationships, and are not a required feature of this specification.
 
@@ -72,7 +84,7 @@ To keep the examples short, entities in them only include the "objectClassName",
 
 # Lookup Path Segment specification
 
-RFC9082#section-3.1 defines the simple lookup path segments for types: "ip", "autnum", "domain", "nameserver", and "entity".
+{{Section 3.1 of RFC9082}} defines the simple lookup path segments for types: "ip", "autnum", "domain", "nameserver", and "entity".
 
 This document aims to extend this to add following path segments:
 
@@ -85,7 +97,7 @@ This document aims to extend this to add following path segments:
 
 # The Route Object Class
 
-It is the RDAP representation of the RPSL route class defined in rfc2622#section-4
+It is the RDAP representation of the RPSL route class defined in {{Section 4 of RFC2622}}
 
 Syntax: `irr0_route/< IP prefix of the interAS route >/< AS that originates the route >`
 
@@ -97,22 +109,22 @@ The route object class can contain the following members:
 
 * "objectClassName" -- the string "irr0_route"
 * "handle" -- a string representing the registry-unique identifier of the route object
-* "route" -- a string representing the address-prefix for which a route is referenced; as per rfc2622#section-4
-* "origin" -- a string representing an autonomous system number for which a route is referenced; as per rfc2622#section-4
+* "route" -- a string representing the address-prefix for which a route is referenced; as per {{Section 4 of RFC2622}}
+* "origin" -- a string representing an autonomous system number for which a route is referenced; as per {{Section 4 of RFC2622}}
 * "routeVersion" -- a string signifying the ip protocol version of the network: "v4" signifies an route with ipv4 network, and "v6" signifies a route with ipv6 network
-* "remarks" -- see RFC9083#Section 4.3
-* "pingable" -- an array of strings each containing a value as specified in RFC5943
-* "holes" -- an array of strings each containing a value as specified in RFC2622#section-4
-* "member-of" -- an array of strings, each containing a value as specified in RFC2622#section-4
-* "inject" -- an array of strings, each containing a value as specified in RFC2622#section-4
-* "components" -- a string containing a value as specified in RFC2622#section-4
-* "aggregateBoundary" -- a string containing a value as specified in RFC2622#section-4
-* "aggregateMtd" -- a string containing a value as specified in RFC2622#section-4
-* "exportComps" -- a string containing a value as specified in RFC2622#section-4
-* "entities" -- an array of entity objects as defined by RFC9083#Section 5.1
-* "links" -- see RFC9083#Section 4.2
-* "port43" -- see RFC9083#Section 4.7
-* "events" -- see RFC9083#Section 4.5
+* "remarks" -- see {{Section 4.3 of RFC9083}}
+* "pingable" -- an array of strings each containing a value as specified in {{RFC5943}}
+* "holes" -- an array of strings each containing a value as specified in {{Section 4 of RFC2622}}
+* "member-of" -- an array of strings, each containing a value as specified in {{Section 4 of RFC2622}}
+* "inject" -- an array of strings, each containing a value as specified in {{Section 4 of RFC2622}}
+* "components" -- a string containing a value as specified in {{Section 4 of RFC2622}}
+* "aggregateBoundary" -- a string containing a value as specified in {{Section 4 of RFC2622}}
+* "aggregateMtd" -- a string containing a value as specified in {{Section 4 of RFC2622}}
+* "exportComps" -- a string containing a value as specified in {{Section 4 of RFC2622}}
+* "entities" -- an array of entity objects as defined by {{Section 5.1 of RFC9083}}
+* "links" -- see {{Section 4.2 of RFC9083}}
+* "port43" -- see {{Section 4.7 of RFC9083}}
+* "events" -- see {{Section 4.5 of RFC9083}}
 
 The following is an example of the JSON object
 
@@ -172,13 +184,13 @@ The following is an example of the JSON object
 
 # The SET Object Class
 
-RFC2622#section-5 defines SET objects.
+{{Section 5 of RFC2622}} defines SET objects.
 This section aims to represent SET classes in RDAP representation.
 Support for peering-set, rtr-set and filter-set is optional and may be provided at the discretion of the implementation.
 
 ## Route Set Object Class
 
-It is the RDAP representation of the RPSL route-set class defined in rfc2622#section-5.2
+It is the RDAP representation of the RPSL route-set class defined in {{Section 5.2 of RFC2622}}
 
 Syntax: `irr0_routeSet/< name of the route set >`
 
@@ -190,13 +202,13 @@ The routeSet object class can contain the following members:
 
 * "objectClassName" -- the string "irr0_routeSet"
 * "handle" -- a string representing the registry-unique identifier of the routeSet object.
-* "members" -- an array of strings, each containing a value as specified in RFC2622#section-5.2
-* "mp-members" -- an array of strings, each containing a value as specified in RFC4012#section-4.2
-* "remarks" -- see RFC9083#Section 4.3
-* "entities" -- an array of entity objects as defined by RFC9083#Section 5.1
-* "links" -- see RFC9083#Section 4.2
-* "port43" -- see RFC9083#Section 4.7
-* "events" -- see RFC9083#Section 4.5
+* "members" -- an array of strings, each containing a value as specified in {{Section 5.2 of RFC2622}}
+* "mp-members" -- an array of strings, each containing a value as specified in {{Section 4.2 of RFC4012}}
+* "remarks" -- see {{Section 4.3 of RFC9083}}
+* "entities" -- an array of entity objects as defined by {{Section 5.1 of RFC9083}}
+* "links" -- see {{Section 4.2 of RFC9083}}
+* "port43" -- see {{Section 4.7 of RFC9083}}
+* "events" -- see {{Section 4.5 of RFC9083}}
 
 The following is an example of a routeSet that might be served by an RIR.
 
@@ -244,7 +256,7 @@ The following is an example of a routeSet that might be served by an RIR.
 
 ## Autnum Set Object Class
 
-It is the RDAP representation of the RPSL autnum-set class defined in RFC2622#section-5.1
+It is the RDAP representation of the RPSL autnum-set class defined in {{Section 5.1 of RFC2622}}
 
 Syntax: `irr0_autnumSet/< name of the as-set >`
 
@@ -256,12 +268,12 @@ The autnumSet object class can contain the following members:
 
 * "objectClassName" -- the string "irr0_autnumSet"
 * "handle" -- a string representing the registry-unique identifier of the autnumSet object.
-* "members" -- an array of strings, each containing a value as specified in RFC2622#section-5.1
-* "remarks" -- see RFC9083#Section 4.3
-* "entities" -- an array of entity objects as defined by RFC9083#Section 5.1
-* "links" -- see RFC9083#Section 4.2
-* "port43" -- see RFC9083#Section 4.7
-* "events" -- see RFC9083#Section 4.5
+* "members" -- an array of strings, each containing a value as specified in {{Section 5.1 of RFC2622}}
+* "remarks" -- see {{Section 4.3 of RFC9083}}
+* "entities" -- an array of entity objects as defined by {{Section 5.1 of RFC9083}}
+* "links" -- see {{Section 4.2 of RFC9083}}
+* "port43" -- see {{Section 4.7 of RFC9083}}
+* "events" -- see {{Section 4.5 of RFC9083}}
 
 The following is an example of an autnumSet that might be served by an RIR.
 
@@ -308,7 +320,7 @@ The following is an example of an autnumSet that might be served by an RIR.
 
 ## RTR Set Object Class
 
-It is the RDAP representation of the RPSL rtr-set class defined in RFC2622#section-5.5
+It is the RDAP representation of the RPSL rtr-set class defined in {{Section 5.5 of RFC2622}}
 
 Syntax: `irr0_rtrSet/< name of the router-set >`
 
@@ -320,13 +332,13 @@ The rtrSet set object class can contain the following members:
 
 * "objectClassName" -- the string "irr0_rtrSet"
 * "handle" -- a string representing the registry-unique identifier of the rtrSet.
-* "members" -- an array of strings, each containing a value as specified in RFC2622#section-5.5
-* "mp-members" -- an array of strings, each containing a value as specified in RFC4012#section-4.6
-* "remarks" -- see RFC9083#Section 4.3
-* "entities" -- an array of entity objects as defined by Section 5.1
-* "links" -- see RFC9083#Section 4.2
-* "port43" -- see RFC9083#Section 4.7
-* "events" -- see RFC9083#Section 4.5
+* "members" -- an array of strings, each containing a value as specified in {{Section 5.5 of RFC2622}}
+* "mp-members" -- an array of strings, each containing a value as specified in {{Section 4.6 of RFC4012}}
+* "remarks" -- see {{Section 4.3 of RFC9083}}
+* "entities" -- an array of entity objects as defined by {{Section 5.1 of RFC9083}}
+* "links" -- see {{Section 4.2 of RFC9083}}
+* "port43" -- see {{Section 4.7 of RFC9083}}
+* "events" -- see {{Section 4.5 of RFC9083}}
 
 The following is an example of rtrSet that might be served by an RIR.
 
@@ -374,7 +386,7 @@ The following is an example of rtrSet that might be served by an RIR.
 
 ## Peering Set Object Class
 
-It is the RDAP representation of the RPSL peering-set class defined in RFC2622#section-5.6
+It is the RDAP representation of the RPSL peering-set class defined in {{Section 5.6 of RFC2622}}
 
 Syntax: `irr0_peeringSet/< name of the peering-set >`
 
@@ -386,13 +398,13 @@ The peeringSet object class can contain the following members:
 
 * "objectClassName" -- the string "irr0_peeringSet"
 * "handle" -- a string representing the registry-unique identifier of the peeringSet
-* "peering" -- an array of strings, each containing a value as specified in RFC2622#section-5.6
-* "mp-peering" -- an array of strings, each containing a value as specified in RFC4012#section-4.4
-* "remarks" -- see RFC9083#Section 4.3
-* "entities" -- an array of entity objects as defined by Section 5.1
-* "links" -- see RFC9083#Section 4.2
-* "port43" -- see RFC9083#Section 4.7
-* "events" -- see RFC9083#Section 4.5
+* "peering" -- an array of strings, each containing a value as specified in {{Section 5.6 of RFC2622}}
+* "mp-peering" -- an array of strings, each containing a value as specified in {{Section 4.4 of RFC4012}}
+* "remarks" -- see {{Section 4.3 of RFC9083}}
+* "entities" -- an array of entity objects as defined by {{Section 5.1 of RFC9083}}
+* "links" -- see {{Section 4.2 of RFC9083}}
+* "port43" -- see {{Section 4.7 of RFC9083}}
+* "events" -- see {{Section 4.5 of RFC9083}}
 
 The following is an example of peeringSet that might be served by an RIR.
 
@@ -440,7 +452,7 @@ The following is an example of peeringSet that might be served by an RIR.
 
 ## Filter Set Object Class
 
-It is the RDAP representation of the RPSL filter-set class defined in RFC2622#section-5.4
+It is the RDAP representation of the RPSL filter-set class defined in {{Section 5.4 of RFC2622}}
 
 Syntax: `irr0_filterSet/< name of the filter >`
 
@@ -452,13 +464,13 @@ The filterSet object class can contain the following members:
 
 * "objectClassName" -- the string "irr0_filterSet"
 * "handle" -- a string representing the registry-unique identifier of the filterSet
-* "filter" -- an array of strings each defines the set's policy filter as per RFC2622#section-5.4
-* "mp-filter" -- an array of strings, each containing a value as specified in RFC4012#Section 2.5.2
-* "remarks" -- see RFC9083#Section 4.3
-* "entities" -- an array of entity objects as defined by Section 5.1
-* "links" -- see RFC9083#Section 4.2
-* "port43" -- see RFC9083#Section 4.7
-* "events" -- see RFC9083#Section 4.5
+* "filter" -- an array of strings each defines the set's policy filter as per {{Section 5.4 of RFC2622}}
+* "mp-filter" -- an array of strings, each containing a value as specified in {{Section 2.5.2 of RFC4012}}
+* "remarks" -- see {{Section 4.3 of RFC9083}}
+* "entities" -- an array of entity objects as defined by {{Section 5.1 of RFC9083}}
+* "links" -- see {{Section 4.2 of RFC9083}}
+* "port43" -- see {{Section 4.7 of RFC9083}}
+* "events" -- see {{Section 4.5 of RFC9083}}
 
 The following is an example of filterSet that might be served by an RIR.
 
@@ -506,7 +518,7 @@ The following is an example of filterSet that might be served by an RIR.
 
 # Autnum Route Policies
 
-RFC9082#section-3.1 defines the basic search for autnum objectClass.
+{{Section 3.1 of RFC9082}} defines the basic search for autnum objectClass.
 The returned JSON object for Autnum search May include "irr_policies" object member.
 "irr_policies" is an optional and must be an array, the order of the objects in the array is to be observed during processing.
 
@@ -538,18 +550,18 @@ TODO Discussions
 
 # Privacy Considerations
 
-The search functionality defined in this document may affect the privacy of entities in the registry (and elsewhere) in various ways: see [RFC6973] for a general treatment of privacy in protocol specifications, and [RFC7481] for specific discussion about privacy threats with respect to the registration data provided by RDAP.
+The search functionality defined in this document may affect the privacy of entities in the registry (and elsewhere) in various ways: see {{RFC6973}} for a general treatment of privacy in protocol specifications, and {{RFC7481}} for specific discussion about privacy threats with respect to the registration data provided by RDAP.
 Server operators should be aware of the tradeoffs that result from implementation of this functionality.
 
-Many jurisdictions have laws or regulations that restrict the use of "Personal Data", per the definition in [RFC6973].
+Many jurisdictions have laws or regulations that restrict the use of "Personal Data", per the definition in {{RFC6973}}.
 Given that, server operators should ascertain whether the regulatory environment in which they operate permits implementation of the functionality defined in this document.
 
 # Security Considerations
 
-[RFC7481] describes security requirements and considerations for RDAP generally.
-Additionally, guidance as to the use of TLS has changed since that document was published: see [RFC8446] and [BCP195] for further detail.
+{{RFC7481}} describes security requirements and considerations for RDAP generally.
+Additionally, guidance as to the use of TLS has changed since that document was published: see {{RFC8446}} and {{BCP195}} for further detail.
 
-[RFC9082] includes security considerations relating to object retrieval in RDAP.
+{{RFC9082}} includes security considerations relating to object retrieval in RDAP.
 Those considerations are relevant here as well.
 
 # IANA Considerations
