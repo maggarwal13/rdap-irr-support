@@ -104,7 +104,7 @@ Syntax: `irr0_route/< IP prefix of the interAS route >/< AS that originates the 
 
 For example, the following URL would be used to find information describing route object
 
-    https://example.com/rdap/irr0_route/192.0.2.0/24/65538
+    https://example.net/irr0_route/192.0.2.0/24/64500
 
 The route object class can contain the following members:
 
@@ -132,13 +132,13 @@ The following is an example of the JSON object
 ~~~ json
 {
   "objectClassName": "irr0_route",
-  "handle": "128.8.0.0/15AS127",
+  "handle": "192.0.2.0/24AS64500",
   "routeVersion": "v4",
-  "origin": "127",
-  "route": "128.8.0.0/15",
-  "pingable": [ "128.8.0.196" ],
-  "holes": [ "128.8.8.0/24" ],
-  "member-of": [ "rs-foo", "rs-bar" ],
+  "origin": "64500",
+  "route": "192.0.2.0/24",
+  "pingable": [ "192.0.2.1" ],
+  "holes": [ "192.0.2.64/26" ],
+  "member-of": [ "RS-FOO", "RS-BAR" ],
   "remarks": [
     {
       "description": [
@@ -149,12 +149,12 @@ The following is an example of the JSON object
   ],
   "country": "NL",
   "inject": [
-    "upon HAVE-COMPONENTS {128.8.0.0/16, 128.9.0.0/16}"
+    "upon HAVE-COMPONENTS {192.0.2.0/25, 192.0.2.128/25}"
   ],
   "aggr-mtd": "outbound AS-ANY",
-  "aggr-bndry": "AS127 OR AS278",
-  "export-comps": "{82.135.152.0/24, 82.135.153.0/24, 82.135.154.0/23, 82.135.156.0/23}",
-  "components": "{128.8.0.0/15^-}",
+  "aggr-bndry": "AS64500 OR AS64501",
+  "export-comps": "{192.0.2.128/26}",
+  "components": "{192.0.2.0/24^-}",
   "entities": [
     {
       "objectClassName": "entity",
@@ -164,9 +164,9 @@ The following is an example of the JSON object
   ],
   "links": [
     {
-      "value": "https://example.net/irr0_route/128.8.0.0/15AS127",
+      "value": "https://example.net/irr0_route/192.0.2.0/24/64500",
       "rel": "self",
-      "href": "https://example.net/irr0_route/128.8.0.0/15AS127",
+      "href": "https://example.net/irr0_route/192.0.2.0/24/64500",
       "type": "application/rdap+json"
     }
   ],
@@ -197,7 +197,7 @@ Syntax: `irr0_routeSet/< name of the route set >`
 
 For example, the following URL would be used to find information describing route-set object
 
-    https://example.com/rdap/irr0_routeSet/AS12329:RS-FROMRUB
+    https://example.net/irr0_routeSet/RS-FOO
 
 The routeSet object class can contain the following members:
 
@@ -216,9 +216,9 @@ The following is an example of a routeSet that might be served by an RIR.
 ~~~ json
 {
   "objectClassName": "irr0_routeSet",
-  "handle": "rs-foo",
-  "members": [ "128.7.0.0/16", "rs-foo" ],
-  "mp-members": [ "192.0.2.0/24" ],
+  "handle": "RS-FOO",
+  "members": [ "192.0.2.0/24", "RS-BAR" ],
+  "mp-members": [ "2001:db8::/32" ],
   "remarks": [
     {
       "description": [
@@ -236,9 +236,9 @@ The following is an example of a routeSet that might be served by an RIR.
   ],
   "links": [
     {
-      "value": "https://example.net/irr0_routeSet/rs-foo",
+      "value": "https://example.net/irr0_routeSet/RS-FOO",
       "rel": "self",
-      "href": "https://example.net/irr0_routeSet/rs-foo",
+      "href": "https://example.net/irr0_routeSet/RS-FOO",
       "type": "application/rdap+json"
     }
   ],
@@ -263,7 +263,7 @@ Syntax: `irr0_autnumSet/< name of the as-set >`
 
 For example, the following URL would be used to find information describing autnum-set object
 
-    https://example.com/rdap/irr0_autnumSet/AS-01121978
+    https://example.net/irr0_autnumSet/AS-FOO
 
 The autnumSet object class can contain the following members:
 
@@ -282,7 +282,7 @@ The following is an example of an autnumSet that might be served by an RIR.
 {
   "objectClassName": "irr0_autnumSet",
   "handle": "AS-FOO",
-  "members": [ "128.7.0.0/16", "rs-foo" ],
+  "members": [ "AS64501", "AS64502", "AS-BAR" ],
   "remarks": [
     {
       "description": [
@@ -327,7 +327,7 @@ Syntax: `irr0_rtrSet/< name of the router-set >`
 
 For example, the following URL would be used to find information describing rtrSet object
 
-    https://example.com/rdap/irr0_rtrSet/AS28816:rtrs-arbinet-customer-rs
+    https://example.net/irr0_rtrSet/RTRS-FOO
 
 The rtrSet set object class can contain the following members:
 
@@ -346,9 +346,9 @@ The following is an example of rtrSet that might be served by an RIR.
 ~~~ json
 {
   "objectClassName": "irr0_rtrSet",
-  "handle": "rtrs-foo",
-  "members": [ "rtr1.isp.net", "rtr2.isp.net" ],
-  "mp-members": [ "192.0.2.0/24" ],
+  "handle": "RTRS-FOO",
+  "members": [ "rtr1.example.net", "rtr2.example.net" ],
+  "mp-members": [ "2001:db8::1" ],
   "remarks": [
     {
       "description": [
@@ -366,9 +366,9 @@ The following is an example of rtrSet that might be served by an RIR.
   ],
   "links": [
     {
-      "value": "https://example.net/irr0_rtrSet/rtrs-foo",
+      "value": "https://example.net/irr0_rtrSet/RTRS-FOO",
       "rel": "self",
-      "href": "https://example.net/irr0_rtrSet/rtrs-foo",
+      "href": "https://example.net/irr0_rtrSet/RTRS-FOO",
       "type": "application/rdap+json"
     }
   ],
@@ -393,7 +393,7 @@ Syntax: `irr0_peeringSet/< name of the peering-set >`
 
 For example, the following URL would be used to find information describing peering-set object
 
-    https://example.com/rdap/irr0_peeringSet/AS12695:PRNG-UPSTREAMS
+    https://example.net/irr0_peeringSet/PRNG-FOO
 
 The peeringSet object class can contain the following members:
 
@@ -412,9 +412,9 @@ The following is an example of peeringSet that might be served by an RIR.
 ~~~ json
 {
   "objectClassName": "irr0_peeringSet",
-  "handle": "prng-bar",
-  "peering": [ "AS2 at 9.9.9.1" ],
-  "mp-peering": [ "AS65002 2001:0DB8::1 at 2001:0DB8::1" ],
+  "handle": "PRNG-FOO",
+  "peering": [ "AS64501 at 198.51.100.1" ],
+  "mp-peering": [ "AS64502 2001:db8::2 at 2001:db8::1" ],
   "remarks": [
     {
       "description": [
@@ -432,9 +432,9 @@ The following is an example of peeringSet that might be served by an RIR.
   ],
   "links": [
     {
-      "value": "https://example.net/irr0_peeringSet/prng-bar",
+      "value": "https://example.net/irr0_peeringSet/PRNG-FOO",
       "rel": "self",
-      "href": "https://example.net/irr0_peeringSet/prng-bar",
+      "href": "https://example.net/irr0_peeringSet/PRNG-FOO",
       "type": "application/rdap+json"
     }
   ],
@@ -459,7 +459,7 @@ Syntax: `irr0_filterSet/< name of the filter >`
 
 For example, the following URL would be used to find information describing filter object
 
-    https://example.com/rdap/irr0_filterSet/AS12528:fltr-bogons
+    https://example.net/irr0_filterSet/FLTR-FOO
 
 The filterSet object class can contain the following members:
 
@@ -478,9 +478,9 @@ The following is an example of filterSet that might be served by an RIR.
 ~~~ json
 {
   "objectClassName": "irr0_filterSet",
-  "handle": "fltr-bar",
-  "filter": [ "(AS1 or fltr-foo) and <AS2>" ],
-  "mp-filter": [ "2001:0DB8:0100::/48^+" ],
+  "handle": "FLTR-FOO",
+  "filter": [ "(AS64501 or FLTR-BAR) and <AS64502>" ],
+  "mp-filter": [ "{2001:db8:100::/48^+}" ],
   "remarks": [
     {
       "description": [
@@ -498,9 +498,9 @@ The following is an example of filterSet that might be served by an RIR.
   ],
   "links": [
     {
-      "value": "https://example.net/irr0_filterSet/fltr-bar",
+      "value": "https://example.net/irr0_filterSet/FLTR-FOO",
       "rel": "self",
-      "href": "https://example.net/irr0_filterSet/fltr-bar",
+      "href": "https://example.net/irr0_filterSet/FLTR-FOO",
       "type": "application/rdap+json"
     }
   ],
