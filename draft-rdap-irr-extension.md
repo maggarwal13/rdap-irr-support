@@ -55,6 +55,7 @@ informative:
   RFC7481:
   RFC8446:
   BCP195:
+  I-D.ietf-grow-rpsl-via:
 
 ...
 
@@ -103,7 +104,7 @@ Syntax: `irr0_route/< IP prefix of the interAS route >/< AS that originates the 
 
 For example, the following URL would be used to find information describing route object
 
-    https://example.com/rdap/irr0_route/192.0.2.0/24/65538
+    https://example.net/irr0_route/192.0.2.0/24/64500
 
 The route object class can contain the following members:
 
@@ -113,14 +114,14 @@ The route object class can contain the following members:
 * "origin" -- a string representing an autonomous system number for which a route is referenced; as per {{Section 4 of RFC2622}}
 * "routeVersion" -- a string signifying the ip protocol version of the network: "v4" signifies an route with ipv4 network, and "v6" signifies a route with ipv6 network
 * "remarks" -- see {{Section 4.3 of RFC9083}}
-* "pingable" -- an array of strings each containing a value as specified in {{RFC5943}}
-* "holes" -- an array of strings each containing a value as specified in {{Section 4 of RFC2622}}
-* "member-of" -- an array of strings, each containing a value as specified in {{Section 4 of RFC2622}}
-* "inject" -- an array of strings, each containing a value as specified in {{Section 4 of RFC2622}}
-* "components" -- a string containing a value as specified in {{Section 4 of RFC2622}}
-* "aggregateBoundary" -- a string containing a value as specified in {{Section 4 of RFC2622}}
-* "aggregateMtd" -- a string containing a value as specified in {{Section 4 of RFC2622}}
-* "exportComps" -- a string containing a value as specified in {{Section 4 of RFC2622}}
+* "pingable" -- an array of strings each containing a value as specified in {{Section 2 of RFC5943}}
+* "holes" -- an array of strings each containing a value as specified in {{Section 8.1 of RFC2622}}
+* "member-of" -- an array of strings, each containing a value as specified in {{Section 5.2 of RFC2622}}
+* "inject" -- an array of strings, each containing a value as specified in {{Section 8 of RFC2622}}
+* "components" -- a string containing a value as specified in {{Section 8.1 of RFC2622}}
+* "aggregateBoundary" -- a string containing a value as specified in {{Section 8.1 of RFC2622}}
+* "aggregateMtd" -- a string containing a value as specified in {{Section 8.1 of RFC2622}}
+* "exportComps" -- a string containing a value as specified in {{Section 8.1 of RFC2622}}
 * "entities" -- an array of entity objects as defined by {{Section 5.1 of RFC9083}}
 * "links" -- see {{Section 4.2 of RFC9083}}
 * "port43" -- see {{Section 4.7 of RFC9083}}
@@ -131,13 +132,13 @@ The following is an example of the JSON object
 ~~~ json
 {
   "objectClassName": "irr0_route",
-  "handle": "128.8.0.0/15AS127",
+  "handle": "192.0.2.0/24AS64500",
   "routeVersion": "v4",
-  "origin": "127",
-  "route": "128.8.0.0/15",
-  "pingable": [ "128.8.0.196" ],
-  "holes": [ "128.8.8.0/24" ],
-  "member-of": [ "rs-foo", "rs-bar" ],
+  "origin": "64500",
+  "route": "192.0.2.0/24",
+  "pingable": [ "192.0.2.1" ],
+  "holes": [ "192.0.2.64/26" ],
+  "member-of": [ "RS-FOO", "RS-BAR" ],
   "remarks": [
     {
       "description": [
@@ -148,12 +149,12 @@ The following is an example of the JSON object
   ],
   "country": "NL",
   "inject": [
-    "upon HAVE-COMPONENTS {128.8.0.0/16, 128.9.0.0/16}"
+    "upon HAVE-COMPONENTS {192.0.2.0/25, 192.0.2.128/25}"
   ],
   "aggr-mtd": "outbound AS-ANY",
-  "aggr-bndry": "AS127 OR AS278",
-  "export-comps": "{82.135.152.0/24, 82.135.153.0/24, 82.135.154.0/23, 82.135.156.0/23}",
-  "components": "{128.8.0.0/15^-}",
+  "aggr-bndry": "AS64500 OR AS64501",
+  "export-comps": "{192.0.2.128/26}",
+  "components": "{192.0.2.0/24^-}",
   "entities": [
     {
       "objectClassName": "entity",
@@ -163,9 +164,9 @@ The following is an example of the JSON object
   ],
   "links": [
     {
-      "value": "https://example.net/irr0_route/128.8.0.0/15AS127",
+      "value": "https://example.net/irr0_route/192.0.2.0/24/64500",
       "rel": "self",
-      "href": "https://example.net/irr0_route/128.8.0.0/15AS127",
+      "href": "https://example.net/irr0_route/192.0.2.0/24/64500",
       "type": "application/rdap+json"
     }
   ],
@@ -196,7 +197,7 @@ Syntax: `irr0_routeSet/< name of the route set >`
 
 For example, the following URL would be used to find information describing route-set object
 
-    https://example.com/rdap/irr0_routeSet/AS12329:RS-FROMRUB
+    https://example.net/irr0_routeSet/RS-FOO
 
 The routeSet object class can contain the following members:
 
@@ -215,9 +216,9 @@ The following is an example of a routeSet that might be served by an RIR.
 ~~~ json
 {
   "objectClassName": "irr0_routeSet",
-  "handle": "rs-foo",
-  "members": [ "128.7.0.0/16", "rs-foo" ],
-  "mp-members": [ "192.0.2.0/24" ],
+  "handle": "RS-FOO",
+  "members": [ "192.0.2.0/24", "RS-BAR" ],
+  "mp-members": [ "2001:db8::/32" ],
   "remarks": [
     {
       "description": [
@@ -235,9 +236,9 @@ The following is an example of a routeSet that might be served by an RIR.
   ],
   "links": [
     {
-      "value": "https://example.net/irr0_routeSet/rs-foo",
+      "value": "https://example.net/irr0_routeSet/RS-FOO",
       "rel": "self",
-      "href": "https://example.net/irr0_routeSet/rs-foo",
+      "href": "https://example.net/irr0_routeSet/RS-FOO",
       "type": "application/rdap+json"
     }
   ],
@@ -262,7 +263,7 @@ Syntax: `irr0_autnumSet/< name of the as-set >`
 
 For example, the following URL would be used to find information describing autnum-set object
 
-    https://example.com/rdap/irr0_autnumSet/AS-01121978
+    https://example.net/irr0_autnumSet/AS-FOO
 
 The autnumSet object class can contain the following members:
 
@@ -281,7 +282,7 @@ The following is an example of an autnumSet that might be served by an RIR.
 {
   "objectClassName": "irr0_autnumSet",
   "handle": "AS-FOO",
-  "members": [ "128.7.0.0/16", "rs-foo" ],
+  "members": [ "AS64501", "AS64502", "AS-BAR" ],
   "remarks": [
     {
       "description": [
@@ -326,7 +327,7 @@ Syntax: `irr0_rtrSet/< name of the router-set >`
 
 For example, the following URL would be used to find information describing rtrSet object
 
-    https://example.com/rdap/irr0_rtrSet/AS28816:rtrs-arbinet-customer-rs
+    https://example.net/irr0_rtrSet/RTRS-FOO
 
 The rtrSet set object class can contain the following members:
 
@@ -345,9 +346,9 @@ The following is an example of rtrSet that might be served by an RIR.
 ~~~ json
 {
   "objectClassName": "irr0_rtrSet",
-  "handle": "rtrs-foo",
-  "members": [ "rtr1.isp.net", "rtr2.isp.net" ],
-  "mp-members": [ "192.0.2.0/24" ],
+  "handle": "RTRS-FOO",
+  "members": [ "rtr1.example.net", "rtr2.example.net" ],
+  "mp-members": [ "2001:db8::1" ],
   "remarks": [
     {
       "description": [
@@ -365,9 +366,9 @@ The following is an example of rtrSet that might be served by an RIR.
   ],
   "links": [
     {
-      "value": "https://example.net/irr0_rtrSet/rtrs-foo",
+      "value": "https://example.net/irr0_rtrSet/RTRS-FOO",
       "rel": "self",
-      "href": "https://example.net/irr0_rtrSet/rtrs-foo",
+      "href": "https://example.net/irr0_rtrSet/RTRS-FOO",
       "type": "application/rdap+json"
     }
   ],
@@ -392,7 +393,7 @@ Syntax: `irr0_peeringSet/< name of the peering-set >`
 
 For example, the following URL would be used to find information describing peering-set object
 
-    https://example.com/rdap/irr0_peeringSet/AS12695:PRNG-UPSTREAMS
+    https://example.net/irr0_peeringSet/PRNG-FOO
 
 The peeringSet object class can contain the following members:
 
@@ -411,9 +412,9 @@ The following is an example of peeringSet that might be served by an RIR.
 ~~~ json
 {
   "objectClassName": "irr0_peeringSet",
-  "handle": "prng-bar",
-  "peering": [ "AS2 at 9.9.9.1" ],
-  "mp-peering": [ "AS65002 2001:0DB8::1 at 2001:0DB8::1" ],
+  "handle": "PRNG-FOO",
+  "peering": [ "AS64501 at 198.51.100.1" ],
+  "mp-peering": [ "AS64502 2001:db8::2 at 2001:db8::1" ],
   "remarks": [
     {
       "description": [
@@ -431,9 +432,9 @@ The following is an example of peeringSet that might be served by an RIR.
   ],
   "links": [
     {
-      "value": "https://example.net/irr0_peeringSet/prng-bar",
+      "value": "https://example.net/irr0_peeringSet/PRNG-FOO",
       "rel": "self",
-      "href": "https://example.net/irr0_peeringSet/prng-bar",
+      "href": "https://example.net/irr0_peeringSet/PRNG-FOO",
       "type": "application/rdap+json"
     }
   ],
@@ -458,14 +459,14 @@ Syntax: `irr0_filterSet/< name of the filter >`
 
 For example, the following URL would be used to find information describing filter object
 
-    https://example.com/rdap/irr0_filterSet/AS12528:fltr-bogons
+    https://example.net/irr0_filterSet/FLTR-FOO
 
 The filterSet object class can contain the following members:
 
 * "objectClassName" -- the string "irr0_filterSet"
 * "handle" -- a string representing the registry-unique identifier of the filterSet
 * "filter" -- an array of strings each defines the set's policy filter as per {{Section 5.4 of RFC2622}}
-* "mp-filter" -- an array of strings, each containing a value as specified in {{Section 2.5.2 of RFC4012}}
+* "mp-filter" -- an array of strings, each containing a value as specified in {{Section 4.3 of RFC4012}}
 * "remarks" -- see {{Section 4.3 of RFC9083}}
 * "entities" -- an array of entity objects as defined by {{Section 5.1 of RFC9083}}
 * "links" -- see {{Section 4.2 of RFC9083}}
@@ -477,9 +478,9 @@ The following is an example of filterSet that might be served by an RIR.
 ~~~ json
 {
   "objectClassName": "irr0_filterSet",
-  "handle": "fltr-bar",
-  "filter": [ "(AS1 or fltr-foo) and <AS2>" ],
-  "mp-filter": [ "2001:0DB8:0100::/48^+" ],
+  "handle": "FLTR-FOO",
+  "filter": [ "(AS64501 or FLTR-BAR) and <AS64502>" ],
+  "mp-filter": [ "{2001:db8:100::/48^+}" ],
   "remarks": [
     {
       "description": [
@@ -497,9 +498,9 @@ The following is an example of filterSet that might be served by an RIR.
   ],
   "links": [
     {
-      "value": "https://example.net/irr0_filterSet/fltr-bar",
+      "value": "https://example.net/irr0_filterSet/FLTR-FOO",
       "rel": "self",
-      "href": "https://example.net/irr0_filterSet/fltr-bar",
+      "href": "https://example.net/irr0_filterSet/FLTR-FOO",
       "type": "application/rdap+json"
     }
   ],
@@ -518,18 +519,18 @@ The following is an example of filterSet that might be served by an RIR.
 
 # Autnum Route Policies
 
-{{Section 3.1 of RFC9082}} defines the basic search for autnum objectClass.
+{{Section 3.1.2 of RFC9082}} defines the basic search for autnum objectClass.
 The returned JSON object for Autnum search May include "irr_policies" object member.
 "irr_policies" is an optional and must be an array, the order of the objects in the array is to be observed during processing.
 
 "irr0_policies" can contain following object member and each of them is a string containing a value as specified by RPSL:
 
-* "import"
-* "mp-import"
-* "import-via"
-* "export"
-* "mp-export"
-* "export-via"
+* "import" -- see {{Section 6.1 of RFC2622}}
+* "mp-import" -- see {{Section 2.5 of RFC4012}}
+* "import-via" -- see {{I-D.ietf-grow-rpsl-via}}
+* "export" -- see {{Section 6.2 of RFC2622}}
+* "mp-export" -- see {{Section 2.5 of RFC4012}}
+* "export-via" -- see {{I-D.ietf-grow-rpsl-via}}
 
 An example "irr_policies" data structure:
 
@@ -542,7 +543,7 @@ An example "irr_policies" data structure:
 
 # RDAP Conformance
 
-A server that supports the functionality specified in this document MUST include additional string literals "irr0" in the "rdapConformance" array of its responses.
+A server that supports the functionality specified in this document MUST include additional string literals "irr0" in the "rdapConformance" array ({{Section 4.1 of RFC9083}}) of its responses.
 
 # Discussions
 
@@ -550,10 +551,10 @@ TODO Discussions
 
 # Privacy Considerations
 
-The search functionality defined in this document may affect the privacy of entities in the registry (and elsewhere) in various ways: see {{RFC6973}} for a general treatment of privacy in protocol specifications, and {{RFC7481}} for specific discussion about privacy threats with respect to the registration data provided by RDAP.
+The search functionality defined in this document may affect the privacy of entities in the registry (and elsewhere) in various ways: see {{RFC6973}} for a general treatment of privacy in protocol specifications, and {{Section 4 of RFC7481}} for specific discussion about privacy threats with respect to the registration data provided by RDAP.
 Server operators should be aware of the tradeoffs that result from implementation of this functionality.
 
-Many jurisdictions have laws or regulations that restrict the use of "Personal Data", per the definition in {{RFC6973}}.
+Many jurisdictions have laws or regulations that restrict the use of "Personal Data", per the definition in {{Section 3.2 of RFC6973}}.
 Given that, server operators should ascertain whether the regulatory environment in which they operate permits implementation of the functionality defined in this document.
 
 # Security Considerations
@@ -561,7 +562,7 @@ Given that, server operators should ascertain whether the regulatory environment
 {{RFC7481}} describes security requirements and considerations for RDAP generally.
 Additionally, guidance as to the use of TLS has changed since that document was published: see {{RFC8446}} and {{BCP195}} for further detail.
 
-{{RFC9082}} includes security considerations relating to object retrieval in RDAP.
+{{Section 8 of RFC9082}} includes security considerations relating to object retrieval in RDAP.
 Those considerations are relevant here as well.
 
 # IANA Considerations
