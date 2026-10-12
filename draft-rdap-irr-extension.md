@@ -53,7 +53,6 @@ normative:
 informative:
   RFC6973:
   RFC7481:
-  RFC8446:
   BCP195:
   I-D.ietf-grow-rpsl-via:
 
@@ -147,7 +146,6 @@ The following is an example of the JSON object
       ]
     }
   ],
-  "country": "NL",
   "inject": [
     "upon HAVE-COMPONENTS {192.0.2.0/25, 192.0.2.128/25}"
   ],
@@ -519,9 +517,9 @@ The following is an example of filterSet that might be served by an RIR.
 
 # Autnum Route Policies
 
-{{Section 3.1.2 of RFC9082}} defines the basic search for autnum objectClass.
-The returned JSON object for Autnum search May include "irr_policies" object member.
-"irr_policies" is an optional and must be an array, the order of the objects in the array is to be observed during processing.
+{{Section 3.1.2 of RFC9082}} defines the lookup for autnum objects.
+The returned autnum object May include an "irr0_policies" member.
+"irr0_policies" is an optional and must be an array, the order of the objects in the array is to be observed during processing.
 
 "irr0_policies" can contain following object member and each of them is a string containing a value as specified by RPSL:
 
@@ -532,7 +530,7 @@ The returned JSON object for Autnum search May include "irr_policies" object mem
 * "mp-export" -- see {{Section 2.5 of RFC4012}}
 * "export-via" -- see {{I-D.ietf-grow-rpsl-via}}
 
-An example "irr_policies" data structure:
+An example "irr0_policies" data structure:
 
 ~~~ json
 "irr0_policies": [
@@ -551,7 +549,7 @@ TODO Discussions
 
 # Privacy Considerations
 
-The search functionality defined in this document may affect the privacy of entities in the registry (and elsewhere) in various ways: see {{RFC6973}} for a general treatment of privacy in protocol specifications, and {{Section 4 of RFC7481}} for specific discussion about privacy threats with respect to the registration data provided by RDAP.
+The lookups defined in this document may affect the privacy of entities in the registry (and elsewhere) in various ways: see {{RFC6973}} for a general treatment of privacy in protocol specifications, and {{Section 4 of RFC7481}} for specific discussion about privacy threats with respect to the registration data provided by RDAP.
 Server operators should be aware of the tradeoffs that result from implementation of this functionality.
 
 Many jurisdictions have laws or regulations that restrict the use of "Personal Data", per the definition in {{Section 3.2 of RFC6973}}.
@@ -560,7 +558,7 @@ Given that, server operators should ascertain whether the regulatory environment
 # Security Considerations
 
 {{RFC7481}} describes security requirements and considerations for RDAP generally.
-Additionally, guidance as to the use of TLS has changed since that document was published: see {{RFC8446}} and {{BCP195}} for further detail.
+Additionally, guidance as to the use of TLS has changed since that document was published: see {{BCP195}} for further detail.
 
 {{Section 8 of RFC9082}} includes security considerations relating to object retrieval in RDAP.
 Those considerations are relevant here as well.
