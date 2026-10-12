@@ -18,7 +18,7 @@
 /versioned/
 Gemfile.lock
 archive.json
-draft-rdap-irr-support.xml
+draft-aggarwal-regext-rdap-irr.xml
 package-lock.json
 report.xml
 !requirements.txt
