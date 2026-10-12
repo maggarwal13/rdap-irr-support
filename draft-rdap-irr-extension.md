@@ -553,10 +553,6 @@ An example "irr_policies" data structure:
 
 A server that supports the functionality specified in this document MUST include additional string literal "irr0" in the "rdapConformance" array of its responses.
 
-# Discussions
-
-TODO Discussions
-
 # Privacy Considerations
 
 The search functionality defined in this document may affect the privacy of entities in the registry (and elsewhere) in various ways: see {{RFC6973}} for a general treatment of privacy in protocol specifications, and {{RFC7481}} for specific discussion about privacy threats with respect to the registration data provided by RDAP.
