@@ -51,6 +51,7 @@ normative:
   RFC9083:
 
 informative:
+  RFC3912:
   RFC6973:
   RFC7481:
   BCP195:
@@ -61,7 +62,7 @@ informative:
 --- abstract
 
 The Registration Data Access Protocol (RDAP) is used by Regional Internet Registries (RIRs) and Domain Name Registries (DNRs) to provide access to their resource registration information.
-The core specifications for RDAP defines core object types, but it does not contain objects for Internet Routing Registries (IRRs).
+The core specifications for RDAP define core object types, but they do not contain objects for the Internet Routing Registry (IRR).
 This document is intended to address this gap.
 
 --- middle
@@ -69,8 +70,16 @@ This document is intended to address this gap.
 # Introduction
 
 The Registration Data Access Protocol (RDAP) {{RFC7480}} is used by Regional Internet Registries (RIRs) and Domain Name Registries (DNRs) to provide access to their resource registration information.
-The core specifications for RDAP defines core object types, but it does not contain objects for Internet Routing Registries (IRRs).
-This document is intended to address this gap.
+The core specifications for RDAP define core object types, but they do not contain objects for the Internet Routing Registry (IRR).
+
+The IRR consists of several IRR Databases containing objects in the Routing Policy Specification Language (RPSL) {{RFC2622}} {{RFC4012}}, such as route origins, sets of routes and autonomous systems, and routing policies.
+Network operators use this data to configure route filters, among other things.
+IRR Databases are commonly queried with the WHOIS protocol {{RFC3912}}, which returns RPSL text.
+
+Several RIRs operate IRR Databases alongside their registration databases, and already provide their other registration data through RDAP.
+Serving IRR objects through RDAP lets clients use one protocol for both, and relate IRR objects to the IP networks and autonomous system numbers they refer to.
+
+This document defines RDAP object classes and lookups for IRR objects, so that IRR data is available in the same structured JSON format and over the same HTTPS transport as other RDAP data.
 
 # Conventions and Definitions
 
