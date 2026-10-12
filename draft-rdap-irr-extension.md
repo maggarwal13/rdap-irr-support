@@ -49,9 +49,15 @@ normative:
   RFC7480:
   RFC9082:
   RFC9083:
+  I-D.ietf-regext-rdap-extensions:
 
 informative:
   RFC6973:
+  RDAP-EXTENSIONS:
+    title: RDAP Extensions
+    target: https://www.iana.org/assignments/rdap-extensions/
+    author:
+      org: IANA
   RFC7481:
   RFC8446:
   BCP195:
@@ -82,6 +88,12 @@ Indentation and whitespace in examples are provided only to illustrate element r
 "..." in examples is used as shorthand for elements defined outside of this document, as well as to abbreviate elements that are too long.
 
 To keep the examples short, entities in them only include the "objectClassName", "handle", and "roles" members.
+
+# Extension
+
+This document defines a new RDAP extension with identifier "irr0", for accessing Internet Routing Registry (IRR) data through RDAP.
+This extension adheres to the guidelines in {{I-D.ietf-regext-rdap-extensions}}.
+New versions of this extension will use different extension identifiers.
 
 # Lookup Path Segment specification
 
@@ -543,7 +555,7 @@ An example "irr_policies" data structure:
 
 # RDAP Conformance
 
-A server that supports the functionality specified in this document MUST include additional string literals "irr0" in the "rdapConformance" array ({{Section 4.1 of RFC9083}}) of its responses.
+A server that supports the functionality specified in this document MUST include the "irr0" string literal in the "rdapConformance" array ({{Section 4.1 of RFC9083}}) of any response containing an object class or member defined in this document, as well as in the help response.
 
 # Discussions
 
@@ -567,7 +579,13 @@ Those considerations are relevant here as well.
 
 # IANA Considerations
 
-TODO IANA Considerations
+IANA is requested to register the following value in the "RDAP Extensions" registry at {{RDAP-EXTENSIONS}}:
+
+* Extension identifier: irr0
+* Registry operator: Any
+* Published specification: This document.
+* Contact: IETF <iesg@ietf.org>
+* Intended usage: This extension describes a method to access Internet Routing Registry (IRR) data through RDAP.
 
 --- back
 
