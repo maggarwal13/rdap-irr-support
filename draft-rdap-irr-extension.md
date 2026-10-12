@@ -552,10 +552,6 @@ An example "irr0_policies" data structure:
 
 A server that supports the functionality specified in this document MUST include the additional string literal "irr0" in the "rdapConformance" array ({{Section 4.1 of RFC9083}}) of its responses.
 
-# Discussions
-
-TODO Discussions
-
 # Privacy Considerations
 
 The lookups defined in this document may affect the privacy of entities in the registry (and elsewhere) in various ways: see {{RFC6973}} for a general treatment of privacy in protocol specifications, and {{Section 4 of RFC7481}} for specific discussion about privacy threats with respect to the registration data provided by RDAP.
