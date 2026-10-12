@@ -2,7 +2,7 @@
 
 title: "RDAP Extension for Internet Routing Registry (IRR) Objects"
 abbrev: "RDAP-IRR"
-category: info
+category: std
 
 docname: draft-rdap-irr-extension-latest
 submissiontype: IETF
