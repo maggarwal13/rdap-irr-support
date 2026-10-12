@@ -4,7 +4,7 @@ title: "RDAP Extension for Internet Routing Registry (IRR) Objects"
 abbrev: "RDAP-IRR"
 category: std
 
-docname: draft-rdap-irr-extension-latest
+docname: draft-aggarwal-regext-rdap-irr-latest
 submissiontype: IETF
 number:
 date:
@@ -22,7 +22,7 @@ venue:
   mail: regext@ietf.org
   arch: https://mailarchive.ietf.org/arch/browse/regext/
   github: maggarwal13/rdap-irr-support
-  latest: https://maggarwal13.github.io/rdap-irr-support/draft-rdap-irr-extension.html
+  latest: https://maggarwal13.github.io/rdap-irr-support/draft-aggarwal-regext-rdap-irr.html
 
 author:
   -
