@@ -719,8 +719,7 @@ Table of Contents
 
    [RFC7481] describes security requirements and considerations for RDAP
    generally.  Additionally, guidance as to the use of TLS has changed
-   since that document was published: see [RFC9846] and [BCP195] for
-   further detail.
+   since that document was published: see [BCP195] for further detail.
 
    Section 8 of [RFC9082] includes security considerations relating to
    object retrieval in RDAP.  Those considerations are relevant here as
@@ -807,10 +806,6 @@ Table of Contents
               Registration Data Access Protocol (RDAP)", STD 95,
               RFC 7481, DOI 10.17487/RFC7481, March 2015,
               <https://www.rfc-editor.org/rfc/rfc7481>.
-
-   [RFC9846]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
-              Version 1.3", RFC 9846, DOI 10.17487/RFC9846, July 2026,
-              <https://www.rfc-editor.org/rfc/rfc9846>.
 
 Acknowledgments
 
