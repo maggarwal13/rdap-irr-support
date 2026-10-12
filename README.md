@@ -1,13 +1,13 @@
 <!-- regenerate: on (set to off if you edit this file) -->
 
-# TODO - Your title
+# RDAP Extension for Internet Routing Registry (IRR) Objects
 
-This is the working area for the individual Internet-Draft, "TODO - Your title".
+This is the working area for the individual Internet-Draft, "RDAP Extension for Internet Routing Registry (IRR) Objects".
 
-* [Editor's Copy](https://maggarwal13.github.io/rdap-irr-support/#go.draft-rdap-irr-support.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-rdap-irr-support)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-rdap-irr-support)
-* [Compare Editor's Copy to Individual Draft](https://maggarwal13.github.io/rdap-irr-support/#go.draft-rdap-irr-support.diff)
+* [Editor's Copy](https://maggarwal13.github.io/rdap-irr-support/#go.draft-aggarwal-regext-rdap-irr.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-aggarwal-regext-rdap-irr)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-aggarwal-regext-rdap-irr)
+* [Compare Editor's Copy to Individual Draft](https://maggarwal13.github.io/rdap-irr-support/#go.draft-aggarwal-regext-rdap-irr.diff)
 
 
 ## Contributing
