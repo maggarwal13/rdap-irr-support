@@ -519,7 +519,7 @@ The following is an example of filterSet that might be served by an RIR.
 
 {{Section 3.1.2 of RFC9082}} defines the lookup for autnum objects.
 The returned autnum object May include an "irr0_policies" member.
-"irr0_policies" is an optional and must be an array, the order of the objects in the array is to be observed during processing.
+"irr0_policies" is an optional member and must be an array, the order of the objects in the array is to be observed during processing.
 
 "irr0_policies" can contain following object member and each of them is a string containing a value as specified by RPSL:
 
