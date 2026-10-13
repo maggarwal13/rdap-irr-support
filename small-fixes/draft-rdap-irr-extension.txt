@@ -5,12 +5,12 @@
 Internet Engineering Task Force                              M. Aggarwal
 Internet-Draft                                                  RIPE NCC
 Intended status: Informational                                  J. Singh
-Expires: 15 April 2027                                              ARIN
+Expires: 16 April 2027                                              ARIN
                                                                A. Newton
                                                                    ICANN
                                                                S. Romijn
                                                           Reliably Coded
-                                                         12 October 2026
+                                                         13 October 2026
 
 
        RDAP Extension for Internet Routing Registry (IRR) Objects
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 April 2027.
+   This Internet-Draft will expire on 16 April 2027.
 
 Copyright Notice
 
@@ -664,8 +664,8 @@ Table of Contents
 
    Section 3.1.2 of [RFC9082] defines the lookup for autnum objects.
    The returned autnum object May include an "irr0_policies" member.
-   "irr0_policies" is an optional and must be an array, the order of the
-   objects in the array is to be observed during processing.
+   "irr0_policies" is an optional member and must be an array, the order
+   of the objects in the array is to be observed during processing.
 
    "irr0_policies" can contain following object member and each of them
    is a string containing a value as specified by RPSL:
