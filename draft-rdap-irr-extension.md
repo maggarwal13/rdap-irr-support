@@ -88,7 +88,7 @@ To keep the examples short, entities in them only include the "objectClassName",
 
 This document aims to extend this to add following path segments:
 
-* "irr0_route" -- Used to identify ROUTE object and associated IP address prefix and the autonomous system (AS) that originates it,
+* "irr0_route" -- Used to identify ROUTE object and associated IP address prefix and the autonomous system (AS) that originates it
 * "irr0_routeSet" -- Used to identify route-set object
 * "irr0_autnumSet" -- Used to identify as-set object
 * "irr0_rtrSet" -- Defines the name of the rtr-set
@@ -542,7 +542,7 @@ An example "irr_policies" data structure:
 
 # RDAP Conformance
 
-A server that supports the functionality specified in this document MUST include additional string literals "irr0" in the "rdapConformance" array of its responses.
+A server that supports the functionality specified in this document MUST include additional string literal "irr0" in the "rdapConformance" array of its responses.
 
 # Discussions
 
