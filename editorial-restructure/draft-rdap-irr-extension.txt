@@ -4,13 +4,13 @@
 
 Internet Engineering Task Force                              M. Aggarwal
 Internet-Draft                                                  RIPE NCC
-Intended status: Informational                                  J. Singh
-Expires: 19 April 2027                                              ARIN
+Intended status: Standards Track                                J. Singh
+Expires: 25 April 2027                                              ARIN
                                                                A. Newton
                                                                    ICANN
                                                                S. Romijn
                                                           Reliably Coded
-                                                         16 October 2026
+                                                         22 October 2026
 
 
        RDAP Extension for Internet Routing Registry (IRR) Objects
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 April 2027.
+   This Internet-Draft will expire on 25 April 2027.
 
 Copyright Notice
 
