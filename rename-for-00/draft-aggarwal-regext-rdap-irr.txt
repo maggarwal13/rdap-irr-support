@@ -4,13 +4,13 @@
 
 Internet Engineering Task Force                              M. Aggarwal
 Internet-Draft                                                  RIPE NCC
-Intended status: Informational                                  J. Singh
-Expires: 15 April 2027                                              ARIN
+Intended status: Standards Track                                J. Singh
+Expires: 25 April 2027                                              ARIN
                                                                A. Newton
                                                                    ICANN
                                                                S. Romijn
                                                           Reliably Coded
-                                                         12 October 2026
+                                                         22 October 2026
 
 
        RDAP Extension for Internet Routing Registry (IRR) Objects
@@ -21,8 +21,8 @@ Abstract
    The Registration Data Access Protocol (RDAP) is used by Regional
    Internet Registries (RIRs) and Domain Name Registries (DNRs) to
    provide access to their resource registration information.  The core
-   specifications for RDAP defines core object types, but it does not
-   contain objects for Internet Routing Registries (IRRs).  This
+   specifications for RDAP define core object types, but they do not
+   contain objects for the Internet Routing Registry (IRR).  This
    document is intended to address this gap.
 
 About This Document
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 April 2027.
+   This Internet-Draft will expire on 25 April 2027.
 
 Copyright Notice
 
@@ -77,17 +77,17 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Lookup Path Segment specification
-   4.  The Route Object Class
-   5.  The SET Object Class
-     5.1.  Route Set Object Class
-     5.2.  Autnum Set Object Class
-     5.3.  RTR Set Object Class
-     5.4.  Peering Set Object Class
-     5.5.  Filter Set Object Class
-   6.  Autnum Route Policies
-   7.  RDAP Conformance
-   8.  Discussions
+   3.  Extension
+   4.  Lookup Path Segment specification
+   5.  The Route Object Class
+   6.  The SET Object Class
+     6.1.  Route Set Object Class
+     6.2.  Autnum Set Object Class
+     6.3.  RTR Set Object Class
+     6.4.  Peering Set Object Class
+     6.5.  Filter Set Object Class
+   7.  Autnum Route Policies
+   8.  RDAP Conformance
    9.  Privacy Considerations
    10. Security Considerations
    11. IANA Considerations
@@ -102,9 +102,25 @@ Table of Contents
    The Registration Data Access Protocol (RDAP) [RFC7480] is used by
    Regional Internet Registries (RIRs) and Domain Name Registries (DNRs)
    to provide access to their resource registration information.  The
-   core specifications for RDAP defines core object types, but it does
-   not contain objects for Internet Routing Registries (IRRs).  This
-   document is intended to address this gap.
+   core specifications for RDAP define core object types, but they do
+   not contain objects for the Internet Routing Registry (IRR).
+
+   The IRR consists of several IRR Databases containing objects in the
+   Routing Policy Specification Language (RPSL) [RFC2622] [RFC4012],
+   such as route origins, sets of routes and autonomous systems, and
+   routing policies.  Network operators use this data to configure route
+   filters, among other things.  IRR Databases are commonly queried with
+   the WHOIS protocol [RFC3912], which returns RPSL text.
+
+   Several RIRs operate IRR Databases alongside their registration
+   databases, and already provide their other registration data through
+   RDAP.  Serving IRR objects through RDAP lets clients use one protocol
+   for both, and relate IRR objects to the IP networks and autonomous
+   system numbers they refer to.
+
+   This document defines RDAP object classes and lookups for IRR
+   objects, so that IRR data is available in the same structured JSON
+   format and over the same HTTPS transport as other RDAP data.
 
 2.  Conventions and Definitions
 
@@ -125,7 +141,15 @@ Table of Contents
    To keep the examples short, entities in them only include the
    "objectClassName", "handle", and "roles" members.
 
-3.  Lookup Path Segment specification
+3.  Extension
+
+   This document defines a new RDAP extension with identifier "irr0",
+   for accessing Internet Routing Registry (IRR) data through RDAP.
+   This extension adheres to the guidelines in
+   [I-D.ietf-regext-rdap-extensions].  New versions of this extension
+   will use different extension identifiers.
+
+4.  Lookup Path Segment specification
 
    Section 3.1 of [RFC9082] defines the simple lookup path segments for
    types: "ip", "autnum", "domain", "nameserver", and "entity".
@@ -133,7 +157,7 @@ Table of Contents
    This document aims to extend this to add following path segments:
 
    *  "irr0_route" -- Used to identify ROUTE object and associated IP
-      address prefix and the autonomous system (AS) that originates it,
+      address prefix and the autonomous system (AS) that originates it
 
    *  "irr0_routeSet" -- Used to identify route-set object
 
@@ -145,7 +169,7 @@ Table of Contents
 
    *  "irr0_filterSet" -- Defines the name of the filter
 
-4.  The Route Object Class
+5.  The Route Object Class
 
    It is the RDAP representation of the RPSL route class defined in
    Section 4 of [RFC2622]
@@ -156,7 +180,7 @@ Table of Contents
    For example, the following URL would be used to find information
    describing route object
 
-   https://example.com/rdap/irr0_route/192.0.2.0/24/65538
+   https://example.net/irr0_route/192.0.2.0/24/64500
 
    The route object class can contain the following members:
 
@@ -178,28 +202,28 @@ Table of Contents
    *  "remarks" -- see Section 4.3 of [RFC9083]
 
    *  "pingable" -- an array of strings each containing a value as
-      specified in [RFC5943]
+      specified in Section 2 of [RFC5943]
 
    *  "holes" -- an array of strings each containing a value as
-      specified in Section 4 of [RFC2622]
+      specified in Section 8.1 of [RFC2622]
 
    *  "member-of" -- an array of strings, each containing a value as
-      specified in Section 4 of [RFC2622]
+      specified in Section 5.2 of [RFC2622]
 
    *  "inject" -- an array of strings, each containing a value as
-      specified in Section 4 of [RFC2622]
+      specified in Section 8 of [RFC2622]
 
    *  "components" -- a string containing a value as specified in
-      Section 4 of [RFC2622]
+      Section 8.1 of [RFC2622]
 
    *  "aggregateBoundary" -- a string containing a value as specified in
-      Section 4 of [RFC2622]
+      Section 8.1 of [RFC2622]
 
    *  "aggregateMtd" -- a string containing a value as specified in
-      Section 4 of [RFC2622]
+      Section 8.1 of [RFC2622]
 
    *  "exportComps" -- a string containing a value as specified in
-      Section 4 of [RFC2622]
+      Section 8.1 of [RFC2622]
 
    *  "entities" -- an array of entity objects as defined by Section 5.1
       of [RFC9083]
@@ -214,13 +238,13 @@ Table of Contents
 
    {
      "objectClassName": "irr0_route",
-     "handle": "128.8.0.0/15AS127",
+     "handle": "192.0.2.0/24AS64500",
      "routeVersion": "v4",
-     "origin": "127",
-     "route": "128.8.0.0/15",
-     "pingable": [ "128.8.0.196" ],
-     "holes": [ "128.8.8.0/24" ],
-     "member-of": [ "rs-foo", "rs-bar" ],
+     "origin": "64500",
+     "route": "192.0.2.0/24",
+     "pingable": [ "192.0.2.1" ],
+     "holes": [ "192.0.2.64/26" ],
+     "member-of": [ "RS-FOO", "RS-BAR" ],
      "remarks": [
        {
          "description": [
@@ -229,14 +253,13 @@ Table of Contents
          ]
        }
      ],
-     "country": "NL",
      "inject": [
-       "upon HAVE-COMPONENTS {128.8.0.0/16, 128.9.0.0/16}"
+       "upon HAVE-COMPONENTS {192.0.2.0/25, 192.0.2.128/25}"
      ],
      "aggr-mtd": "outbound AS-ANY",
-     "aggr-bndry": "AS127 OR AS278",
-     "export-comps": "{82.135.152.0/24, 82.135.153.0/24, 82.135.154.0/23, 82.135.156.0/23}",
-     "components": "{128.8.0.0/15^-}",
+     "aggr-bndry": "AS64500 OR AS64501",
+     "export-comps": "{192.0.2.128/26}",
+     "components": "{192.0.2.0/24^-}",
      "entities": [
        {
          "objectClassName": "entity",
@@ -246,9 +269,9 @@ Table of Contents
      ],
      "links": [
        {
-         "value": "https://example.net/irr0_route/128.8.0.0/15AS127",
+         "value": "https://example.net/irr0_route/192.0.2.0/24/64500",
          "rel": "self",
-         "href": "https://example.net/irr0_route/128.8.0.0/15AS127",
+         "href": "https://example.net/irr0_route/192.0.2.0/24/64500",
          "type": "application/rdap+json"
        }
      ],
@@ -264,14 +287,14 @@ Table of Contents
      ]
    }
 
-5.  The SET Object Class
+6.  The SET Object Class
 
    Section 5 of [RFC2622] defines SET objects.  This section aims to
    represent SET classes in RDAP representation.  Support for peering-
    set, rtr-set and filter-set is optional and may be provided at the
    discretion of the implementation.
 
-5.1.  Route Set Object Class
+6.1.  Route Set Object Class
 
    It is the RDAP representation of the RPSL route-set class defined in
    Section 5.2 of [RFC2622]
@@ -281,7 +304,7 @@ Table of Contents
    For example, the following URL would be used to find information
    describing route-set object
 
-   https://example.com/rdap/irr0_routeSet/AS12329:RS-FROMRUB
+   https://example.net/irr0_routeSet/RS-FOO
 
    The routeSet object class can contain the following members:
 
@@ -312,9 +335,9 @@ Table of Contents
 
    {
      "objectClassName": "irr0_routeSet",
-     "handle": "rs-foo",
-     "members": [ "128.7.0.0/16", "rs-foo" ],
-     "mp-members": [ "192.0.2.0/24" ],
+     "handle": "RS-FOO",
+     "members": [ "192.0.2.0/24", "RS-BAR" ],
+     "mp-members": [ "2001:db8::/32" ],
      "remarks": [
        {
          "description": [
@@ -332,9 +355,9 @@ Table of Contents
      ],
      "links": [
        {
-         "value": "https://example.net/irr0_routeSet/rs-foo",
+         "value": "https://example.net/irr0_routeSet/RS-FOO",
          "rel": "self",
-         "href": "https://example.net/irr0_routeSet/rs-foo",
+         "href": "https://example.net/irr0_routeSet/RS-FOO",
          "type": "application/rdap+json"
        }
      ],
@@ -350,7 +373,7 @@ Table of Contents
      ]
    }
 
-5.2.  Autnum Set Object Class
+6.2.  Autnum Set Object Class
 
    It is the RDAP representation of the RPSL autnum-set class defined in
    Section 5.1 of [RFC2622]
@@ -360,7 +383,7 @@ Table of Contents
    For example, the following URL would be used to find information
    describing autnum-set object
 
-   https://example.com/rdap/irr0_autnumSet/AS-01121978
+   https://example.net/irr0_autnumSet/AS-FOO
 
    The autnumSet object class can contain the following members:
 
@@ -389,7 +412,7 @@ Table of Contents
    {
      "objectClassName": "irr0_autnumSet",
      "handle": "AS-FOO",
-     "members": [ "128.7.0.0/16", "rs-foo" ],
+     "members": [ "AS64501", "AS64502", "AS-BAR" ],
      "remarks": [
        {
          "description": [
@@ -425,7 +448,7 @@ Table of Contents
      ]
    }
 
-5.3.  RTR Set Object Class
+6.3.  RTR Set Object Class
 
    It is the RDAP representation of the RPSL rtr-set class defined in
    Section 5.5 of [RFC2622]
@@ -435,7 +458,7 @@ Table of Contents
    For example, the following URL would be used to find information
    describing rtrSet object
 
-   https://example.com/rdap/irr0_rtrSet/AS28816:rtrs-arbinet-customer-rs
+   https://example.net/irr0_rtrSet/RTRS-FOO
 
    The rtrSet set object class can contain the following members:
 
@@ -465,9 +488,9 @@ Table of Contents
 
    {
      "objectClassName": "irr0_rtrSet",
-     "handle": "rtrs-foo",
-     "members": [ "rtr1.isp.net", "rtr2.isp.net" ],
-     "mp-members": [ "192.0.2.0/24" ],
+     "handle": "RTRS-FOO",
+     "members": [ "rtr1.example.net", "rtr2.example.net" ],
+     "mp-members": [ "2001:db8::1" ],
      "remarks": [
        {
          "description": [
@@ -485,9 +508,9 @@ Table of Contents
      ],
      "links": [
        {
-         "value": "https://example.net/irr0_rtrSet/rtrs-foo",
+         "value": "https://example.net/irr0_rtrSet/RTRS-FOO",
          "rel": "self",
-         "href": "https://example.net/irr0_rtrSet/rtrs-foo",
+         "href": "https://example.net/irr0_rtrSet/RTRS-FOO",
          "type": "application/rdap+json"
        }
      ],
@@ -503,7 +526,7 @@ Table of Contents
      ]
    }
 
-5.4.  Peering Set Object Class
+6.4.  Peering Set Object Class
 
    It is the RDAP representation of the RPSL peering-set class defined
    in Section 5.6 of [RFC2622]
@@ -513,7 +536,7 @@ Table of Contents
    For example, the following URL would be used to find information
    describing peering-set object
 
-   https://example.com/rdap/irr0_peeringSet/AS12695:PRNG-UPSTREAMS
+   https://example.net/irr0_peeringSet/PRNG-FOO
 
    The peeringSet object class can contain the following members:
 
@@ -544,9 +567,9 @@ Table of Contents
 
    {
      "objectClassName": "irr0_peeringSet",
-     "handle": "prng-bar",
-     "peering": [ "AS2 at 9.9.9.1" ],
-     "mp-peering": [ "AS65002 2001:0DB8::1 at 2001:0DB8::1" ],
+     "handle": "PRNG-FOO",
+     "peering": [ "AS64501 at 198.51.100.1" ],
+     "mp-peering": [ "AS64502 2001:db8::2 at 2001:db8::1" ],
      "remarks": [
        {
          "description": [
@@ -564,9 +587,9 @@ Table of Contents
      ],
      "links": [
        {
-         "value": "https://example.net/irr0_peeringSet/prng-bar",
+         "value": "https://example.net/irr0_peeringSet/PRNG-FOO",
          "rel": "self",
-         "href": "https://example.net/irr0_peeringSet/prng-bar",
+         "href": "https://example.net/irr0_peeringSet/PRNG-FOO",
          "type": "application/rdap+json"
        }
      ],
@@ -582,7 +605,7 @@ Table of Contents
      ]
    }
 
-5.5.  Filter Set Object Class
+6.5.  Filter Set Object Class
 
    It is the RDAP representation of the RPSL filter-set class defined in
    Section 5.4 of [RFC2622]
@@ -592,7 +615,7 @@ Table of Contents
    For example, the following URL would be used to find information
    describing filter object
 
-   https://example.com/rdap/irr0_filterSet/AS12528:fltr-bogons
+   https://example.net/irr0_filterSet/FLTR-FOO
 
    The filterSet object class can contain the following members:
 
@@ -605,7 +628,7 @@ Table of Contents
       filter as per Section 5.4 of [RFC2622]
 
    *  "mp-filter" -- an array of strings, each containing a value as
-      specified in Section 2.5.2 of [RFC4012]
+      specified in Section 4.3 of [RFC4012]
 
    *  "remarks" -- see Section 4.3 of [RFC9083]
 
@@ -623,9 +646,9 @@ Table of Contents
 
    {
      "objectClassName": "irr0_filterSet",
-     "handle": "fltr-bar",
-     "filter": [ "(AS1 or fltr-foo) and <AS2>" ],
-     "mp-filter": [ "2001:0DB8:0100::/48^+" ],
+     "handle": "FLTR-FOO",
+     "filter": [ "(AS64501 or FLTR-BAR) and <AS64502>" ],
+     "mp-filter": [ "{2001:db8:100::/48^+}" ],
      "remarks": [
        {
          "description": [
@@ -643,9 +666,9 @@ Table of Contents
      ],
      "links": [
        {
-         "value": "https://example.net/irr0_filterSet/fltr-bar",
+         "value": "https://example.net/irr0_filterSet/FLTR-FOO",
          "rel": "self",
-         "href": "https://example.net/irr0_filterSet/fltr-bar",
+         "href": "https://example.net/irr0_filterSet/FLTR-FOO",
          "type": "application/rdap+json"
        }
      ],
@@ -661,79 +684,94 @@ Table of Contents
      ]
    }
 
-6.  Autnum Route Policies
+7.  Autnum Route Policies
 
-   Section 3.1 of [RFC9082] defines the basic search for autnum
-   objectClass.  The returned JSON object for Autnum search May include
-   "irr_policies" object member. "irr_policies" is an optional and must
-   be an array, the order of the objects in the array is to be observed
-   during processing.
+   Section 3.1.2 of [RFC9082] defines the lookup for autnum objects.
+   The returned autnum object May include an "irr0_policies" member.
+   "irr0_policies" is an optional member and must be an array, the order
+   of the objects in the array is to be observed during processing.
 
    "irr0_policies" can contain following object member and each of them
    is a string containing a value as specified by RPSL:
 
-   *  "import"
+   *  "import" -- see Section 6.1 of [RFC2622]
 
-   *  "mp-import"
+   *  "mp-import" -- see Section 2.5 of [RFC4012]
 
-   *  "import-via"
+   *  "import-via" -- see [I-D.ietf-grow-rpsl-via]
 
-   *  "export"
+   *  "export" -- see Section 6.2 of [RFC2622]
 
-   *  "mp-export"
+   *  "mp-export" -- see Section 2.5 of [RFC4012]
 
-   *  "export-via"
+   *  "export-via" -- see [I-D.ietf-grow-rpsl-via]
 
-   An example "irr_policies" data structure:
+   An example "irr0_policies" data structure:
 
    "irr0_policies": [
      { "import-via": "ASXXX from AS-ANY EXCEPT (ASXXX AND ASYYY) accept ANY" },
      { "export-via": "ASXXX to AS-ANY EXCEPT (ASXXX AND ASYYY) announce AS-YYYY" }
    ]
 
-7.  RDAP Conformance
+8.  RDAP Conformance
 
    A server that supports the functionality specified in this document
-   MUST include additional string literals "irr0" in the
-   "rdapConformance" array of its responses.
-
-8.  Discussions
-
-   TODO Discussions
+   MUST include the "irr0" string literal in the "rdapConformance" array
+   (Section 4.1 of [RFC9083]) of any response containing an object class
+   or member defined in this document, as well as in the help response.
 
 9.  Privacy Considerations
 
-   The search functionality defined in this document may affect the
-   privacy of entities in the registry (and elsewhere) in various ways:
-   see [RFC6973] for a general treatment of privacy in protocol
-   specifications, and [RFC7481] for specific discussion about privacy
-   threats with respect to the registration data provided by RDAP.
-   Server operators should be aware of the tradeoffs that result from
-   implementation of this functionality.
+   The lookups defined in this document may affect the privacy of
+   entities in the registry (and elsewhere) in various ways: see
+   [RFC6973] for a general treatment of privacy in protocol
+   specifications, and Section 4 of [RFC7481] for specific discussion
+   about privacy threats with respect to the registration data provided
+   by RDAP.  Server operators should be aware of the tradeoffs that
+   result from implementation of this functionality.
 
    Many jurisdictions have laws or regulations that restrict the use of
-   "Personal Data", per the definition in [RFC6973].  Given that, server
-   operators should ascertain whether the regulatory environment in
-   which they operate permits implementation of the functionality
-   defined in this document.
+   "Personal Data", per the definition in Section 3.2 of [RFC6973].
+   Given that, server operators should ascertain whether the regulatory
+   environment in which they operate permits implementation of the
+   functionality defined in this document.
 
 10.  Security Considerations
 
    [RFC7481] describes security requirements and considerations for RDAP
    generally.  Additionally, guidance as to the use of TLS has changed
-   since that document was published: see [RFC8446] and [BCP195] for
-   further detail.
+   since that document was published: see [BCP195] for further detail.
 
-   [RFC9082] includes security considerations relating to object
-   retrieval in RDAP.  Those considerations are relevant here as well.
+   Section 8 of [RFC9082] includes security considerations relating to
+   object retrieval in RDAP.  Those considerations are relevant here as
+   well.
 
 11.  IANA Considerations
 
-   TODO IANA Considerations
+   IANA is requested to register the following value in the "RDAP
+   Extensions" registry at [RDAP-EXTENSIONS]:
+
+   *  Extension identifier: irr0
+
+   *  Registry operator: Any
+
+   *  Published specification: This document.
+
+   *  Contact: IETF iesg@ietf.org (mailto:iesg@ietf.org)
+
+   *  Intended usage: This extension describes a method to access
+      Internet Routing Registry (IRR) data through RDAP.
 
 12.  References
 
 12.1.  Normative References
+
+   [I-D.ietf-regext-rdap-extensions]
+              Newton, A., Singh, J., and T. Harrison, "RDAP Extensions",
+              Work in Progress, Internet-Draft, draft-ietf-regext-rdap-
+              extensions-16, 20 October 2026,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-regext-
+              rdap-extensions-16>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -791,6 +829,21 @@ Table of Contents
               (DTLS)", BCP 195, RFC 9325, DOI 10.17487/RFC9325, November
               2022, <https://www.rfc-editor.org/info/rfc9325>.
 
+   [I-D.ietf-grow-rpsl-via]
+              Snijders, J., "The "import-via" and "export-via"
+              attributes in RPSL Policy Specifications", Work in
+              Progress, Internet-Draft, draft-ietf-grow-rpsl-via-01, 23
+              May 2015, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-grow-rpsl-via-01>.
+
+   [RDAP-EXTENSIONS]
+              IANA, "RDAP Extensions", n.d.,
+              <https://www.iana.org/assignments/rdap-extensions/>.
+
+   [RFC3912]  Daigle, L., "WHOIS Protocol Specification", RFC 3912,
+              DOI 10.17487/RFC3912, September 2004,
+              <https://www.rfc-editor.org/rfc/rfc3912>.
+
    [RFC6973]  Cooper, A., Tschofenig, H., Aboba, B., Peterson, J.,
               Morris, J., Hansen, M., and R. Smith, "Privacy
               Considerations for Internet Protocols", RFC 6973,
@@ -801,10 +854,6 @@ Table of Contents
               Registration Data Access Protocol (RDAP)", STD 95,
               RFC 7481, DOI 10.17487/RFC7481, March 2015,
               <https://www.rfc-editor.org/rfc/rfc7481>.
-
-   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
-              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
-              <https://www.rfc-editor.org/rfc/rfc8446>.
 
 Acknowledgments
 
