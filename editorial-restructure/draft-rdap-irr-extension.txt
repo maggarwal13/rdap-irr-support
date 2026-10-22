@@ -87,13 +87,12 @@ Table of Contents
      5.5.  Filter Set Object Class
    6.  Autnum Route Policies
    7.  RDAP Conformance
-   8.  Discussions
-   9.  Privacy Considerations
-   10. Security Considerations
-   11. IANA Considerations
-   12. References
-     12.1.  Normative References
-     12.2.  Informative References
+   8.  Privacy Considerations
+   9.  Security Considerations
+   10. IANA Considerations
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -713,11 +712,7 @@ Table of Contents
    MUST include additional string literal "irr0" in the
    "rdapConformance" array of its responses.
 
-8.  Discussions
-
-   TODO Discussions
-
-9.  Privacy Considerations
+8.  Privacy Considerations
 
    The search functionality defined in this document may affect the
    privacy of entities in the registry (and elsewhere) in various ways:
@@ -733,7 +728,7 @@ Table of Contents
    which they operate permits implementation of the functionality
    defined in this document.
 
-10.  Security Considerations
+9.  Security Considerations
 
    [RFC7481] describes security requirements and considerations for RDAP
    generally.  Additionally, guidance as to the use of TLS has changed
@@ -743,13 +738,13 @@ Table of Contents
    [RFC9082] includes security considerations relating to object
    retrieval in RDAP.  Those considerations are relevant here as well.
 
-11.  IANA Considerations
+10.  IANA Considerations
 
    TODO IANA Considerations
 
-12.  References
+11.  References
 
-12.1.  Normative References
+11.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -791,7 +786,7 @@ Table of Contents
               RFC 9083, DOI 10.17487/RFC9083, June 2021,
               <https://www.rfc-editor.org/rfc/rfc9083>.
 
-12.2.  Informative References
+11.2.  Informative References
 
    [BCP195]   Best Current Practice 195,
               <https://www.rfc-editor.org/info/bcp195>.
