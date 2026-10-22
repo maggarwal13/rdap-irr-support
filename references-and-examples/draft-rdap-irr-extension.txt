@@ -5,12 +5,12 @@
 Internet Engineering Task Force                              M. Aggarwal
 Internet-Draft                                                  RIPE NCC
 Intended status: Informational                                  J. Singh
-Expires: 15 April 2027                                              ARIN
+Expires: 25 April 2027                                              ARIN
                                                                A. Newton
                                                                    ICANN
                                                                S. Romijn
                                                           Reliably Coded
-                                                         12 October 2026
+                                                         22 October 2026
 
 
        RDAP Extension for Internet Routing Registry (IRR) Objects
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 April 2027.
+   This Internet-Draft will expire on 25 April 2027.
 
 Copyright Notice
 
@@ -133,7 +133,7 @@ Table of Contents
    This document aims to extend this to add following path segments:
 
    *  "irr0_route" -- Used to identify ROUTE object and associated IP
-      address prefix and the autonomous system (AS) that originates it,
+      address prefix and the autonomous system (AS) that originates it
 
    *  "irr0_routeSet" -- Used to identify route-set object
 
@@ -694,7 +694,7 @@ Table of Contents
 7.  RDAP Conformance
 
    A server that supports the functionality specified in this document
-   MUST include additional string literals "irr0" in the
+   MUST include the additional string literal "irr0" in the
    "rdapConformance" array (Section 4.1 of [RFC9083]) of its responses.
 
 8.  Discussions
