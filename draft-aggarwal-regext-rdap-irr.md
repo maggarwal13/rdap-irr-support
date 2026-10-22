@@ -170,9 +170,9 @@ The following is an example of the JSON object
   "inject": [
     "upon HAVE-COMPONENTS {192.0.2.0/25, 192.0.2.128/25}"
   ],
-  "aggr-mtd": "outbound AS-ANY",
-  "aggr-bndry": "AS64500 OR AS64501",
-  "export-comps": "{192.0.2.128/26}",
+  "aggregateMtd": "outbound AS-ANY",
+  "aggregateBoundary": "AS64500 OR AS64501",
+  "exportComps": "{192.0.2.128/26}",
   "components": "{192.0.2.0/24^-}",
   "entities": [
     {
