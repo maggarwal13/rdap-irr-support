@@ -77,22 +77,23 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Lookup Path Segment specification
-   4.  The Route Object Class
-   5.  The SET Object Class
-     5.1.  Route Set Object Class
-     5.2.  Autnum Set Object Class
-     5.3.  RTR Set Object Class
-     5.4.  Peering Set Object Class
-     5.5.  Filter Set Object Class
-   6.  Autnum Route Policies
-   7.  RDAP Conformance
-   8.  Privacy Considerations
-   9.  Security Considerations
-   10. IANA Considerations
-   11. References
-     11.1.  Normative References
-     11.2.  Informative References
+   3.  Extension
+   4.  Lookup Path Segment specification
+   5.  The Route Object Class
+   6.  The SET Object Class
+     6.1.  Route Set Object Class
+     6.2.  Autnum Set Object Class
+     6.3.  RTR Set Object Class
+     6.4.  Peering Set Object Class
+     6.5.  Filter Set Object Class
+   7.  Autnum Route Policies
+   8.  RDAP Conformance
+   9.  Privacy Considerations
+   10. Security Considerations
+   11. IANA Considerations
+   12. References
+     12.1.  Normative References
+     12.2.  Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -140,7 +141,15 @@ Table of Contents
    To keep the examples short, entities in them only include the
    "objectClassName", "handle", and "roles" members.
 
-3.  Lookup Path Segment specification
+3.  Extension
+
+   This document defines a new RDAP extension with identifier "irr0",
+   for accessing Internet Routing Registry (IRR) data through RDAP.
+   This extension adheres to the guidelines in
+   [I-D.ietf-regext-rdap-extensions].  New versions of this extension
+   will use different extension identifiers.
+
+4.  Lookup Path Segment specification
 
    Section 3.1 of [RFC9082] defines the simple lookup path segments for
    types: "ip", "autnum", "domain", "nameserver", and "entity".
@@ -160,7 +169,7 @@ Table of Contents
 
    *  "irr0_filterSet" -- Defines the name of the filter
 
-4.  The Route Object Class
+5.  The Route Object Class
 
    It is the RDAP representation of the RPSL route class defined in
    Section 4 of [RFC2622]
@@ -278,14 +287,14 @@ Table of Contents
      ]
    }
 
-5.  The SET Object Class
+6.  The SET Object Class
 
    Section 5 of [RFC2622] defines SET objects.  This section aims to
    represent SET classes in RDAP representation.  Support for peering-
    set, rtr-set and filter-set is optional and may be provided at the
    discretion of the implementation.
 
-5.1.  Route Set Object Class
+6.1.  Route Set Object Class
 
    It is the RDAP representation of the RPSL route-set class defined in
    Section 5.2 of [RFC2622]
@@ -364,7 +373,7 @@ Table of Contents
      ]
    }
 
-5.2.  Autnum Set Object Class
+6.2.  Autnum Set Object Class
 
    It is the RDAP representation of the RPSL autnum-set class defined in
    Section 5.1 of [RFC2622]
@@ -439,7 +448,7 @@ Table of Contents
      ]
    }
 
-5.3.  RTR Set Object Class
+6.3.  RTR Set Object Class
 
    It is the RDAP representation of the RPSL rtr-set class defined in
    Section 5.5 of [RFC2622]
@@ -517,7 +526,7 @@ Table of Contents
      ]
    }
 
-5.4.  Peering Set Object Class
+6.4.  Peering Set Object Class
 
    It is the RDAP representation of the RPSL peering-set class defined
    in Section 5.6 of [RFC2622]
@@ -596,7 +605,7 @@ Table of Contents
      ]
    }
 
-5.5.  Filter Set Object Class
+6.5.  Filter Set Object Class
 
    It is the RDAP representation of the RPSL filter-set class defined in
    Section 5.4 of [RFC2622]
@@ -675,7 +684,7 @@ Table of Contents
      ]
    }
 
-6.  Autnum Route Policies
+7.  Autnum Route Policies
 
    Section 3.1.2 of [RFC9082] defines the lookup for autnum objects.
    The returned autnum object May include an "irr0_policies" member.
@@ -704,13 +713,14 @@ Table of Contents
      { "export-via": "ASXXX to AS-ANY EXCEPT (ASXXX AND ASYYY) announce AS-YYYY" }
    ]
 
-7.  RDAP Conformance
+8.  RDAP Conformance
 
    A server that supports the functionality specified in this document
-   MUST include the additional string literal "irr0" in the
-   "rdapConformance" array (Section 4.1 of [RFC9083]) of its responses.
+   MUST include the "irr0" string literal in the "rdapConformance" array
+   (Section 4.1 of [RFC9083]) of any response containing an object class
+   or member defined in this document, as well as in the help response.
 
-8.  Privacy Considerations
+9.  Privacy Considerations
 
    The lookups defined in this document may affect the privacy of
    entities in the registry (and elsewhere) in various ways: see
@@ -726,7 +736,7 @@ Table of Contents
    environment in which they operate permits implementation of the
    functionality defined in this document.
 
-9.  Security Considerations
+10.  Security Considerations
 
    [RFC7481] describes security requirements and considerations for RDAP
    generally.  Additionally, guidance as to the use of TLS has changed
@@ -736,13 +746,32 @@ Table of Contents
    object retrieval in RDAP.  Those considerations are relevant here as
    well.
 
-10.  IANA Considerations
+11.  IANA Considerations
 
-   TODO IANA Considerations
+   IANA is requested to register the following value in the "RDAP
+   Extensions" registry at [RDAP-EXTENSIONS]:
 
-11.  References
+   *  Extension identifier: irr0
 
-11.1.  Normative References
+   *  Registry operator: Any
+
+   *  Published specification: This document.
+
+   *  Contact: IETF iesg@ietf.org (mailto:iesg@ietf.org)
+
+   *  Intended usage: This extension describes a method to access
+      Internet Routing Registry (IRR) data through RDAP.
+
+12.  References
+
+12.1.  Normative References
+
+   [I-D.ietf-regext-rdap-extensions]
+              Newton, A., Singh, J., and T. Harrison, "RDAP Extensions",
+              Work in Progress, Internet-Draft, draft-ietf-regext-rdap-
+              extensions-16, 20 October 2026,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-regext-
+              rdap-extensions-16>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -784,7 +813,7 @@ Table of Contents
               RFC 9083, DOI 10.17487/RFC9083, June 2021,
               <https://www.rfc-editor.org/rfc/rfc9083>.
 
-11.2.  Informative References
+12.2.  Informative References
 
    [BCP195]   Best Current Practice 195,
               <https://www.rfc-editor.org/info/bcp195>.
@@ -806,6 +835,10 @@ Table of Contents
               Progress, Internet-Draft, draft-ietf-grow-rpsl-via-01, 23
               May 2015, <https://datatracker.ietf.org/doc/html/draft-
               ietf-grow-rpsl-via-01>.
+
+   [RDAP-EXTENSIONS]
+              IANA, "RDAP Extensions", n.d.,
+              <https://www.iana.org/assignments/rdap-extensions/>.
 
    [RFC3912]  Daigle, L., "WHOIS Protocol Specification", RFC 3912,
               DOI 10.17487/RFC3912, September 2004,
