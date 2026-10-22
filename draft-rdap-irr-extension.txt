@@ -4,7 +4,7 @@
 
 Internet Engineering Task Force                              M. Aggarwal
 Internet-Draft                                                  RIPE NCC
-Intended status: Informational                                  J. Singh
+Intended status: Standards Track                                J. Singh
 Expires: 25 April 2027                                              ARIN
                                                                A. Newton
                                                                    ICANN
@@ -21,8 +21,8 @@ Abstract
    The Registration Data Access Protocol (RDAP) is used by Regional
    Internet Registries (RIRs) and Domain Name Registries (DNRs) to
    provide access to their resource registration information.  The core
-   specifications for RDAP defines core object types, but it does not
-   contain objects for Internet Routing Registries (IRRs).  This
+   specifications for RDAP define core object types, but they do not
+   contain objects for the Internet Routing Registry (IRR).  This
    document is intended to address this gap.
 
 About This Document
@@ -87,13 +87,12 @@ Table of Contents
      5.5.  Filter Set Object Class
    6.  Autnum Route Policies
    7.  RDAP Conformance
-   8.  Discussions
-   9.  Privacy Considerations
-   10. Security Considerations
-   11. IANA Considerations
-   12. References
-     12.1.  Normative References
-     12.2.  Informative References
+   8.  Privacy Considerations
+   9.  Security Considerations
+   10. IANA Considerations
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -102,9 +101,25 @@ Table of Contents
    The Registration Data Access Protocol (RDAP) [RFC7480] is used by
    Regional Internet Registries (RIRs) and Domain Name Registries (DNRs)
    to provide access to their resource registration information.  The
-   core specifications for RDAP defines core object types, but it does
-   not contain objects for Internet Routing Registries (IRRs).  This
-   document is intended to address this gap.
+   core specifications for RDAP define core object types, but they do
+   not contain objects for the Internet Routing Registry (IRR).
+
+   The IRR consists of several IRR Databases containing objects in the
+   Routing Policy Specification Language (RPSL) [RFC2622] [RFC4012],
+   such as route origins, sets of routes and autonomous systems, and
+   routing policies.  Network operators use this data to configure route
+   filters, among other things.  IRR Databases are commonly queried with
+   the WHOIS protocol [RFC3912], which returns RPSL text.
+
+   Several RIRs operate IRR Databases alongside their registration
+   databases, and already provide their other registration data through
+   RDAP.  Serving IRR objects through RDAP lets clients use one protocol
+   for both, and relate IRR objects to the IP networks and autonomous
+   system numbers they refer to.
+
+   This document defines RDAP object classes and lookups for IRR
+   objects, so that IRR data is available in the same structured JSON
+   format and over the same HTTPS transport as other RDAP data.
 
 2.  Conventions and Definitions
 
@@ -229,7 +244,6 @@ Table of Contents
          ]
        }
      ],
-     "country": "NL",
      "inject": [
        "upon HAVE-COMPONENTS {192.0.2.0/25, 192.0.2.128/25}"
      ],
@@ -663,11 +677,10 @@ Table of Contents
 
 6.  Autnum Route Policies
 
-   Section 3.1.2 of [RFC9082] defines the basic search for autnum
-   objectClass.  The returned JSON object for Autnum search May include
-   "irr_policies" object member. "irr_policies" is an optional and must
-   be an array, the order of the objects in the array is to be observed
-   during processing.
+   Section 3.1.2 of [RFC9082] defines the lookup for autnum objects.
+   The returned autnum object May include an "irr0_policies" member.
+   "irr0_policies" is an optional member and must be an array, the order
+   of the objects in the array is to be observed during processing.
 
    "irr0_policies" can contain following object member and each of them
    is a string containing a value as specified by RPSL:
@@ -684,7 +697,7 @@ Table of Contents
 
    *  "export-via" -- see [I-D.ietf-grow-rpsl-via]
 
-   An example "irr_policies" data structure:
+   An example "irr0_policies" data structure:
 
    "irr0_policies": [
      { "import-via": "ASXXX from AS-ANY EXCEPT (ASXXX AND ASYYY) accept ANY" },
@@ -697,15 +710,11 @@ Table of Contents
    MUST include the additional string literal "irr0" in the
    "rdapConformance" array (Section 4.1 of [RFC9083]) of its responses.
 
-8.  Discussions
+8.  Privacy Considerations
 
-   TODO Discussions
-
-9.  Privacy Considerations
-
-   The search functionality defined in this document may affect the
-   privacy of entities in the registry (and elsewhere) in various ways:
-   see [RFC6973] for a general treatment of privacy in protocol
+   The lookups defined in this document may affect the privacy of
+   entities in the registry (and elsewhere) in various ways: see
+   [RFC6973] for a general treatment of privacy in protocol
    specifications, and Section 4 of [RFC7481] for specific discussion
    about privacy threats with respect to the registration data provided
    by RDAP.  Server operators should be aware of the tradeoffs that
@@ -717,24 +726,23 @@ Table of Contents
    environment in which they operate permits implementation of the
    functionality defined in this document.
 
-10.  Security Considerations
+9.  Security Considerations
 
    [RFC7481] describes security requirements and considerations for RDAP
    generally.  Additionally, guidance as to the use of TLS has changed
-   since that document was published: see [RFC8446] and [BCP195] for
-   further detail.
+   since that document was published: see [BCP195] for further detail.
 
    Section 8 of [RFC9082] includes security considerations relating to
    object retrieval in RDAP.  Those considerations are relevant here as
    well.
 
-11.  IANA Considerations
+10.  IANA Considerations
 
    TODO IANA Considerations
 
-12.  References
+11.  References
 
-12.1.  Normative References
+11.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -776,7 +784,7 @@ Table of Contents
               RFC 9083, DOI 10.17487/RFC9083, June 2021,
               <https://www.rfc-editor.org/rfc/rfc9083>.
 
-12.2.  Informative References
+11.2.  Informative References
 
    [BCP195]   Best Current Practice 195,
               <https://www.rfc-editor.org/info/bcp195>.
@@ -799,6 +807,10 @@ Table of Contents
               May 2015, <https://datatracker.ietf.org/doc/html/draft-
               ietf-grow-rpsl-via-01>.
 
+   [RFC3912]  Daigle, L., "WHOIS Protocol Specification", RFC 3912,
+              DOI 10.17487/RFC3912, September 2004,
+              <https://www.rfc-editor.org/rfc/rfc3912>.
+
    [RFC6973]  Cooper, A., Tschofenig, H., Aboba, B., Peterson, J.,
               Morris, J., Hansen, M., and R. Smith, "Privacy
               Considerations for Internet Protocols", RFC 6973,
@@ -809,10 +821,6 @@ Table of Contents
               Registration Data Access Protocol (RDAP)", STD 95,
               RFC 7481, DOI 10.17487/RFC7481, March 2015,
               <https://www.rfc-editor.org/rfc/rfc7481>.
-
-   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
-              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
-              <https://www.rfc-editor.org/rfc/rfc8446>.
 
 Acknowledgments
 
