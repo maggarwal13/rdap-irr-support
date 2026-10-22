@@ -256,9 +256,9 @@ Table of Contents
      "inject": [
        "upon HAVE-COMPONENTS {192.0.2.0/25, 192.0.2.128/25}"
      ],
-     "aggr-mtd": "outbound AS-ANY",
-     "aggr-bndry": "AS64500 OR AS64501",
-     "export-comps": "{192.0.2.128/26}",
+     "aggregateMtd": "outbound AS-ANY",
+     "aggregateBoundary": "AS64500 OR AS64501",
+     "exportComps": "{192.0.2.128/26}",
      "components": "{192.0.2.0/24^-}",
      "entities": [
        {
@@ -708,10 +708,16 @@ Table of Contents
 
    An example "irr0_policies" data structure:
 
-   "irr0_policies": [
-     { "import-via": "ASXXX from AS-ANY EXCEPT (ASXXX AND ASYYY) accept ANY" },
-     { "export-via": "ASXXX to AS-ANY EXCEPT (ASXXX AND ASYYY) announce AS-YYYY" }
-   ]
+   {
+     "irr0_policies": [
+       {
+         "import-via": "AS64500 from AS-ANY EXCEPT (AS64500 AND AS64501) accept ANY"
+       },
+       {
+         "export-via": "AS64500 to AS-ANY EXCEPT (AS64500 AND AS64501) announce AS-BAR"
+       }
+     ]
+   }
 
 8.  RDAP Conformance
 
