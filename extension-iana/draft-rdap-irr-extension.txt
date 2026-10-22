@@ -88,13 +88,12 @@ Table of Contents
      6.5.  Filter Set Object Class
    7.  Autnum Route Policies
    8.  RDAP Conformance
-   9.  Discussions
-   10. Privacy Considerations
-   11. Security Considerations
-   12. IANA Considerations
-   13. References
-     13.1.  Normative References
-     13.2.  Informative References
+   9.  Privacy Considerations
+   10. Security Considerations
+   11. IANA Considerations
+   12. References
+     12.1.  Normative References
+     12.2.  Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -721,11 +720,7 @@ Table of Contents
    (Section 4.1 of [RFC9083]) of any response containing an object class
    or member defined in this document, as well as in the help response.
 
-9.  Discussions
-
-   TODO Discussions
-
-10.  Privacy Considerations
+9.  Privacy Considerations
 
    The lookups defined in this document may affect the privacy of
    entities in the registry (and elsewhere) in various ways: see
@@ -741,7 +736,7 @@ Table of Contents
    environment in which they operate permits implementation of the
    functionality defined in this document.
 
-11.  Security Considerations
+10.  Security Considerations
 
    [RFC7481] describes security requirements and considerations for RDAP
    generally.  Additionally, guidance as to the use of TLS has changed
@@ -751,7 +746,7 @@ Table of Contents
    object retrieval in RDAP.  Those considerations are relevant here as
    well.
 
-12.  IANA Considerations
+11.  IANA Considerations
 
    IANA is requested to register the following value in the "RDAP
    Extensions" registry at [RDAP-EXTENSIONS]:
@@ -767,9 +762,9 @@ Table of Contents
    *  Intended usage: This extension describes a method to access
       Internet Routing Registry (IRR) data through RDAP.
 
-13.  References
+12.  References
 
-13.1.  Normative References
+12.1.  Normative References
 
    [I-D.ietf-regext-rdap-extensions]
               Newton, A., Singh, J., and T. Harrison, "RDAP Extensions",
@@ -818,7 +813,7 @@ Table of Contents
               RFC 9083, DOI 10.17487/RFC9083, June 2021,
               <https://www.rfc-editor.org/rfc/rfc9083>.
 
-13.2.  Informative References
+12.2.  Informative References
 
    [BCP195]   Best Current Practice 195,
               <https://www.rfc-editor.org/info/bcp195>.
