@@ -554,10 +554,16 @@ The returned autnum object May include an "irr0_policies" member.
 An example "irr0_policies" data structure:
 
 ~~~ json
-"irr0_policies": [
-  { "import-via": "ASXXX from AS-ANY EXCEPT (ASXXX AND ASYYY) accept ANY" },
-  { "export-via": "ASXXX to AS-ANY EXCEPT (ASXXX AND ASYYY) announce AS-YYYY" }
-]
+{
+  "irr0_policies": [
+    {
+      "import-via": "AS64500 from AS-ANY EXCEPT (AS64500 AND AS64501) accept ANY"
+    },
+    {
+      "export-via": "AS64500 to AS-ANY EXCEPT (AS64500 AND AS64501) announce AS-BAR"
+    }
+  ]
+}
 ~~~
 
 # RDAP Conformance
