@@ -125,32 +125,33 @@ Out of scope?
 
 # ROUTE(6)
 
-| RIPE          | ARIN      | APNIC         | AFRINIC      | LACNIC   |
-|---------------|-----------|---------------|--------------|----------|
-| route(6)      | route     | route(6)      | route(6)     | route(6) |
-| descr         | descr     | descr         | descr        | descr    |
-| origin        | origin    | origin        | origin       | origin   |
-| pingable      | N/A       | N/A           | N/A          | N/A      |
-| ping-hdl      | N/A       | N/A           | N/A          | N/A      |
-| holes         | N/A       | holes         | holes        | N/A      |
-| org           | N/A       | org           | org          | N/A      |
-| member-of     | member-of | member-of     | member-of    | N/A      |
-| inject        | N/A       | inject        | inject       | N/A      |
-| aggr-mtd      | N/A       | aggr-mtd      | aggr-mtd     | N/A      |
-| aggr-bndry    | N/A       | aggr-bndry    | aggr-bndry   | N/A      |
-| export-comps  | N/A       | export-comps  | export-comps | N/A      |
-| components    | N/A       | components    | components   | N/A      |
-| remarks       | remarks   | remarks       | remarks      | remarks  |
-| notify        | N/A       | notify        | notify       | N/A      |
-| mnt-lower     | N/A       | mnt-lower     | mnt-lower    | N/A      |
-| mnt-routes    | N/A       | mnt-routes    | mnt-routes   | N/A      |
-| mnt-by        | mnt-by    | mnt-by        | mnt-by       | mnt-by   |
-| created       | N/A       | N/A           | N/A          | N/A      |
-| last-modified | N/A       | last-modified | N/A          | N/A      |
-| N/A           | admin-c   | N/A           | N/A          | N/A      |
-| N/A           | tech-c    | N/A           | N/A          | N/A      |
-| N/A           | N/A       | country       | N/A          | N/A      |
-| N/A           | N/A       | N/A           | changed      | changed  |
+| RIPE          | ARIN      | APNIC         | AFRINIC      | LACNIC   | RDAP                                                         |
+|---------------|-----------|---------------|--------------|----------|--------------------------------------------------------------|
+| route(6)      | route     | route(6)      | route(6)     | route(6) | Prefix (handle) combines with origin                         |
+| descr         | descr     | descr         | descr        | descr    | description array                                            |
+| origin        | origin    | origin        | origin       | origin   | New attribute                                                |
+| pingable      | N/A       | N/A           | N/A          | N/A      | Should be map in networks? Or create new pingables element   |
+|               |           |               |              |          |                                                              |
+| ping-hdl      | N/A       | N/A           | N/A          | N/A      | Need new role or map to Administrative or Technical contact? |
+| holes         | N/A       | holes         | holes        | N/A      | Create new holes element mapping to IP class                 |
+| org           | N/A       | org           | org          | N/A      | Organisation entity with Registrant role                     |
+| member-of     | member-of | member-of     | member-of    | N/A      | Do we provide a mapping for this?                            |
+| inject        | N/A       | inject        | inject       | N/A      | Do we include this attribute?                                |
+| aggr-mtd      | N/A       | aggr-mtd      | aggr-mtd     | N/A      |                                                              |
+| aggr-bndry    | N/A       | aggr-bndry    | aggr-bndry   | N/A      |                                                              |
+| export-comps  | N/A       | export-comps  | export-comps | N/A      | Should we return as-is or as a set of routes?                |
+| components    | N/A       | components    | components   | N/A      |                                                              |
+| remarks       | remarks   | remarks       | remarks      | remarks  | remarks array                                                |
+| notify        | N/A       | notify        | notify       | N/A      | No mapping                                                   |
+| mnt-lower     | N/A       | mnt-lower     | mnt-lower    | N/A      | No mapping                                                   |
+| mnt-routes    | N/A       | mnt-routes    | mnt-routes   | N/A      |                                                              |
+| mnt-by        | mnt-by    | mnt-by        | mnt-by       | mnt-by   | Maintainer entity, registrant role                           |
+| created       | N/A       | N/A           | N/A          | N/A      | CreateEvent                                                  |
+| last-modified | N/A       | last-modified | N/A          | N/A      | CreateEvent                                                  |
+| N/A           | admin-c   | N/A           | N/A          | N/A      | Administrative role                                          |
+| N/A           | tech-c    | N/A           | N/A          | N/A      | Technical role                                               |
+| N/A           | N/A       | country       | N/A          | N/A      | country                                                      |
+| N/A           | N/A       | N/A           | changed      | changed  |                                                              |
 
 # ROUTE-SET
 
